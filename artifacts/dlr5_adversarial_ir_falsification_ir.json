@@ -1,0 +1,1635 @@
+[
+  {
+    "id": "N1",
+    "category": "N",
+    "text": "The startup burned cash to buy time while building a moat.",
+    "motifBasis": [
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.85,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "startup",
+      "patient": "cash",
+      "resource": "cash reserve",
+      "boundary": "resource runway",
+      "authority": "startup"
+    },
+    "transition": {
+      "family": "resource_deficit",
+      "type": "spend",
+      "direction": "down",
+      "polarity": -0.55,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "composite"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "metaphor",
+      "register": "neutral"
+    },
+    "confidence": 0.66,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "composite_frame_graph",
+    "authorityLegitimacy": "not_applicable",
+    "eventStatus": "actual",
+    "processScope": "global_process",
+    "invariantStatus": "not_applicable",
+    "compositeFrames": [
+      {
+        "id": "burn_cash",
+        "label": "resource depletion",
+        "frame": {
+          "actor": "startup",
+          "patient": "cash",
+          "resource": "cash reserve",
+          "boundary": "resource runway",
+          "authority": "startup"
+        },
+        "transition": {
+          "family": "resource_deficit",
+          "type": "spend",
+          "direction": "down",
+          "polarity": -0.55,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      },
+      {
+        "id": "buy_time",
+        "label": "temporal acquisition",
+        "frame": {
+          "actor": "startup",
+          "patient": "time",
+          "resource": "runway",
+          "boundary": "schedule boundary",
+          "authority": "startup"
+        },
+        "transition": {
+          "family": "acquire",
+          "type": "extend_runway",
+          "direction": "expand",
+          "polarity": 0.45,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      },
+      {
+        "id": "build_moat",
+        "label": "competitive boundary",
+        "frame": {
+          "actor": "startup",
+          "patient": "market position",
+          "resource": "defensive moat",
+          "boundary": "competitive boundary",
+          "authority": "startup"
+        },
+        "transition": {
+          "family": "transform",
+          "type": "fortify",
+          "direction": "state_change",
+          "polarity": 0.5,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      }
+    ],
+    "frameGraph": {
+      "nodes": [
+        {
+          "id": "burn_cash",
+          "label": "resource depletion",
+          "frame": {
+            "actor": "startup",
+            "patient": "cash",
+            "resource": "cash reserve",
+            "boundary": "resource runway",
+            "authority": "startup"
+          },
+          "transition": {
+            "family": "resource_deficit",
+            "type": "spend",
+            "direction": "down",
+            "polarity": -0.55,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "buy_time",
+          "label": "temporal acquisition",
+          "frame": {
+            "actor": "startup",
+            "patient": "time",
+            "resource": "runway",
+            "boundary": "schedule boundary",
+            "authority": "startup"
+          },
+          "transition": {
+            "family": "acquire",
+            "type": "extend_runway",
+            "direction": "expand",
+            "polarity": 0.45,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "build_moat",
+          "label": "competitive boundary",
+          "frame": {
+            "actor": "startup",
+            "patient": "market position",
+            "resource": "defensive moat",
+            "boundary": "competitive boundary",
+            "authority": "startup"
+          },
+          "transition": {
+            "family": "transform",
+            "type": "fortify",
+            "direction": "state_change",
+            "polarity": 0.5,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "burn_cash",
+          "to": "buy_time",
+          "relation": "causes"
+        },
+        {
+          "from": "buy_time",
+          "to": "build_moat",
+          "relation": "enables"
+        }
+      ]
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "multi-metaphor business sentence requires resource depletion, temporal extension, and competitive boundary frames"
+    }
+  },
+  {
+    "id": "N2",
+    "category": "N",
+    "text": "Her argument opened the door but also moved the goalposts.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "argument",
+      "patient": "proposal",
+      "resource": "acceptance",
+      "boundary": "permission gate",
+      "authority": null
+    },
+    "transition": {
+      "family": "gate",
+      "type": "open_argument",
+      "direction": "open",
+      "polarity": 0.6,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "composite"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "metaphor",
+      "register": "neutral"
+    },
+    "confidence": 0.62,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "composite_frame_graph",
+    "authorityLegitimacy": "not_applicable",
+    "eventStatus": "actual",
+    "processScope": "global_process",
+    "invariantStatus": "not_applicable",
+    "compositeFrames": [
+      {
+        "id": "open_door",
+        "label": "opportunity gate",
+        "frame": {
+          "actor": "argument",
+          "patient": "proposal",
+          "resource": "acceptance",
+          "boundary": "permission gate",
+          "authority": null
+        },
+        "transition": {
+          "family": "gate",
+          "type": "open_argument",
+          "direction": "open",
+          "polarity": 0.6,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      },
+      {
+        "id": "move_goalposts",
+        "label": "criterion shift",
+        "frame": {
+          "actor": "argument",
+          "patient": "standard",
+          "resource": "success criterion",
+          "boundary": "evaluation boundary",
+          "authority": null
+        },
+        "transition": {
+          "family": "transform",
+          "type": "shift_standard",
+          "direction": "state_change",
+          "polarity": -0.35,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      }
+    ],
+    "frameGraph": {
+      "nodes": [
+        {
+          "id": "open_door",
+          "label": "opportunity gate",
+          "frame": {
+            "actor": "argument",
+            "patient": "proposal",
+            "resource": "acceptance",
+            "boundary": "permission gate",
+            "authority": null
+          },
+          "transition": {
+            "family": "gate",
+            "type": "open_argument",
+            "direction": "open",
+            "polarity": 0.6,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "move_goalposts",
+          "label": "criterion shift",
+          "frame": {
+            "actor": "argument",
+            "patient": "standard",
+            "resource": "success criterion",
+            "boundary": "evaluation boundary",
+            "authority": null
+          },
+          "transition": {
+            "family": "transform",
+            "type": "shift_standard",
+            "direction": "state_change",
+            "polarity": -0.35,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "open_door",
+          "to": "move_goalposts",
+          "relation": "contrasts"
+        }
+      ]
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "two metaphors produce incompatible gate-opening and criterion-shifting frames"
+    }
+  },
+  {
+    "id": "O1",
+    "category": "O",
+    "text": "The board approved the plan.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "board",
+      "patient": "plan",
+      "resource": "budget/resource access",
+      "boundary": "permission gate",
+      "authority": "board"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "approve",
+      "direction": "open",
+      "polarity": 0.75,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "ambiguous"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.58,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "board may mean directors, school board, court board, or physical board in a constructed scene",
+      "candidateFrames": [
+        {
+          "id": "corporate_board",
+          "label": "corporate approval",
+          "frame": {
+            "actor": "board",
+            "patient": "plan",
+            "resource": "budget/resource access",
+            "boundary": "permission gate",
+            "authority": "board"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "approve",
+            "direction": "open",
+            "polarity": 0.75,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "school_board",
+          "label": "school governance approval",
+          "frame": {
+            "actor": "school board",
+            "patient": "plan",
+            "resource": "school policy",
+            "boundary": "permission gate",
+            "authority": "school board"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "approve",
+            "direction": "open",
+            "polarity": 0.7,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ]
+    },
+    "parseMode": "ambiguous_frame",
+    "authorityLegitimacy": "ambiguous",
+    "eventStatus": "unknown",
+    "processScope": "unknown",
+    "invariantStatus": "ambiguous",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "low",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "needs external institutional context or discourse context to select the valid authority/frame"
+    }
+  },
+  {
+    "id": "O2",
+    "category": "O",
+    "text": "The council sanctioned the march.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "council",
+      "patient": "march",
+      "resource": "public permit",
+      "boundary": "permission gate",
+      "authority": "council"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sanction_authorize",
+      "direction": "open",
+      "polarity": 0.45,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "ambiguous"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.55,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "sanction can mean authorize or penalize; authority domain is social/institutional",
+      "candidateFrames": [
+        {
+          "id": "authorize_march",
+          "label": "permit protest",
+          "frame": {
+            "actor": "council",
+            "patient": "march",
+            "resource": "public permit",
+            "boundary": "permission gate",
+            "authority": "council"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "sanction_authorize",
+            "direction": "open",
+            "polarity": 0.45,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "penalize_march",
+          "label": "penalize protest",
+          "frame": {
+            "actor": "council",
+            "patient": "march",
+            "resource": "legal penalty",
+            "boundary": "legal judgment",
+            "authority": "council"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "sanction_penalize",
+            "direction": "close",
+            "polarity": -0.45,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ]
+    },
+    "parseMode": "ambiguous_frame",
+    "authorityLegitimacy": "ambiguous",
+    "eventStatus": "unknown",
+    "processScope": "unknown",
+    "invariantStatus": "ambiguous",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "low",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "needs external institutional context or discourse context to select the valid authority/frame"
+    }
+  },
+  {
+    "id": "P1",
+    "category": "P",
+    "text": "The fake inspector cleared the building.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "fake inspector",
+      "patient": "building",
+      "resource": "occupancy",
+      "boundary": "permission gate",
+      "authority": "fake inspector"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.65,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "deceptive authority surface form"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.78,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "single_frame",
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "actual",
+    "processScope": "local_transition",
+    "invariantStatus": "ambiguous",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": null
+    }
+  },
+  {
+    "id": "P2",
+    "category": "P",
+    "text": "The chatbot approved the mortgage.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "chatbot",
+      "patient": "mortgage",
+      "resource": "credit access",
+      "boundary": "permission gate",
+      "authority": "chatbot"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "approve",
+      "direction": "open",
+      "polarity": 0.7,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [
+        "invariant violation detected"
+      ],
+      "scarcity": [],
+      "stressRegime": [
+        "surface approval lacks lending authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.74,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "single_frame",
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "actual",
+    "processScope": "local_transition",
+    "invariantStatus": "violated",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": null
+    }
+  },
+  {
+    "id": "Q1",
+    "category": "Q",
+    "text": "The intern deployed to production without approval.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "intern",
+      "patient": "production system",
+      "resource": "deployment",
+      "boundary": "change-control boundary",
+      "authority": "release authority"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "deploy_without_approval",
+      "direction": "open",
+      "polarity": -0.75,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [
+        "invariant violation detected"
+      ],
+      "scarcity": [],
+      "stressRegime": [
+        "deployment bypasses required approval invariant"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.82,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "single_frame",
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "actual",
+    "processScope": "local_transition",
+    "invariantStatus": "violated",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "high",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": null
+    }
+  },
+  {
+    "id": "Q2",
+    "category": "Q",
+    "text": "The payment succeeded even though the account was frozen.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "payment system",
+      "patient": "payment",
+      "resource": "fund transfer",
+      "boundary": "account-freeze invariant",
+      "authority": "bank"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "transfer_despite_freeze",
+      "direction": "open",
+      "polarity": -0.85,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [
+        "invariant violation detected"
+      ],
+      "scarcity": [],
+      "stressRegime": [
+        "frozen account should block transfer"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.72,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "single_frame",
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "actual",
+    "processScope": "local_transition",
+    "invariantStatus": "violated",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": null
+    }
+  },
+  {
+    "id": "R1",
+    "category": "R",
+    "text": "The package was delivered.",
+    "motifBasis": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": null,
+      "patient": null,
+      "resource": null,
+      "boundary": null,
+      "authority": null
+    },
+    "transition": {
+      "family": "unknown",
+      "type": "unknown",
+      "direction": "unknown",
+      "polarity": 0,
+      "stateBefore": "unknown",
+      "stateAfter": "unknown"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "insufficient context"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.46,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "missing whether delivery is completed, merely marked delivered, or delivered to wrong place",
+      "candidateFrames": []
+    },
+    "parseMode": "insufficient_context",
+    "authorityLegitimacy": "not_applicable",
+    "eventStatus": "unknown",
+    "processScope": "unknown",
+    "invariantStatus": "ambiguous",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "low",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "current IR lacks evidential status: observed delivery, carrier-reported delivery, wrong-address delivery, and completed delivery collapse without context"
+    }
+  },
+  {
+    "id": "R2",
+    "category": "R",
+    "text": "The package is being delivered.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "carrier",
+      "patient": "package",
+      "resource": "delivery",
+      "boundary": "delivery process",
+      "authority": "carrier"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "in_transit",
+      "direction": "pending",
+      "polarity": 0,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "event is ongoing and terminal state is not reached"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.68,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "single_frame",
+    "authorityLegitimacy": "valid",
+    "eventStatus": "pending",
+    "processScope": "global_process",
+    "invariantStatus": "ambiguous",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": null
+    }
+  },
+  {
+    "id": "R3",
+    "category": "R",
+    "text": "The server is down.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "server",
+      "patient": "service",
+      "resource": "availability",
+      "boundary": "availability boundary",
+      "authority": "operator"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "offline_now",
+      "direction": "close",
+      "polarity": -0.7,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "ambiguous"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.52,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "temporal state could mean currently offline, permanently decommissioned, or figuratively unavailable",
+      "candidateFrames": [
+        {
+          "id": "current_outage",
+          "label": "current outage",
+          "frame": {
+            "actor": "server",
+            "patient": "service",
+            "resource": "availability",
+            "boundary": "availability boundary",
+            "authority": "operator"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "offline_now",
+            "direction": "close",
+            "polarity": -0.7,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "decommissioned",
+          "label": "terminal removal",
+          "frame": {
+            "actor": "operator",
+            "patient": "server",
+            "resource": "service",
+            "boundary": "lifecycle boundary",
+            "authority": "operator"
+          },
+          "transition": {
+            "family": "eject",
+            "type": "decommission",
+            "direction": "out",
+            "polarity": -0.9,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ]
+    },
+    "parseMode": "ambiguous_frame",
+    "authorityLegitimacy": "not_applicable",
+    "eventStatus": "unknown",
+    "processScope": "unknown",
+    "invariantStatus": "ambiguous",
+    "compositeFrames": [],
+    "frameGraph": {
+      "nodes": [],
+      "edges": []
+    },
+    "calibration": {
+      "confidenceBucket": "low",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "needs external institutional context or discourse context to select the valid authority/frame"
+    }
+  },
+  {
+    "id": "S1",
+    "category": "S",
+    "text": "The login step succeeded, but the account creation failed.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "auth service",
+      "patient": "user",
+      "resource": "session",
+      "boundary": "authentication gate",
+      "authority": "auth service"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "login",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "composite"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.88,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "composite_frame_graph",
+    "authorityLegitimacy": "not_applicable",
+    "eventStatus": "actual",
+    "processScope": "local_and_global",
+    "invariantStatus": "not_applicable",
+    "compositeFrames": [
+      {
+        "id": "login_success",
+        "label": "login local success",
+        "frame": {
+          "actor": "auth service",
+          "patient": "user",
+          "resource": "session",
+          "boundary": "authentication gate",
+          "authority": "auth service"
+        },
+        "transition": {
+          "family": "gate",
+          "type": "login",
+          "direction": "open",
+          "polarity": 0.8,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      },
+      {
+        "id": "account_failure",
+        "label": "global account creation failure",
+        "frame": {
+          "actor": "account service",
+          "patient": "account",
+          "resource": "account creation",
+          "boundary": "provisioning process",
+          "authority": "account service"
+        },
+        "transition": {
+          "family": "gate",
+          "type": "create_account",
+          "direction": "close",
+          "polarity": -0.8,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      }
+    ],
+    "frameGraph": {
+      "nodes": [
+        {
+          "id": "login_success",
+          "label": "login local success",
+          "frame": {
+            "actor": "auth service",
+            "patient": "user",
+            "resource": "session",
+            "boundary": "authentication gate",
+            "authority": "auth service"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "login",
+            "direction": "open",
+            "polarity": 0.8,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "account_failure",
+          "label": "global account creation failure",
+          "frame": {
+            "actor": "account service",
+            "patient": "account",
+            "resource": "account creation",
+            "boundary": "provisioning process",
+            "authority": "account service"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "create_account",
+            "direction": "close",
+            "polarity": -0.8,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "login_success",
+          "to": "account_failure",
+          "relation": "part_of"
+        }
+      ]
+    },
+    "calibration": {
+      "confidenceBucket": "high",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "local success is embedded in global process failure"
+    }
+  },
+  {
+    "id": "S2",
+    "category": "S",
+    "text": "The surgery incision went well, but the operation failed.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.75,
+      0.5,
+      0
+    ],
+    "frame": {
+      "actor": "surgeon",
+      "patient": "incision",
+      "resource": "surgical opening",
+      "boundary": "procedure step",
+      "authority": "surgeon"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "incise",
+      "direction": "open",
+      "polarity": 0.65,
+      "stateBefore": "pre-transition",
+      "stateAfter": "post-transition"
+    },
+    "constraints": {
+      "invariants": [],
+      "scarcity": [],
+      "stressRegime": [
+        "composite"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.76,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    },
+    "parseMode": "composite_frame_graph",
+    "authorityLegitimacy": "not_applicable",
+    "eventStatus": "actual",
+    "processScope": "local_and_global",
+    "invariantStatus": "not_applicable",
+    "compositeFrames": [
+      {
+        "id": "incision_success",
+        "label": "local incision success",
+        "frame": {
+          "actor": "surgeon",
+          "patient": "incision",
+          "resource": "surgical opening",
+          "boundary": "procedure step",
+          "authority": "surgeon"
+        },
+        "transition": {
+          "family": "gate",
+          "type": "incise",
+          "direction": "open",
+          "polarity": 0.65,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      },
+      {
+        "id": "operation_failure",
+        "label": "global operation failure",
+        "frame": {
+          "actor": "surgical team",
+          "patient": "operation",
+          "resource": "patient outcome",
+          "boundary": "medical process",
+          "authority": "surgeon"
+        },
+        "transition": {
+          "family": "gate",
+          "type": "complete_operation",
+          "direction": "close",
+          "polarity": -0.9,
+          "stateBefore": "pre-transition",
+          "stateAfter": "post-transition"
+        }
+      }
+    ],
+    "frameGraph": {
+      "nodes": [
+        {
+          "id": "incision_success",
+          "label": "local incision success",
+          "frame": {
+            "actor": "surgeon",
+            "patient": "incision",
+            "resource": "surgical opening",
+            "boundary": "procedure step",
+            "authority": "surgeon"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "incise",
+            "direction": "open",
+            "polarity": 0.65,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        },
+        {
+          "id": "operation_failure",
+          "label": "global operation failure",
+          "frame": {
+            "actor": "surgical team",
+            "patient": "operation",
+            "resource": "patient outcome",
+            "boundary": "medical process",
+            "authority": "surgeon"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "complete_operation",
+            "direction": "close",
+            "polarity": -0.9,
+            "stateBefore": "pre-transition",
+            "stateAfter": "post-transition"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "incision_success",
+          "to": "operation_failure",
+          "relation": "part_of"
+        }
+      ]
+    },
+    "calibration": {
+      "confidenceBucket": "medium",
+      "overconfidenceRisk": false,
+      "schemaInsufficiency": "successful local transition does not imply global process success"
+    }
+  }
+]

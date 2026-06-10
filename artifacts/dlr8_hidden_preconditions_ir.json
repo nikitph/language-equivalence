@@ -1,0 +1,3093 @@
+[
+  {
+    "category": "Z1",
+    "title": "boundary decay via symlink/path aliasing",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "09:00",
+        "actor": "agent",
+        "action": "resolved",
+        "target": "/tmp/cache",
+        "status": "success",
+        "message": "Path looked inside temp boundary."
+      },
+      {
+        "id": "e2",
+        "timestamp": "09:01",
+        "actor": "cleanup tool",
+        "action": "deleted",
+        "target": "/tmp/cache",
+        "status": "success",
+        "message": "Delete returned success."
+      },
+      {
+        "id": "e3",
+        "timestamp": "09:02",
+        "actor": "filesystem",
+        "action": "reported",
+        "target": "workspace cache missing",
+        "status": "failure",
+        "message": "Path alias crossed workspace boundary."
+      },
+      {
+        "id": "e4",
+        "timestamp": "09:03",
+        "actor": "tests",
+        "action": "failed",
+        "target": "missing cache",
+        "status": "failure",
+        "message": "Parent task failed."
+      },
+      {
+        "id": "e5",
+        "timestamp": "09:08",
+        "actor": "operator",
+        "action": "restored",
+        "target": "cache",
+        "status": "pending",
+        "message": "Manual restore needed."
+      }
+    ],
+    "gold": {
+      "id": "Z1",
+      "category": "Z1",
+      "title": "boundary decay via symlink/path aliasing",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "09:00",
+          "actor": "agent",
+          "action": "resolved",
+          "target": "/tmp/cache",
+          "status": "success",
+          "message": "Path looked inside temp boundary."
+        },
+        {
+          "id": "e2",
+          "timestamp": "09:01",
+          "actor": "cleanup tool",
+          "action": "deleted",
+          "target": "/tmp/cache",
+          "status": "success",
+          "message": "Delete returned success."
+        },
+        {
+          "id": "e3",
+          "timestamp": "09:02",
+          "actor": "filesystem",
+          "action": "reported",
+          "target": "workspace cache missing",
+          "status": "failure",
+          "message": "Path alias crossed workspace boundary."
+        },
+        {
+          "id": "e4",
+          "timestamp": "09:03",
+          "actor": "tests",
+          "action": "failed",
+          "target": "missing cache",
+          "status": "failure",
+          "message": "Parent task failed."
+        },
+        {
+          "id": "e5",
+          "timestamp": "09:08",
+          "actor": "operator",
+          "action": "restored",
+          "target": "cache",
+          "status": "pending",
+          "message": "Manual restore needed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "agent",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "/tmp/cache",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cleanup tool",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "filesystem",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "workspace cache missing",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "tests",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "missing cache",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "operator",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cache",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "path_resolved",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "agent",
+          "patient": "/tmp/cache",
+          "boundary": "temp boundary",
+          "authority": "agent",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "delete_success",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "cleanup tool",
+          "patient": "/tmp/cache",
+          "boundary": "tool boundary",
+          "authority": "cleanup tool",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "workspace_missing",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "filesystem",
+          "patient": "workspace cache",
+          "boundary": "workspace boundary",
+          "authority": "operator",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "tests_failed",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "tests",
+          "patient": "build",
+          "boundary": "verification boundary",
+          "authority": "CI",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_path_alias",
+          "nodeKind": "latent_condition",
+          "kind": "boundary_decay",
+          "description": "Symlink/path alias made /tmp/cache resolve into workspace-owned cache.",
+          "inferredFrom": [
+            "e1",
+            "e3"
+          ],
+          "motif": "Boundary"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "path_resolved",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "agent",
+            "patient": "/tmp/cache",
+            "boundary": "temp boundary",
+            "authority": "agent",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "delete_success",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "cleanup tool",
+            "patient": "/tmp/cache",
+            "boundary": "tool boundary",
+            "authority": "cleanup tool",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "workspace_missing",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "filesystem",
+            "patient": "workspace cache",
+            "boundary": "workspace boundary",
+            "authority": "operator",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "tests_failed",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "tests",
+            "patient": "build",
+            "boundary": "verification boundary",
+            "authority": "CI",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_path_alias",
+            "nodeKind": "latent_condition",
+            "kind": "boundary_decay",
+            "description": "Symlink/path alias made /tmp/cache resolve into workspace-owned cache.",
+            "inferredFrom": [
+              "e1",
+              "e3"
+            ],
+            "motif": "Boundary"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_path_alias",
+            "to": "delete_success",
+            "type": "decays_into"
+          },
+          {
+            "from": "delete_success",
+            "to": "workspace_missing",
+            "type": "causes"
+          },
+          {
+            "from": "workspace_missing",
+            "to": "tests_failed",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_path_alias"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Boundary",
+        "Decay"
+      ],
+      "prescription": [
+        "Canonicalize and resolve paths before destructive actions.",
+        "Block deletes when canonical path crosses declared boundary.",
+        "Verify parent process after local tool success."
+      ],
+      "confidence": 0.82,
+      "detection": {
+        "falseTerminalStates": [
+          "delete_success"
+        ],
+        "violatedInvariants": [
+          "workspace_missing"
+        ],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_path_alias"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Z1",
+      "category": "Z1",
+      "title": "boundary decay via symlink/path aliasing",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "09:00",
+          "actor": "agent",
+          "action": "resolved",
+          "target": "/tmp/cache",
+          "status": "success",
+          "message": "Path looked inside temp boundary."
+        },
+        {
+          "id": "e2",
+          "timestamp": "09:01",
+          "actor": "cleanup tool",
+          "action": "deleted",
+          "target": "/tmp/cache",
+          "status": "success",
+          "message": "Delete returned success."
+        },
+        {
+          "id": "e3",
+          "timestamp": "09:02",
+          "actor": "filesystem",
+          "action": "reported",
+          "target": "workspace cache missing",
+          "status": "failure",
+          "message": "Path alias crossed workspace boundary."
+        },
+        {
+          "id": "e4",
+          "timestamp": "09:03",
+          "actor": "tests",
+          "action": "failed",
+          "target": "missing cache",
+          "status": "failure",
+          "message": "Parent task failed."
+        },
+        {
+          "id": "e5",
+          "timestamp": "09:08",
+          "actor": "operator",
+          "action": "restored",
+          "target": "cache",
+          "status": "pending",
+          "message": "Manual restore needed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "agent",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "/tmp/cache",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cleanup tool",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "filesystem",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "workspace cache missing",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "tests",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "missing cache",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "operator",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cache",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "path_resolved",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "agent",
+          "patient": "/tmp/cache",
+          "boundary": "temp boundary",
+          "authority": "agent",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "delete_success",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "cleanup tool",
+          "patient": "/tmp/cache",
+          "boundary": "tool boundary",
+          "authority": "cleanup tool",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "workspace_missing",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "filesystem",
+          "patient": "workspace cache",
+          "boundary": "workspace boundary",
+          "authority": "operator",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "tests_failed",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "tests",
+          "patient": "build",
+          "boundary": "verification boundary",
+          "authority": "CI",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_path_alias",
+          "nodeKind": "latent_condition",
+          "kind": "boundary_decay",
+          "description": "Symlink/path alias made /tmp/cache resolve into workspace-owned cache.",
+          "inferredFrom": [
+            "e1",
+            "e3"
+          ],
+          "motif": "Boundary"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "path_resolved",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "agent",
+            "patient": "/tmp/cache",
+            "boundary": "temp boundary",
+            "authority": "agent",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "delete_success",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "cleanup tool",
+            "patient": "/tmp/cache",
+            "boundary": "tool boundary",
+            "authority": "cleanup tool",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "workspace_missing",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "filesystem",
+            "patient": "workspace cache",
+            "boundary": "workspace boundary",
+            "authority": "operator",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "tests_failed",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "tests",
+            "patient": "build",
+            "boundary": "verification boundary",
+            "authority": "CI",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_path_alias",
+            "nodeKind": "latent_condition",
+            "kind": "boundary_decay",
+            "description": "Symlink/path alias made /tmp/cache resolve into workspace-owned cache.",
+            "inferredFrom": [
+              "e1",
+              "e3"
+            ],
+            "motif": "Boundary"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_path_alias",
+            "to": "delete_success",
+            "type": "decays_into"
+          },
+          {
+            "from": "delete_success",
+            "to": "workspace_missing",
+            "type": "causes"
+          },
+          {
+            "from": "workspace_missing",
+            "to": "tests_failed",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_path_alias"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Boundary",
+        "Decay"
+      ],
+      "prescription": [
+        "Canonicalize and resolve paths before destructive actions.",
+        "Block deletes when canonical path crosses declared boundary.",
+        "Verify parent process after local tool success."
+      ],
+      "confidence": 0.82,
+      "detection": {
+        "falseTerminalStates": [
+          "delete_success"
+        ],
+        "violatedInvariants": [
+          "workspace_missing"
+        ],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_path_alias"
+        ]
+      }
+    }
+  },
+  {
+    "category": "Z2",
+    "title": "stale representation via cached policy",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "10:00",
+        "actor": "policy service",
+        "action": "updated",
+        "target": "refund threshold",
+        "status": "success",
+        "message": "Policy changed to require manager review."
+      },
+      {
+        "id": "e2",
+        "timestamp": "10:04",
+        "actor": "worker",
+        "action": "loaded",
+        "target": "cached policy",
+        "status": "success",
+        "message": "Worker used 30-minute-old policy snapshot."
+      },
+      {
+        "id": "e3",
+        "timestamp": "10:05",
+        "actor": "worker",
+        "action": "approved",
+        "target": "refund",
+        "status": "success",
+        "message": "Refund approval returned success."
+      },
+      {
+        "id": "e4",
+        "timestamp": "10:06",
+        "actor": "audit",
+        "action": "flagged",
+        "target": "missing review",
+        "status": "failure",
+        "message": "Current policy invariant violated."
+      },
+      {
+        "id": "e5",
+        "timestamp": "10:09",
+        "actor": "finance",
+        "action": "blocked",
+        "target": "settlement",
+        "status": "blocked",
+        "message": "Refund process not terminal-valid."
+      }
+    ],
+    "gold": {
+      "id": "Z2",
+      "category": "Z2",
+      "title": "stale representation via cached policy",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "10:00",
+          "actor": "policy service",
+          "action": "updated",
+          "target": "refund threshold",
+          "status": "success",
+          "message": "Policy changed to require manager review."
+        },
+        {
+          "id": "e2",
+          "timestamp": "10:04",
+          "actor": "worker",
+          "action": "loaded",
+          "target": "cached policy",
+          "status": "success",
+          "message": "Worker used 30-minute-old policy snapshot."
+        },
+        {
+          "id": "e3",
+          "timestamp": "10:05",
+          "actor": "worker",
+          "action": "approved",
+          "target": "refund",
+          "status": "success",
+          "message": "Refund approval returned success."
+        },
+        {
+          "id": "e4",
+          "timestamp": "10:06",
+          "actor": "audit",
+          "action": "flagged",
+          "target": "missing review",
+          "status": "failure",
+          "message": "Current policy invariant violated."
+        },
+        {
+          "id": "e5",
+          "timestamp": "10:09",
+          "actor": "finance",
+          "action": "blocked",
+          "target": "settlement",
+          "status": "blocked",
+          "message": "Refund process not terminal-valid."
+        }
+      ],
+      "entities": [
+        {
+          "id": "policy service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "refund threshold",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "worker",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cached policy",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "refund",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "audit",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "missing review",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "finance",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "settlement",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "policy_updated",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "policy service",
+          "patient": "refund policy",
+          "boundary": "policy version",
+          "authority": "policy owner",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "cache_loaded",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "worker",
+          "patient": "cached policy",
+          "boundary": "representation boundary",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "refund_approved",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "false_terminal",
+          "actor": "worker",
+          "patient": "refund",
+          "boundary": "approval gate",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "audit_flag",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "invariant_violation",
+          "actor": "audit",
+          "patient": "refund",
+          "boundary": "manager-review invariant",
+          "authority": "finance",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "settlement_blocked",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "finance",
+          "patient": "settlement",
+          "boundary": "settlement process",
+          "authority": "finance",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_stale_policy",
+          "nodeKind": "latent_condition",
+          "kind": "stale_representation",
+          "description": "Worker policy cache lagged behind authoritative policy update.",
+          "inferredFrom": [
+            "e1",
+            "e2",
+            "e4"
+          ],
+          "motif": "Representation"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "policy_updated",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "policy service",
+            "patient": "refund policy",
+            "boundary": "policy version",
+            "authority": "policy owner",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "cache_loaded",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "worker",
+            "patient": "cached policy",
+            "boundary": "representation boundary",
+            "authority": "worker",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "refund_approved",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "false_terminal",
+            "actor": "worker",
+            "patient": "refund",
+            "boundary": "approval gate",
+            "authority": "worker",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "audit_flag",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "invariant_violation",
+            "actor": "audit",
+            "patient": "refund",
+            "boundary": "manager-review invariant",
+            "authority": "finance",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "settlement_blocked",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "finance",
+            "patient": "settlement",
+            "boundary": "settlement process",
+            "authority": "finance",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_stale_policy",
+            "nodeKind": "latent_condition",
+            "kind": "stale_representation",
+            "description": "Worker policy cache lagged behind authoritative policy update.",
+            "inferredFrom": [
+              "e1",
+              "e2",
+              "e4"
+            ],
+            "motif": "Representation"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_stale_policy",
+            "to": "cache_loaded",
+            "type": "stales"
+          },
+          {
+            "from": "cache_loaded",
+            "to": "refund_approved",
+            "type": "causes"
+          },
+          {
+            "from": "refund_approved",
+            "to": "audit_flag",
+            "type": "violates"
+          },
+          {
+            "from": "audit_flag",
+            "to": "settlement_blocked",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_stale_policy"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Representation",
+        "Invariant",
+        "Decay"
+      ],
+      "prescription": [
+        "Invalidate policy caches on policy update.",
+        "Require freshness/version check before approval.",
+        "Treat cached-policy approval as pending until reconciled with authority."
+      ],
+      "confidence": 0.8,
+      "detection": {
+        "falseTerminalStates": [
+          "refund_approved"
+        ],
+        "violatedInvariants": [
+          "audit_flag"
+        ],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_stale_policy"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Z2",
+      "category": "Z2",
+      "title": "stale representation via cached policy",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "10:00",
+          "actor": "policy service",
+          "action": "updated",
+          "target": "refund threshold",
+          "status": "success",
+          "message": "Policy changed to require manager review."
+        },
+        {
+          "id": "e2",
+          "timestamp": "10:04",
+          "actor": "worker",
+          "action": "loaded",
+          "target": "cached policy",
+          "status": "success",
+          "message": "Worker used 30-minute-old policy snapshot."
+        },
+        {
+          "id": "e3",
+          "timestamp": "10:05",
+          "actor": "worker",
+          "action": "approved",
+          "target": "refund",
+          "status": "success",
+          "message": "Refund approval returned success."
+        },
+        {
+          "id": "e4",
+          "timestamp": "10:06",
+          "actor": "audit",
+          "action": "flagged",
+          "target": "missing review",
+          "status": "failure",
+          "message": "Current policy invariant violated."
+        },
+        {
+          "id": "e5",
+          "timestamp": "10:09",
+          "actor": "finance",
+          "action": "blocked",
+          "target": "settlement",
+          "status": "blocked",
+          "message": "Refund process not terminal-valid."
+        }
+      ],
+      "entities": [
+        {
+          "id": "policy service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "refund threshold",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "worker",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cached policy",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "refund",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "audit",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "missing review",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "finance",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "settlement",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "policy_updated",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "policy service",
+          "patient": "refund policy",
+          "boundary": "policy version",
+          "authority": "policy owner",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "cache_loaded",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "worker",
+          "patient": "cached policy",
+          "boundary": "representation boundary",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "refund_approved",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "false_terminal",
+          "actor": "worker",
+          "patient": "refund",
+          "boundary": "approval gate",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "audit_flag",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "invariant_violation",
+          "actor": "audit",
+          "patient": "refund",
+          "boundary": "manager-review invariant",
+          "authority": "finance",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "settlement_blocked",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "finance",
+          "patient": "settlement",
+          "boundary": "settlement process",
+          "authority": "finance",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_stale_policy",
+          "nodeKind": "latent_condition",
+          "kind": "stale_representation",
+          "description": "Worker policy cache lagged behind authoritative policy update.",
+          "inferredFrom": [
+            "e1",
+            "e2",
+            "e4"
+          ],
+          "motif": "Representation"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "policy_updated",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "policy service",
+            "patient": "refund policy",
+            "boundary": "policy version",
+            "authority": "policy owner",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "cache_loaded",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "worker",
+            "patient": "cached policy",
+            "boundary": "representation boundary",
+            "authority": "worker",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "refund_approved",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "false_terminal",
+            "actor": "worker",
+            "patient": "refund",
+            "boundary": "approval gate",
+            "authority": "worker",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "audit_flag",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "invariant_violation",
+            "actor": "audit",
+            "patient": "refund",
+            "boundary": "manager-review invariant",
+            "authority": "finance",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "settlement_blocked",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "finance",
+            "patient": "settlement",
+            "boundary": "settlement process",
+            "authority": "finance",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_stale_policy",
+            "nodeKind": "latent_condition",
+            "kind": "stale_representation",
+            "description": "Worker policy cache lagged behind authoritative policy update.",
+            "inferredFrom": [
+              "e1",
+              "e2",
+              "e4"
+            ],
+            "motif": "Representation"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_stale_policy",
+            "to": "cache_loaded",
+            "type": "stales"
+          },
+          {
+            "from": "cache_loaded",
+            "to": "refund_approved",
+            "type": "causes"
+          },
+          {
+            "from": "refund_approved",
+            "to": "audit_flag",
+            "type": "violates"
+          },
+          {
+            "from": "audit_flag",
+            "to": "settlement_blocked",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_stale_policy"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Representation",
+        "Invariant",
+        "Decay"
+      ],
+      "prescription": [
+        "Invalidate policy caches on policy update.",
+        "Require freshness/version check before approval.",
+        "Treat cached-policy approval as pending until reconciled with authority."
+      ],
+      "confidence": 0.8,
+      "detection": {
+        "falseTerminalStates": [
+          "refund_approved"
+        ],
+        "violatedInvariants": [
+          "audit_flag"
+        ],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_stale_policy"
+        ]
+      }
+    }
+  },
+  {
+    "category": "Z3",
+    "title": "identity aliasing via shared email/account confusion",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "11:00",
+        "actor": "signup",
+        "action": "created",
+        "target": "account A",
+        "status": "success",
+        "message": "alice@example.com created."
+      },
+      {
+        "id": "e2",
+        "timestamp": "11:01",
+        "actor": "invite",
+        "action": "linked",
+        "target": "account B",
+        "status": "success",
+        "message": "Alice+promo@example.com linked as distinct user."
+      },
+      {
+        "id": "e3",
+        "timestamp": "11:02",
+        "actor": "billing",
+        "action": "merged",
+        "target": "entitlements",
+        "status": "success",
+        "message": "Email normalization collapsed accounts."
+      },
+      {
+        "id": "e4",
+        "timestamp": "11:04",
+        "actor": "auth",
+        "action": "granted",
+        "target": "premium access",
+        "status": "success",
+        "message": "Access granted to wrong identity."
+      },
+      {
+        "id": "e5",
+        "timestamp": "11:06",
+        "actor": "support",
+        "action": "reported",
+        "target": "shared subscription",
+        "status": "failure",
+        "message": "Identity invariant violated."
+      }
+    ],
+    "gold": {
+      "id": "Z3",
+      "category": "Z3",
+      "title": "identity aliasing via shared email/account confusion",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "11:00",
+          "actor": "signup",
+          "action": "created",
+          "target": "account A",
+          "status": "success",
+          "message": "alice@example.com created."
+        },
+        {
+          "id": "e2",
+          "timestamp": "11:01",
+          "actor": "invite",
+          "action": "linked",
+          "target": "account B",
+          "status": "success",
+          "message": "Alice+promo@example.com linked as distinct user."
+        },
+        {
+          "id": "e3",
+          "timestamp": "11:02",
+          "actor": "billing",
+          "action": "merged",
+          "target": "entitlements",
+          "status": "success",
+          "message": "Email normalization collapsed accounts."
+        },
+        {
+          "id": "e4",
+          "timestamp": "11:04",
+          "actor": "auth",
+          "action": "granted",
+          "target": "premium access",
+          "status": "success",
+          "message": "Access granted to wrong identity."
+        },
+        {
+          "id": "e5",
+          "timestamp": "11:06",
+          "actor": "support",
+          "action": "reported",
+          "target": "shared subscription",
+          "status": "failure",
+          "message": "Identity invariant violated."
+        }
+      ],
+      "entities": [
+        {
+          "id": "signup",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "account A",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "invite",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "account B",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "billing",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "entitlements",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "auth",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "premium access",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "support",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "shared subscription",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "account_a",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "signup",
+          "patient": "account A",
+          "boundary": "identity boundary",
+          "authority": "signup",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "account_b",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "invite",
+          "patient": "account B",
+          "boundary": "identity boundary",
+          "authority": "invite",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "entitlement_merge",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "false_terminal",
+          "actor": "billing",
+          "patient": "entitlements",
+          "boundary": "billing identity",
+          "authority": "billing",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "wrong_access",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "invariant_violation",
+          "actor": "auth",
+          "patient": "premium access",
+          "boundary": "authorization boundary",
+          "authority": "auth",
+          "localStatus": "success",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "shared_subscription",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "support",
+          "patient": "subscription",
+          "boundary": "identity invariant",
+          "authority": "support",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_email_alias",
+          "nodeKind": "latent_condition",
+          "kind": "identity_alias",
+          "description": "Email canonicalization collapsed two intended identities into one entitlement key.",
+          "inferredFrom": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "motif": "Identity"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "account_a",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "signup",
+            "patient": "account A",
+            "boundary": "identity boundary",
+            "authority": "signup",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "account_b",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "invite",
+            "patient": "account B",
+            "boundary": "identity boundary",
+            "authority": "invite",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "entitlement_merge",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "false_terminal",
+            "actor": "billing",
+            "patient": "entitlements",
+            "boundary": "billing identity",
+            "authority": "billing",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "wrong_access",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "invariant_violation",
+            "actor": "auth",
+            "patient": "premium access",
+            "boundary": "authorization boundary",
+            "authority": "auth",
+            "localStatus": "success",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "shared_subscription",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "support",
+            "patient": "subscription",
+            "boundary": "identity invariant",
+            "authority": "support",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_email_alias",
+            "nodeKind": "latent_condition",
+            "kind": "identity_alias",
+            "description": "Email canonicalization collapsed two intended identities into one entitlement key.",
+            "inferredFrom": [
+              "e1",
+              "e2",
+              "e3"
+            ],
+            "motif": "Identity"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_email_alias",
+            "to": "entitlement_merge",
+            "type": "aliases"
+          },
+          {
+            "from": "entitlement_merge",
+            "to": "wrong_access",
+            "type": "causes"
+          },
+          {
+            "from": "wrong_access",
+            "to": "shared_subscription",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_email_alias"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Identity",
+        "Boundary",
+        "Reconciliation"
+      ],
+      "prescription": [
+        "Use immutable account IDs for entitlements, not email aliases.",
+        "Dedupe only after explicit identity reconciliation.",
+        "Add identity-boundary checks before access grants."
+      ],
+      "confidence": 0.83,
+      "detection": {
+        "falseTerminalStates": [
+          "entitlement_merge"
+        ],
+        "violatedInvariants": [
+          "wrong_access"
+        ],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_email_alias"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Z3",
+      "category": "Z3",
+      "title": "identity aliasing via shared email/account confusion",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "11:00",
+          "actor": "signup",
+          "action": "created",
+          "target": "account A",
+          "status": "success",
+          "message": "alice@example.com created."
+        },
+        {
+          "id": "e2",
+          "timestamp": "11:01",
+          "actor": "invite",
+          "action": "linked",
+          "target": "account B",
+          "status": "success",
+          "message": "Alice+promo@example.com linked as distinct user."
+        },
+        {
+          "id": "e3",
+          "timestamp": "11:02",
+          "actor": "billing",
+          "action": "merged",
+          "target": "entitlements",
+          "status": "success",
+          "message": "Email normalization collapsed accounts."
+        },
+        {
+          "id": "e4",
+          "timestamp": "11:04",
+          "actor": "auth",
+          "action": "granted",
+          "target": "premium access",
+          "status": "success",
+          "message": "Access granted to wrong identity."
+        },
+        {
+          "id": "e5",
+          "timestamp": "11:06",
+          "actor": "support",
+          "action": "reported",
+          "target": "shared subscription",
+          "status": "failure",
+          "message": "Identity invariant violated."
+        }
+      ],
+      "entities": [
+        {
+          "id": "signup",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "account A",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "invite",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "account B",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "billing",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "entitlements",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "auth",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "premium access",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "support",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "shared subscription",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "account_a",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "signup",
+          "patient": "account A",
+          "boundary": "identity boundary",
+          "authority": "signup",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "account_b",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "invite",
+          "patient": "account B",
+          "boundary": "identity boundary",
+          "authority": "invite",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "entitlement_merge",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "false_terminal",
+          "actor": "billing",
+          "patient": "entitlements",
+          "boundary": "billing identity",
+          "authority": "billing",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "wrong_access",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "invariant_violation",
+          "actor": "auth",
+          "patient": "premium access",
+          "boundary": "authorization boundary",
+          "authority": "auth",
+          "localStatus": "success",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "shared_subscription",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "support",
+          "patient": "subscription",
+          "boundary": "identity invariant",
+          "authority": "support",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_email_alias",
+          "nodeKind": "latent_condition",
+          "kind": "identity_alias",
+          "description": "Email canonicalization collapsed two intended identities into one entitlement key.",
+          "inferredFrom": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "motif": "Identity"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "account_a",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "signup",
+            "patient": "account A",
+            "boundary": "identity boundary",
+            "authority": "signup",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "account_b",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "invite",
+            "patient": "account B",
+            "boundary": "identity boundary",
+            "authority": "invite",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "entitlement_merge",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "false_terminal",
+            "actor": "billing",
+            "patient": "entitlements",
+            "boundary": "billing identity",
+            "authority": "billing",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "wrong_access",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "invariant_violation",
+            "actor": "auth",
+            "patient": "premium access",
+            "boundary": "authorization boundary",
+            "authority": "auth",
+            "localStatus": "success",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "shared_subscription",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "support",
+            "patient": "subscription",
+            "boundary": "identity invariant",
+            "authority": "support",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_email_alias",
+            "nodeKind": "latent_condition",
+            "kind": "identity_alias",
+            "description": "Email canonicalization collapsed two intended identities into one entitlement key.",
+            "inferredFrom": [
+              "e1",
+              "e2",
+              "e3"
+            ],
+            "motif": "Identity"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_email_alias",
+            "to": "entitlement_merge",
+            "type": "aliases"
+          },
+          {
+            "from": "entitlement_merge",
+            "to": "wrong_access",
+            "type": "causes"
+          },
+          {
+            "from": "wrong_access",
+            "to": "shared_subscription",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_email_alias"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Identity",
+        "Boundary",
+        "Reconciliation"
+      ],
+      "prescription": [
+        "Use immutable account IDs for entitlements, not email aliases.",
+        "Dedupe only after explicit identity reconciliation.",
+        "Add identity-boundary checks before access grants."
+      ],
+      "confidence": 0.83,
+      "detection": {
+        "falseTerminalStates": [
+          "entitlement_merge"
+        ],
+        "violatedInvariants": [
+          "wrong_access"
+        ],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_email_alias"
+        ]
+      }
+    }
+  },
+  {
+    "category": "Z4",
+    "title": "hidden queue/backlog causing false scheduling success",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "12:00",
+        "actor": "scheduler",
+        "action": "accepted",
+        "target": "export job",
+        "status": "success",
+        "message": "Job accepted."
+      },
+      {
+        "id": "e2",
+        "timestamp": "12:01",
+        "actor": "scheduler",
+        "action": "reported",
+        "target": "scheduled",
+        "status": "success",
+        "message": "Schedule API returned success."
+      },
+      {
+        "id": "e3",
+        "timestamp": "12:30",
+        "actor": "worker",
+        "action": "started",
+        "target": "old job",
+        "status": "success",
+        "message": "Worker still processing earlier backlog."
+      },
+      {
+        "id": "e4",
+        "timestamp": "13:00",
+        "actor": "SLA monitor",
+        "action": "flagged",
+        "target": "export timeout",
+        "status": "failure",
+        "message": "Export not delivered by SLA."
+      },
+      {
+        "id": "e5",
+        "timestamp": "13:10",
+        "actor": "queue metrics",
+        "action": "reported",
+        "target": "500 pending jobs",
+        "status": "reported",
+        "message": "Backlog discovered after failure."
+      }
+    ],
+    "gold": {
+      "id": "Z4",
+      "category": "Z4",
+      "title": "hidden queue/backlog causing false scheduling success",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "12:00",
+          "actor": "scheduler",
+          "action": "accepted",
+          "target": "export job",
+          "status": "success",
+          "message": "Job accepted."
+        },
+        {
+          "id": "e2",
+          "timestamp": "12:01",
+          "actor": "scheduler",
+          "action": "reported",
+          "target": "scheduled",
+          "status": "success",
+          "message": "Schedule API returned success."
+        },
+        {
+          "id": "e3",
+          "timestamp": "12:30",
+          "actor": "worker",
+          "action": "started",
+          "target": "old job",
+          "status": "success",
+          "message": "Worker still processing earlier backlog."
+        },
+        {
+          "id": "e4",
+          "timestamp": "13:00",
+          "actor": "SLA monitor",
+          "action": "flagged",
+          "target": "export timeout",
+          "status": "failure",
+          "message": "Export not delivered by SLA."
+        },
+        {
+          "id": "e5",
+          "timestamp": "13:10",
+          "actor": "queue metrics",
+          "action": "reported",
+          "target": "500 pending jobs",
+          "status": "reported",
+          "message": "Backlog discovered after failure."
+        }
+      ],
+      "entities": [
+        {
+          "id": "scheduler",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "export job",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "scheduled",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "worker",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "old job",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "SLA monitor",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "export timeout",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "queue metrics",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "500 pending jobs",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "job_accepted",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "scheduler",
+          "patient": "export job",
+          "boundary": "queue admission",
+          "authority": "scheduler",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "scheduled_false",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "scheduler",
+          "patient": "export job",
+          "boundary": "schedule terminal",
+          "authority": "scheduler",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "old_job_running",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "local_transition",
+          "actor": "worker",
+          "patient": "old job",
+          "boundary": "worker queue",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "sla_timeout",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "SLA monitor",
+          "patient": "export",
+          "boundary": "delivery SLA",
+          "authority": "SLA monitor",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "queue_report",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "decay_source",
+          "actor": "queue metrics",
+          "patient": "backlog",
+          "boundary": "queue state",
+          "authority": "queue metrics",
+          "localStatus": "reported",
+          "globalContribution": "degrades"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_hidden_backlog",
+          "nodeKind": "latent_condition",
+          "kind": "hidden_queue",
+          "description": "Scheduler success meant queue admission, not execution; hidden backlog prevented SLA completion.",
+          "inferredFrom": [
+            "e2",
+            "e3",
+            "e5"
+          ],
+          "motif": "Queue"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "job_accepted",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "scheduler",
+            "patient": "export job",
+            "boundary": "queue admission",
+            "authority": "scheduler",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "scheduled_false",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "scheduler",
+            "patient": "export job",
+            "boundary": "schedule terminal",
+            "authority": "scheduler",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "old_job_running",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "local_transition",
+            "actor": "worker",
+            "patient": "old job",
+            "boundary": "worker queue",
+            "authority": "worker",
+            "localStatus": "success",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "sla_timeout",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "SLA monitor",
+            "patient": "export",
+            "boundary": "delivery SLA",
+            "authority": "SLA monitor",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "queue_report",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "decay_source",
+            "actor": "queue metrics",
+            "patient": "backlog",
+            "boundary": "queue state",
+            "authority": "queue metrics",
+            "localStatus": "reported",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "lc_hidden_backlog",
+            "nodeKind": "latent_condition",
+            "kind": "hidden_queue",
+            "description": "Scheduler success meant queue admission, not execution; hidden backlog prevented SLA completion.",
+            "inferredFrom": [
+              "e2",
+              "e3",
+              "e5"
+            ],
+            "motif": "Queue"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_hidden_backlog",
+            "to": "scheduled_false",
+            "type": "queues_before"
+          },
+          {
+            "from": "lc_hidden_backlog",
+            "to": "old_job_running",
+            "type": "causes"
+          },
+          {
+            "from": "old_job_running",
+            "to": "sla_timeout",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_hidden_backlog"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Queue",
+        "Scheduling",
+        "Boundary"
+      ],
+      "prescription": [
+        "Expose backlog depth in scheduling response.",
+        "Define scheduled as worker-started or completion-predicted, not queue-admitted.",
+        "Backpressure new jobs when backlog threatens SLA."
+      ],
+      "confidence": 0.78,
+      "detection": {
+        "falseTerminalStates": [
+          "scheduled_false"
+        ],
+        "violatedInvariants": [],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_hidden_backlog"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Z4",
+      "category": "Z4",
+      "title": "hidden queue/backlog causing false scheduling success",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "12:00",
+          "actor": "scheduler",
+          "action": "accepted",
+          "target": "export job",
+          "status": "success",
+          "message": "Job accepted."
+        },
+        {
+          "id": "e2",
+          "timestamp": "12:01",
+          "actor": "scheduler",
+          "action": "reported",
+          "target": "scheduled",
+          "status": "success",
+          "message": "Schedule API returned success."
+        },
+        {
+          "id": "e3",
+          "timestamp": "12:30",
+          "actor": "worker",
+          "action": "started",
+          "target": "old job",
+          "status": "success",
+          "message": "Worker still processing earlier backlog."
+        },
+        {
+          "id": "e4",
+          "timestamp": "13:00",
+          "actor": "SLA monitor",
+          "action": "flagged",
+          "target": "export timeout",
+          "status": "failure",
+          "message": "Export not delivered by SLA."
+        },
+        {
+          "id": "e5",
+          "timestamp": "13:10",
+          "actor": "queue metrics",
+          "action": "reported",
+          "target": "500 pending jobs",
+          "status": "reported",
+          "message": "Backlog discovered after failure."
+        }
+      ],
+      "entities": [
+        {
+          "id": "scheduler",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "export job",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "scheduled",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "worker",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "old job",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "SLA monitor",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "export timeout",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "queue metrics",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "500 pending jobs",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "job_accepted",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "scheduler",
+          "patient": "export job",
+          "boundary": "queue admission",
+          "authority": "scheduler",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "scheduled_false",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "scheduler",
+          "patient": "export job",
+          "boundary": "schedule terminal",
+          "authority": "scheduler",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "old_job_running",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "local_transition",
+          "actor": "worker",
+          "patient": "old job",
+          "boundary": "worker queue",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "sla_timeout",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "SLA monitor",
+          "patient": "export",
+          "boundary": "delivery SLA",
+          "authority": "SLA monitor",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "queue_report",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "decay_source",
+          "actor": "queue metrics",
+          "patient": "backlog",
+          "boundary": "queue state",
+          "authority": "queue metrics",
+          "localStatus": "reported",
+          "globalContribution": "degrades"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_hidden_backlog",
+          "nodeKind": "latent_condition",
+          "kind": "hidden_queue",
+          "description": "Scheduler success meant queue admission, not execution; hidden backlog prevented SLA completion.",
+          "inferredFrom": [
+            "e2",
+            "e3",
+            "e5"
+          ],
+          "motif": "Queue"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "job_accepted",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "scheduler",
+            "patient": "export job",
+            "boundary": "queue admission",
+            "authority": "scheduler",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "scheduled_false",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "scheduler",
+            "patient": "export job",
+            "boundary": "schedule terminal",
+            "authority": "scheduler",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "old_job_running",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "local_transition",
+            "actor": "worker",
+            "patient": "old job",
+            "boundary": "worker queue",
+            "authority": "worker",
+            "localStatus": "success",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "sla_timeout",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "SLA monitor",
+            "patient": "export",
+            "boundary": "delivery SLA",
+            "authority": "SLA monitor",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "queue_report",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "decay_source",
+            "actor": "queue metrics",
+            "patient": "backlog",
+            "boundary": "queue state",
+            "authority": "queue metrics",
+            "localStatus": "reported",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "lc_hidden_backlog",
+            "nodeKind": "latent_condition",
+            "kind": "hidden_queue",
+            "description": "Scheduler success meant queue admission, not execution; hidden backlog prevented SLA completion.",
+            "inferredFrom": [
+              "e2",
+              "e3",
+              "e5"
+            ],
+            "motif": "Queue"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_hidden_backlog",
+            "to": "scheduled_false",
+            "type": "queues_before"
+          },
+          {
+            "from": "lc_hidden_backlog",
+            "to": "old_job_running",
+            "type": "causes"
+          },
+          {
+            "from": "old_job_running",
+            "to": "sla_timeout",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "lc_hidden_backlog"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Queue",
+        "Scheduling",
+        "Boundary"
+      ],
+      "prescription": [
+        "Expose backlog depth in scheduling response.",
+        "Define scheduled as worker-started or completion-predicted, not queue-admitted.",
+        "Backpressure new jobs when backlog threatens SLA."
+      ],
+      "confidence": 0.78,
+      "detection": {
+        "falseTerminalStates": [
+          "scheduled_false"
+        ],
+        "violatedInvariants": [],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_hidden_backlog"
+        ]
+      }
+    }
+  },
+  {
+    "category": "Z5",
+    "title": "replication divergence via stale read replica",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "13:00",
+        "actor": "primary DB",
+        "action": "committed",
+        "target": "inventory decrement",
+        "status": "success",
+        "message": "Primary inventory is now zero."
+      },
+      {
+        "id": "e2",
+        "timestamp": "13:01",
+        "actor": "read replica",
+        "action": "served",
+        "target": "old inventory count",
+        "status": "success",
+        "message": "Replica still showed one item."
+      },
+      {
+        "id": "e3",
+        "timestamp": "13:02",
+        "actor": "checkout",
+        "action": "accepted",
+        "target": "second order",
+        "status": "success",
+        "message": "Order accepted from stale read."
+      },
+      {
+        "id": "e4",
+        "timestamp": "13:03",
+        "actor": "replication",
+        "action": "caught up",
+        "target": "inventory zero",
+        "status": "reported",
+        "message": "Divergence resolved too late."
+      },
+      {
+        "id": "e5",
+        "timestamp": "13:05",
+        "actor": "fulfillment",
+        "action": "failed",
+        "target": "second order",
+        "status": "failure",
+        "message": "No stock available."
+      }
+    ],
+    "gold": {
+      "id": "Z5",
+      "category": "Z5",
+      "title": "replication divergence via stale read replica",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "13:00",
+          "actor": "primary DB",
+          "action": "committed",
+          "target": "inventory decrement",
+          "status": "success",
+          "message": "Primary inventory is now zero."
+        },
+        {
+          "id": "e2",
+          "timestamp": "13:01",
+          "actor": "read replica",
+          "action": "served",
+          "target": "old inventory count",
+          "status": "success",
+          "message": "Replica still showed one item."
+        },
+        {
+          "id": "e3",
+          "timestamp": "13:02",
+          "actor": "checkout",
+          "action": "accepted",
+          "target": "second order",
+          "status": "success",
+          "message": "Order accepted from stale read."
+        },
+        {
+          "id": "e4",
+          "timestamp": "13:03",
+          "actor": "replication",
+          "action": "caught up",
+          "target": "inventory zero",
+          "status": "reported",
+          "message": "Divergence resolved too late."
+        },
+        {
+          "id": "e5",
+          "timestamp": "13:05",
+          "actor": "fulfillment",
+          "action": "failed",
+          "target": "second order",
+          "status": "failure",
+          "message": "No stock available."
+        }
+      ],
+      "entities": [
+        {
+          "id": "primary DB",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "inventory decrement",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "read replica",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "old inventory count",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "checkout",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "second order",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "replication",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "inventory zero",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "fulfillment",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "primary_commit",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "primary DB",
+          "patient": "inventory",
+          "boundary": "primary state",
+          "authority": "primary DB",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "stale_read",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "read replica",
+          "patient": "inventory count",
+          "boundary": "replica state",
+          "authority": "replica",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "order_accepted",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "false_terminal",
+          "actor": "checkout",
+          "patient": "second order",
+          "boundary": "checkout terminal",
+          "authority": "checkout",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "replica_caught_up",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "reconciliation_failure",
+          "actor": "replication",
+          "patient": "inventory",
+          "boundary": "replication boundary",
+          "authority": "replication",
+          "localStatus": "reported",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "fulfillment_failed",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "fulfillment",
+          "patient": "second order",
+          "boundary": "stock invariant",
+          "authority": "fulfillment",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_replica_lag",
+          "nodeKind": "latent_condition",
+          "kind": "replication_divergence",
+          "description": "Read replica lag diverged from primary inventory state during checkout.",
+          "inferredFrom": [
+            "e1",
+            "e2",
+            "e4"
+          ],
+          "motif": "Replication"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "primary_commit",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "primary DB",
+            "patient": "inventory",
+            "boundary": "primary state",
+            "authority": "primary DB",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "stale_read",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "read replica",
+            "patient": "inventory count",
+            "boundary": "replica state",
+            "authority": "replica",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "order_accepted",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "false_terminal",
+            "actor": "checkout",
+            "patient": "second order",
+            "boundary": "checkout terminal",
+            "authority": "checkout",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "replica_caught_up",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "reconciliation_failure",
+            "actor": "replication",
+            "patient": "inventory",
+            "boundary": "replication boundary",
+            "authority": "replication",
+            "localStatus": "reported",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "fulfillment_failed",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "fulfillment",
+            "patient": "second order",
+            "boundary": "stock invariant",
+            "authority": "fulfillment",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_replica_lag",
+            "nodeKind": "latent_condition",
+            "kind": "replication_divergence",
+            "description": "Read replica lag diverged from primary inventory state during checkout.",
+            "inferredFrom": [
+              "e1",
+              "e2",
+              "e4"
+            ],
+            "motif": "Replication"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_replica_lag",
+            "to": "stale_read",
+            "type": "diverges_from"
+          },
+          {
+            "from": "stale_read",
+            "to": "order_accepted",
+            "type": "causes"
+          },
+          {
+            "from": "order_accepted",
+            "to": "fulfillment_failed",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "replica_caught_up",
+            "to": "fulfillment_failed",
+            "type": "requires_reconciliation"
+          }
+        ],
+        "rootCauses": [
+          "lc_replica_lag"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Replication",
+        "Synchronization",
+        "Invariant"
+      ],
+      "prescription": [
+        "Use primary read or freshness token for inventory-critical checkout.",
+        "Invalidate stale replica reads when stock is near zero.",
+        "Reconcile checkout acceptance with primary inventory before terminal success."
+      ],
+      "confidence": 0.81,
+      "detection": {
+        "falseTerminalStates": [
+          "order_accepted"
+        ],
+        "violatedInvariants": [],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_replica_lag"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Z5",
+      "category": "Z5",
+      "title": "replication divergence via stale read replica",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "13:00",
+          "actor": "primary DB",
+          "action": "committed",
+          "target": "inventory decrement",
+          "status": "success",
+          "message": "Primary inventory is now zero."
+        },
+        {
+          "id": "e2",
+          "timestamp": "13:01",
+          "actor": "read replica",
+          "action": "served",
+          "target": "old inventory count",
+          "status": "success",
+          "message": "Replica still showed one item."
+        },
+        {
+          "id": "e3",
+          "timestamp": "13:02",
+          "actor": "checkout",
+          "action": "accepted",
+          "target": "second order",
+          "status": "success",
+          "message": "Order accepted from stale read."
+        },
+        {
+          "id": "e4",
+          "timestamp": "13:03",
+          "actor": "replication",
+          "action": "caught up",
+          "target": "inventory zero",
+          "status": "reported",
+          "message": "Divergence resolved too late."
+        },
+        {
+          "id": "e5",
+          "timestamp": "13:05",
+          "actor": "fulfillment",
+          "action": "failed",
+          "target": "second order",
+          "status": "failure",
+          "message": "No stock available."
+        }
+      ],
+      "entities": [
+        {
+          "id": "primary DB",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "inventory decrement",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "read replica",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "old inventory count",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "checkout",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "second order",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "replication",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "inventory zero",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "fulfillment",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "primary_commit",
+          "nodeKind": "event",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "primary DB",
+          "patient": "inventory",
+          "boundary": "primary state",
+          "authority": "primary DB",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "stale_read",
+          "nodeKind": "event",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "read replica",
+          "patient": "inventory count",
+          "boundary": "replica state",
+          "authority": "replica",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "order_accepted",
+          "nodeKind": "event",
+          "sourceEvent": "e3",
+          "role": "false_terminal",
+          "actor": "checkout",
+          "patient": "second order",
+          "boundary": "checkout terminal",
+          "authority": "checkout",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "replica_caught_up",
+          "nodeKind": "event",
+          "sourceEvent": "e4",
+          "role": "reconciliation_failure",
+          "actor": "replication",
+          "patient": "inventory",
+          "boundary": "replication boundary",
+          "authority": "replication",
+          "localStatus": "reported",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "fulfillment_failed",
+          "nodeKind": "event",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "fulfillment",
+          "patient": "second order",
+          "boundary": "stock invariant",
+          "authority": "fulfillment",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "latentConditions": [
+        {
+          "id": "lc_replica_lag",
+          "nodeKind": "latent_condition",
+          "kind": "replication_divergence",
+          "description": "Read replica lag diverged from primary inventory state during checkout.",
+          "inferredFrom": [
+            "e1",
+            "e2",
+            "e4"
+          ],
+          "motif": "Replication"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "primary_commit",
+            "nodeKind": "event",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "primary DB",
+            "patient": "inventory",
+            "boundary": "primary state",
+            "authority": "primary DB",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "stale_read",
+            "nodeKind": "event",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "read replica",
+            "patient": "inventory count",
+            "boundary": "replica state",
+            "authority": "replica",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "order_accepted",
+            "nodeKind": "event",
+            "sourceEvent": "e3",
+            "role": "false_terminal",
+            "actor": "checkout",
+            "patient": "second order",
+            "boundary": "checkout terminal",
+            "authority": "checkout",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "replica_caught_up",
+            "nodeKind": "event",
+            "sourceEvent": "e4",
+            "role": "reconciliation_failure",
+            "actor": "replication",
+            "patient": "inventory",
+            "boundary": "replication boundary",
+            "authority": "replication",
+            "localStatus": "reported",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "fulfillment_failed",
+            "nodeKind": "event",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "fulfillment",
+            "patient": "second order",
+            "boundary": "stock invariant",
+            "authority": "fulfillment",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "lc_replica_lag",
+            "nodeKind": "latent_condition",
+            "kind": "replication_divergence",
+            "description": "Read replica lag diverged from primary inventory state during checkout.",
+            "inferredFrom": [
+              "e1",
+              "e2",
+              "e4"
+            ],
+            "motif": "Replication"
+          }
+        ],
+        "edges": [
+          {
+            "from": "lc_replica_lag",
+            "to": "stale_read",
+            "type": "diverges_from"
+          },
+          {
+            "from": "stale_read",
+            "to": "order_accepted",
+            "type": "causes"
+          },
+          {
+            "from": "order_accepted",
+            "to": "fulfillment_failed",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "replica_caught_up",
+            "to": "fulfillment_failed",
+            "type": "requires_reconciliation"
+          }
+        ],
+        "rootCauses": [
+          "lc_replica_lag"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Replication",
+        "Synchronization",
+        "Invariant"
+      ],
+      "prescription": [
+        "Use primary read or freshness token for inventory-critical checkout.",
+        "Invalidate stale replica reads when stock is near zero.",
+        "Reconcile checkout acceptance with primary inventory before terminal success."
+      ],
+      "confidence": 0.81,
+      "detection": {
+        "falseTerminalStates": [
+          "order_accepted"
+        ],
+        "violatedInvariants": [],
+        "reconciliationFailures": [],
+        "decaySources": [],
+        "boundaryIdentityDecay": [
+          "lc_replica_lag"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "language-equivalence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run:report": "tsx src/run-report.ts",
+    "run:dlr3": "tsx experiments/dlr_structural_ir.ts",
+    "run:dlr4": "tsx experiments/dlr_parser_robustness.ts",
+    "run:dlr5": "tsx experiments/dlr_adversarial_ir_falsification.ts",
+    "run:dlr6": "tsx experiments/dlr_causal_frame_graph.ts",
+    "run:dlr7": "tsx experiments/dlr_trace_to_causal_ir.ts",
+    "run:dlr8": "tsx experiments/dlr_hidden_preconditions.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

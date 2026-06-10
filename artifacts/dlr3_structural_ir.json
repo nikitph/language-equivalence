@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "A1",
+    "category": "A",
+    "text": "I am slightly hungry.",
+    "motifBasis": [
+      0.7,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.85,
+      0,
+      0,
+      0.2,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "body",
+      "patient": "I",
+      "resource": "food",
+      "boundary": "metabolic sufficiency",
+      "authority": null
+    },
+    "transition": {
+      "family": "resource_deficit",
+      "type": "need_food",
+      "direction": "below_threshold",
+      "polarity": -0.45,
+      "stateBefore": "mild food deficit",
+      "stateAfter": "food intake restores sufficiency"
+    },
+    "constraints": {
+      "invariants": [
+        "organism needs metabolic fuel"
+      ],
+      "scarcity": [
+        "food"
+      ],
+      "stressRegime": [
+        "mild"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "A2",
+    "category": "A",
+    "text": "I could eat a horse.",
+    "motifBasis": [
+      0.72,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.85,
+      0,
+      0,
+      0.2,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "body",
+      "patient": "I",
+      "resource": "food",
+      "boundary": "metabolic sufficiency",
+      "authority": null
+    },
+    "transition": {
+      "family": "resource_deficit",
+      "type": "need_food",
+      "direction": "below_threshold",
+      "polarity": -0.85,
+      "stateBefore": "extreme food deficit",
+      "stateAfter": "food intake restores sufficiency"
+    },
+    "constraints": {
+      "invariants": [
+        "organism needs metabolic fuel"
+      ],
+      "scarcity": [
+        "food"
+      ],
+      "stressRegime": [
+        "extreme"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "idiom",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "A3",
+    "category": "A",
+    "text": "My stomach is completely empty.",
+    "motifBasis": [
+      0.74,
+      0,
+      0,
+      0,
+      0.3,
+      0,
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0,
+      0.15,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "body",
+      "patient": "my stomach",
+      "resource": "food",
+      "boundary": "metabolic sufficiency",
+      "authority": null
+    },
+    "transition": {
+      "family": "resource_deficit",
+      "type": "need_food",
+      "direction": "below_threshold",
+      "polarity": -0.9,
+      "stateBefore": "empty stomach",
+      "stateAfter": "food intake restores sufficiency"
+    },
+    "constraints": {
+      "invariants": [
+        "organism needs metabolic fuel"
+      ],
+      "scarcity": [
+        "food"
+      ],
+      "stressRegime": [
+        "extreme"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "B1",
+    "category": "B",
+    "text": "He was fired from his job.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "employer",
+      "patient": "he",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "employer"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "B2",
+    "category": "B",
+    "text": "He was given the axe.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "employer",
+      "patient": "he",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "employer"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "idiom",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "B3",
+    "category": "B",
+    "text": "Le han dado la puerta.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "employer",
+      "patient": "he",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "employer"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "Spanish",
+      "literalness": "idiom",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "C1",
+    "category": "C",
+    "text": "The bank approved my loan.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "bank",
+      "patient": "my loan",
+      "resource": "credit access",
+      "boundary": "permission gate",
+      "authority": "bank"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "approve",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "credit access"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "C2",
+    "category": "C",
+    "text": "The bank rejected my loan.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "bank",
+      "patient": "my loan",
+      "resource": "credit access",
+      "boundary": "permission gate",
+      "authority": "bank"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "reject",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "credit access"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "D1",
+    "category": "D",
+    "text": "I am hungry.",
+    "motifBasis": [
+      0.7,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.85,
+      0,
+      0,
+      0.15,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "body",
+      "patient": "I",
+      "resource": "food",
+      "boundary": "metabolic sufficiency",
+      "authority": null
+    },
+    "transition": {
+      "family": "resource_deficit",
+      "type": "need_food",
+      "direction": "below_threshold",
+      "polarity": -0.65,
+      "stateBefore": "food deficit",
+      "stateAfter": "food intake restores sufficiency"
+    },
+    "constraints": {
+      "invariants": [
+        "organism needs metabolic fuel"
+      ],
+      "scarcity": [
+        "food"
+      ],
+      "stressRegime": [
+        "moderate"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "D2",
+    "category": "D",
+    "text": "I am hungry for power.",
+    "motifBasis": [
+      0.35,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.55,
+      0.45,
+      0,
+      0,
+      0.55,
+      0,
+      0,
+      0,
+      0.55,
+      0,
+      0,
+      0,
+      0.65,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "I",
+      "patient": "social position",
+      "resource": "power",
+      "boundary": "status hierarchy",
+      "authority": null
+    },
+    "transition": {
+      "family": "acquire",
+      "type": "gain_power",
+      "direction": "up",
+      "polarity": 0.2,
+      "stateBefore": "insufficient power",
+      "stateAfter": "greater control"
+    },
+    "constraints": {
+      "invariants": [
+        "power changes social affordances"
+      ],
+      "scarcity": [
+        "authority"
+      ],
+      "stressRegime": [
+        "ambition"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "metaphor",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "D3",
+    "category": "D",
+    "text": "I am hungry for revenge.",
+    "motifBasis": [
+      0.3,
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      0,
+      0,
+      0.2,
+      0,
+      0.75,
+      0
+    ],
+    "frame": {
+      "actor": "I",
+      "patient": "wrongdoer",
+      "resource": "retribution",
+      "boundary": "unresolved grievance",
+      "authority": null
+    },
+    "transition": {
+      "family": "reconcile",
+      "type": "retaliate",
+      "direction": "retaliate",
+      "polarity": -0.85,
+      "stateBefore": "harm unresolved",
+      "stateAfter": "harm answered by revenge"
+    },
+    "constraints": {
+      "invariants": [
+        "grievance seeks closure"
+      ],
+      "scarcity": [
+        "justice"
+      ],
+      "stressRegime": [
+        "hostile"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "metaphor",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "D4",
+    "category": "D",
+    "text": "I am hungry to learn.",
+    "motifBasis": [
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.6,
+      0,
+      0,
+      0.55,
+      0.45,
+      0,
+      0.45,
+      0.65,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "I",
+      "patient": "knowledge state",
+      "resource": "learning",
+      "boundary": "current understanding",
+      "authority": null
+    },
+    "transition": {
+      "family": "acquire",
+      "type": "learn",
+      "direction": "expand",
+      "polarity": 0.75,
+      "stateBefore": "limited knowledge",
+      "stateAfter": "expanded model"
+    },
+    "constraints": {
+      "invariants": [
+        "knowledge can accumulate"
+      ],
+      "scarcity": [
+        "information"
+      ],
+      "stressRegime": [
+        "growth"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "metaphor",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "D5",
+    "category": "D",
+    "text": "The engine is hungry for fuel.",
+    "motifBasis": [
+      0.55,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0.8,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "engine",
+      "patient": "engine",
+      "resource": "fuel",
+      "boundary": "operational sufficiency",
+      "authority": null
+    },
+    "transition": {
+      "family": "resource_deficit",
+      "type": "need_fuel",
+      "direction": "below_threshold",
+      "polarity": -0.55,
+      "stateBefore": "fuel deficit",
+      "stateAfter": "fuel intake restores operation"
+    },
+    "constraints": {
+      "invariants": [
+        "engine needs fuel to operate"
+      ],
+      "scarcity": [
+        "fuel"
+      ],
+      "stressRegime": [
+        "maintenance"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "metaphor",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "E1",
+    "category": "E",
+    "text": "He was fired from his job.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "employer",
+      "patient": "he",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "employer"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "E2",
+    "category": "E",
+    "text": "The rocket was fired into space.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0.5,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "launch system",
+      "patient": "rocket",
+      "resource": "thrust",
+      "boundary": "launch boundary",
+      "authority": "launch controller"
+    },
+    "transition": {
+      "family": "launch",
+      "type": "launch_vehicle",
+      "direction": "out",
+      "polarity": 0.55,
+      "stateBefore": "rocket constrained on ground",
+      "stateAfter": "rocket moving into space"
+    },
+    "constraints": {
+      "invariants": [
+        "launch follows trajectory"
+      ],
+      "scarcity": [
+        "fuel"
+      ],
+      "stressRegime": [
+        "high energy"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "E3",
+    "category": "E",
+    "text": "The gun was fired.",
+    "motifBasis": [
+      0,
+      0.9,
+      0,
+      0,
+      0.5,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "trigger mechanism",
+      "patient": "gun",
+      "resource": "stored explosive energy",
+      "boundary": "barrel",
+      "authority": "shooter"
+    },
+    "transition": {
+      "family": "discharge",
+      "type": "weapon_discharge",
+      "direction": "out",
+      "polarity": -0.35,
+      "stateBefore": "weapon loaded",
+      "stateAfter": "weapon discharged"
+    },
+    "constraints": {
+      "invariants": [
+        "trigger releases stored energy"
+      ],
+      "scarcity": [
+        "ammunition"
+      ],
+      "stressRegime": [
+        "violent"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "E4",
+    "category": "E",
+    "text": "The clay was fired in a kiln.",
+    "motifBasis": [
+      0,
+      0.75,
+      0.35,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "kiln",
+      "patient": "clay",
+      "resource": "heat",
+      "boundary": "material phase",
+      "authority": "potter"
+    },
+    "transition": {
+      "family": "transform",
+      "type": "heat_transform",
+      "direction": "state_change",
+      "polarity": 0.35,
+      "stateBefore": "unfired clay",
+      "stateAfter": "hardened ceramic"
+    },
+    "constraints": {
+      "invariants": [
+        "heat changes material state"
+      ],
+      "scarcity": [
+        "heat"
+      ],
+      "stressRegime": [
+        "controlled"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "E5",
+    "category": "E",
+    "text": "The neuron fired.",
+    "motifBasis": [
+      0.35,
+      0.75,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0.75,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.65,
+      0,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "neuron",
+      "patient": "signal",
+      "resource": "electrical potential",
+      "boundary": "activation threshold",
+      "authority": null
+    },
+    "transition": {
+      "family": "signal_activation",
+      "type": "neural_spike",
+      "direction": "emit",
+      "polarity": 0.35,
+      "stateBefore": "below firing threshold",
+      "stateAfter": "action potential emitted"
+    },
+    "constraints": {
+      "invariants": [
+        "threshold crossing emits signal"
+      ],
+      "scarcity": [
+        "charge"
+      ],
+      "stressRegime": [
+        "fast"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "F1",
+    "category": "F",
+    "text": "The doctor cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "F2",
+    "category": "F",
+    "text": "The doctor denied him surgery.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "deny",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "F3",
+    "category": "F",
+    "text": "The compiler accepted the program.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "F4",
+    "category": "F",
+    "text": "The compiler rejected the program.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "reject",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "F5",
+    "category": "F",
+    "text": "The firewall blocked the packet.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "firewall",
+      "patient": "packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "firewall"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "F6",
+    "category": "F",
+    "text": "The firewall allowed the packet.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "firewall",
+      "patient": "packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "firewall"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "allow",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G1",
+    "category": "G",
+    "text": "The doctor cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G2",
+    "category": "G",
+    "text": "He cleared the doctor for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "he",
+      "patient": "doctor",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "he"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G3",
+    "category": "G",
+    "text": "The compiler accepted the program.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G4",
+    "category": "G",
+    "text": "The program accepted the compiler.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "program",
+      "patient": "compiler",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "program"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G5",
+    "category": "G",
+    "text": "The firewall blocked the packet.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "firewall",
+      "patient": "packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "firewall"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G6",
+    "category": "G",
+    "text": "The packet blocked the firewall.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "packet",
+      "patient": "firewall",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "packet"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G7",
+    "category": "G",
+    "text": "The manager fired the employee.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "manager",
+      "patient": "employee",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "manager"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G8",
+    "category": "G",
+    "text": "The employee fired the manager.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "employee",
+      "patient": "manager",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "employee"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G9",
+    "category": "G",
+    "text": "The judge sentenced the defendant.",
+    "motifBasis": [
+      0,
+      0.7,
+      0,
+      0,
+      0.5,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.65,
+      0
+    ],
+    "frame": {
+      "actor": "judge",
+      "patient": "defendant",
+      "resource": "sentence",
+      "boundary": "legal judgment",
+      "authority": "judge"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sentence",
+      "direction": "close",
+      "polarity": -0.75,
+      "stateBefore": "defendant awaits judgment",
+      "stateAfter": "defendant receives sentence"
+    },
+    "constraints": {
+      "invariants": [
+        "courts assign legal outcomes"
+      ],
+      "scarcity": [
+        "liberty"
+      ],
+      "stressRegime": [
+        "legal"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "G10",
+    "category": "G",
+    "text": "The defendant sentenced the judge.",
+    "motifBasis": [
+      0,
+      0.7,
+      0,
+      0,
+      0.5,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.65,
+      0
+    ],
+    "frame": {
+      "actor": "defendant",
+      "patient": "judge",
+      "resource": "sentence",
+      "boundary": "legal judgment",
+      "authority": "defendant"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sentence",
+      "direction": "close",
+      "polarity": -0.75,
+      "stateBefore": "judge awaits judgment",
+      "stateAfter": "judge receives sentence"
+    },
+    "constraints": {
+      "invariants": [
+        "courts assign legal outcomes"
+      ],
+      "scarcity": [
+        "liberty"
+      ],
+      "stressRegime": [
+        "invalid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H1",
+    "category": "H",
+    "text": "The doctor cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H2",
+    "category": "H",
+    "text": "The receptionist cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "receptionist",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "receptionist"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H3",
+    "category": "H",
+    "text": "The compiler accepted the program.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H4",
+    "category": "H",
+    "text": "The README accepted the program.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "README",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "README"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H5",
+    "category": "H",
+    "text": "The firewall blocked the packet.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "firewall",
+      "patient": "packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "firewall"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H6",
+    "category": "H",
+    "text": "The cable blocked the packet.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "cable",
+      "patient": "packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "cable"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "invalid_authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H7",
+    "category": "H",
+    "text": "The judge sentenced the defendant.",
+    "motifBasis": [
+      0,
+      0.7,
+      0,
+      0,
+      0.5,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.65,
+      0
+    ],
+    "frame": {
+      "actor": "judge",
+      "patient": "defendant",
+      "resource": "sentence",
+      "boundary": "legal judgment",
+      "authority": "judge"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sentence",
+      "direction": "close",
+      "polarity": -0.75,
+      "stateBefore": "defendant awaits judgment",
+      "stateAfter": "defendant receives sentence"
+    },
+    "constraints": {
+      "invariants": [
+        "courts assign legal outcomes"
+      ],
+      "scarcity": [
+        "liberty"
+      ],
+      "stressRegime": [
+        "legal"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  },
+  {
+    "id": "H8",
+    "category": "H",
+    "text": "The journalist sentenced the defendant.",
+    "motifBasis": [
+      0,
+      0.7,
+      0,
+      0,
+      0.5,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.65,
+      0
+    ],
+    "frame": {
+      "actor": "journalist",
+      "patient": "defendant",
+      "resource": "sentence",
+      "boundary": "legal judgment",
+      "authority": "journalist"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sentence",
+      "direction": "close",
+      "polarity": -0.75,
+      "stateBefore": "defendant awaits judgment",
+      "stateAfter": "defendant receives sentence"
+    },
+    "constraints": {
+      "invariants": [
+        "courts assign legal outcomes"
+      ],
+      "scarcity": [
+        "liberty"
+      ],
+      "stressRegime": [
+        "invalid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    }
+  }
+]

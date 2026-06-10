@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "T1",
+    "category": "T",
+    "text": "The fake inspector cleared the building, so tenants entered in violation of the safety order.",
+    "confidence": 0.78,
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "actual",
+    "processScope": "local_and_global",
+    "invariantStatus": "violated",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "fake_authority",
+          "label": "fake inspector lacks legal inspection authority",
+          "role": "legitimacy_failure",
+          "frame": {
+            "actor": "fake inspector",
+            "patient": "building",
+            "resource": "occupancy",
+            "boundary": "safety clearance",
+            "authority": "fake inspector"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "claim_clearance",
+            "direction": "open",
+            "polarity": 0.4,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "clearance_attempt",
+          "label": "surface clearance is issued",
+          "role": "trigger",
+          "frame": {
+            "actor": "fake inspector",
+            "patient": "building",
+            "resource": "occupancy",
+            "boundary": "safety clearance",
+            "authority": "fake inspector"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "clear",
+            "direction": "open",
+            "polarity": 0.5,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "safety_violation",
+          "label": "safety order is violated",
+          "role": "invariant_violation",
+          "frame": {
+            "actor": "tenants",
+            "patient": "building",
+            "resource": "occupancy",
+            "boundary": "safety order",
+            "authority": "city inspector"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "enter_despite_order",
+            "direction": "open",
+            "polarity": -0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "unsafe_occupancy",
+          "label": "unsafe occupancy follows",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "building",
+            "patient": "tenants",
+            "resource": "occupancy",
+            "boundary": "safety boundary",
+            "authority": "city inspector"
+          },
+          "transition": {
+            "family": "process",
+            "type": "unsafe_occupied",
+            "direction": "complete",
+            "polarity": -0.85,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "fake_authority",
+          "to": "clearance_attempt",
+          "type": "enables"
+        },
+        {
+          "from": "fake_authority",
+          "to": "safety_violation",
+          "type": "causes"
+        },
+        {
+          "from": "clearance_attempt",
+          "to": "safety_violation",
+          "type": "violates"
+        },
+        {
+          "from": "safety_violation",
+          "to": "unsafe_occupancy",
+          "type": "causes"
+        }
+      ]
+    }
+  },
+  {
+    "id": "T2",
+    "category": "T",
+    "text": "The intern approved the release, which bypassed change control and broke production.",
+    "confidence": 0.82,
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "actual",
+    "processScope": "local_and_global",
+    "invariantStatus": "violated",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "missing_authority",
+          "label": "intern lacks release authority",
+          "role": "legitimacy_failure",
+          "frame": {
+            "actor": "intern",
+            "patient": "release",
+            "resource": "deployment",
+            "boundary": "release gate",
+            "authority": "release manager"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "approve_release",
+            "direction": "open",
+            "polarity": -0.6,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "bypass_control",
+          "label": "change-control invariant bypassed",
+          "role": "invariant_violation",
+          "frame": {
+            "actor": "intern",
+            "patient": "production",
+            "resource": "deployment",
+            "boundary": "change control",
+            "authority": "release manager"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "bypass_change_control",
+            "direction": "open",
+            "polarity": -0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "prod_break",
+          "label": "production breaks downstream",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "deployment",
+            "patient": "production",
+            "resource": "service availability",
+            "boundary": "production health",
+            "authority": "ops"
+          },
+          "transition": {
+            "family": "process",
+            "type": "break_production",
+            "direction": "fail",
+            "polarity": -0.95,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "missing_authority",
+          "to": "bypass_control",
+          "type": "causes"
+        },
+        {
+          "from": "bypass_control",
+          "to": "prod_break",
+          "type": "causes"
+        }
+      ]
+    }
+  },
+  {
+    "id": "U1",
+    "category": "U",
+    "text": "The licensed surgeon completed the operation, but the patient later developed an unrelated infection.",
+    "confidence": 0.74,
+    "authorityLegitimacy": "valid",
+    "eventStatus": "actual",
+    "processScope": "global_process",
+    "invariantStatus": "satisfied",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "valid_surgeon",
+          "label": "surgeon has authority",
+          "role": "authority_source",
+          "frame": {
+            "actor": "surgeon",
+            "patient": "operation",
+            "resource": "medical procedure",
+            "boundary": "medical authority",
+            "authority": "hospital"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "authorize_surgery",
+            "direction": "open",
+            "polarity": 0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "operation_complete",
+          "label": "operation completed",
+          "role": "local_transition",
+          "frame": {
+            "actor": "surgeon",
+            "patient": "operation",
+            "resource": "procedure",
+            "boundary": "surgical process",
+            "authority": "surgeon"
+          },
+          "transition": {
+            "family": "process",
+            "type": "complete_operation",
+            "direction": "complete",
+            "polarity": 0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "infection",
+          "label": "unrelated infection occurs later",
+          "role": "downstream_effect",
+          "frame": {
+            "actor": "pathogen",
+            "patient": "patient",
+            "resource": "infection",
+            "boundary": "health state",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "develop_infection",
+            "direction": "fail",
+            "polarity": -0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "bad_outcome",
+          "label": "patient outcome is bad",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "infection",
+            "patient": "patient",
+            "resource": "health",
+            "boundary": "recovery",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "bad_outcome",
+            "direction": "fail",
+            "polarity": -0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "valid_surgeon",
+          "to": "operation_complete",
+          "type": "enables"
+        },
+        {
+          "from": "operation_complete",
+          "to": "bad_outcome",
+          "type": "part_of"
+        },
+        {
+          "from": "infection",
+          "to": "bad_outcome",
+          "type": "causes"
+        }
+      ]
+    }
+  },
+  {
+    "id": "U2",
+    "category": "U",
+    "text": "The bank validly approved the loan, but the borrower defaulted months later.",
+    "confidence": 0.76,
+    "authorityLegitimacy": "valid",
+    "eventStatus": "actual",
+    "processScope": "global_process",
+    "invariantStatus": "satisfied",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "bank_authority",
+          "label": "bank has lending authority",
+          "role": "authority_source",
+          "frame": {
+            "actor": "bank",
+            "patient": "loan",
+            "resource": "credit",
+            "boundary": "credit gate",
+            "authority": "bank"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "approve_loan",
+            "direction": "open",
+            "polarity": 0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "loan_approved",
+          "label": "loan approval completed",
+          "role": "local_transition",
+          "frame": {
+            "actor": "bank",
+            "patient": "borrower",
+            "resource": "loan",
+            "boundary": "credit access",
+            "authority": "bank"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "approve",
+            "direction": "open",
+            "polarity": 0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "default",
+          "label": "borrower defaults downstream",
+          "role": "downstream_effect",
+          "frame": {
+            "actor": "borrower",
+            "patient": "loan",
+            "resource": "repayment",
+            "boundary": "repayment process",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "default",
+            "direction": "fail",
+            "polarity": -0.85,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "credit_loss",
+          "label": "global credit outcome fails",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "default",
+            "patient": "bank",
+            "resource": "capital",
+            "boundary": "repayment invariant",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "loss",
+            "direction": "fail",
+            "polarity": -0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "bank_authority",
+          "to": "loan_approved",
+          "type": "enables"
+        },
+        {
+          "from": "loan_approved",
+          "to": "default",
+          "type": "part_of"
+        },
+        {
+          "from": "default",
+          "to": "credit_loss",
+          "type": "causes"
+        }
+      ]
+    }
+  },
+  {
+    "id": "V1",
+    "category": "V",
+    "text": "The fake inspector tried to clear the building, but the city blocked the occupancy permit.",
+    "confidence": 0.84,
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "blocked",
+    "processScope": "local_transition",
+    "invariantStatus": "preserved",
+    "terminalOutcome": "blocked",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "fake_authority",
+          "label": "fake inspector lacks authority",
+          "role": "legitimacy_failure",
+          "frame": {
+            "actor": "fake inspector",
+            "patient": "building",
+            "resource": "occupancy",
+            "boundary": "safety clearance",
+            "authority": "fake inspector"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "attempt_clear",
+            "direction": "open",
+            "polarity": -0.5,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "attempt",
+          "label": "invalid clearance attempt",
+          "role": "trigger",
+          "frame": {
+            "actor": "fake inspector",
+            "patient": "building",
+            "resource": "occupancy",
+            "boundary": "safety clearance",
+            "authority": "fake inspector"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "try_clear",
+            "direction": "attempt",
+            "polarity": -0.2,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "city_block",
+          "label": "city blocks permit",
+          "role": "mechanism",
+          "frame": {
+            "actor": "city",
+            "patient": "occupancy permit",
+            "resource": "occupancy",
+            "boundary": "permit gate",
+            "authority": "city"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "block_permit",
+            "direction": "close",
+            "polarity": 0.75,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "invariant_preserved",
+          "label": "safety invariant preserved",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "city",
+            "patient": "building",
+            "resource": "occupancy",
+            "boundary": "safety order",
+            "authority": "city"
+          },
+          "transition": {
+            "family": "process",
+            "type": "preserve_safety",
+            "direction": "complete",
+            "polarity": 0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "fake_authority",
+          "to": "attempt",
+          "type": "attempts"
+        },
+        {
+          "from": "city_block",
+          "to": "attempt",
+          "type": "blocks"
+        },
+        {
+          "from": "city_block",
+          "to": "invariant_preserved",
+          "type": "preserves"
+        }
+      ]
+    }
+  },
+  {
+    "id": "V2",
+    "category": "V",
+    "text": "The chatbot attempted to approve the mortgage, but underwriting rejected it before closing.",
+    "confidence": 0.8,
+    "authorityLegitimacy": "invalid",
+    "eventStatus": "blocked",
+    "processScope": "local_transition",
+    "invariantStatus": "preserved",
+    "terminalOutcome": "blocked",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "bot_no_authority",
+          "label": "chatbot lacks lending authority",
+          "role": "legitimacy_failure",
+          "frame": {
+            "actor": "chatbot",
+            "patient": "mortgage",
+            "resource": "credit access",
+            "boundary": "credit gate",
+            "authority": "lender"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "attempt_approve",
+            "direction": "open",
+            "polarity": -0.5,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "approval_attempt",
+          "label": "invalid approval attempt",
+          "role": "trigger",
+          "frame": {
+            "actor": "chatbot",
+            "patient": "mortgage",
+            "resource": "credit access",
+            "boundary": "credit gate",
+            "authority": "chatbot"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "try_approve",
+            "direction": "attempt",
+            "polarity": -0.2,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "underwriting_block",
+          "label": "underwriting blocks before closing",
+          "role": "mechanism",
+          "frame": {
+            "actor": "underwriting",
+            "patient": "mortgage",
+            "resource": "closing",
+            "boundary": "credit invariant",
+            "authority": "lender"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "reject",
+            "direction": "close",
+            "polarity": 0.7,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "no_loan",
+          "label": "loan does not close",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "underwriting",
+            "patient": "mortgage",
+            "resource": "credit",
+            "boundary": "closing",
+            "authority": "lender"
+          },
+          "transition": {
+            "family": "process",
+            "type": "no_close",
+            "direction": "blocked",
+            "polarity": 0.65,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "bot_no_authority",
+          "to": "approval_attempt",
+          "type": "attempts"
+        },
+        {
+          "from": "underwriting_block",
+          "to": "approval_attempt",
+          "type": "blocks"
+        },
+        {
+          "from": "underwriting_block",
+          "to": "no_loan",
+          "type": "preserves"
+        }
+      ]
+    }
+  },
+  {
+    "id": "W1",
+    "category": "W",
+    "text": "The authorized payment processor charged the frozen account.",
+    "confidence": 0.78,
+    "authorityLegitimacy": "valid",
+    "eventStatus": "actual",
+    "processScope": "local_transition",
+    "invariantStatus": "violated",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "processor_authority",
+          "label": "processor has payment authority",
+          "role": "authority_source",
+          "frame": {
+            "actor": "payment processor",
+            "patient": "account",
+            "resource": "fund transfer",
+            "boundary": "payment gate",
+            "authority": "processor"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "charge",
+            "direction": "open",
+            "polarity": 0.7,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "frozen_account",
+          "label": "frozen account invariant",
+          "role": "precondition",
+          "frame": {
+            "actor": "bank",
+            "patient": "account",
+            "resource": "freeze",
+            "boundary": "account-freeze invariant",
+            "authority": "bank"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "freeze",
+            "direction": "close",
+            "polarity": 0.6,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "charge_occurs",
+          "label": "charge succeeds locally",
+          "role": "local_transition",
+          "frame": {
+            "actor": "processor",
+            "patient": "account",
+            "resource": "funds",
+            "boundary": "payment process",
+            "authority": "processor"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "charge",
+            "direction": "open",
+            "polarity": 0.6,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "freeze_violation",
+          "label": "freeze invariant violated",
+          "role": "invariant_violation",
+          "frame": {
+            "actor": "processor",
+            "patient": "account",
+            "resource": "funds",
+            "boundary": "account-freeze invariant",
+            "authority": "bank"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "charge_frozen_account",
+            "direction": "open",
+            "polarity": -0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "processor_authority",
+          "to": "charge_occurs",
+          "type": "enables"
+        },
+        {
+          "from": "frozen_account",
+          "to": "charge_occurs",
+          "type": "blocks"
+        },
+        {
+          "from": "charge_occurs",
+          "to": "freeze_violation",
+          "type": "violates"
+        }
+      ]
+    }
+  },
+  {
+    "id": "W2",
+    "category": "W",
+    "text": "The authorized deployment skipped the required backup step.",
+    "confidence": 0.81,
+    "authorityLegitimacy": "valid",
+    "eventStatus": "actual",
+    "processScope": "local_transition",
+    "invariantStatus": "violated",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "release_authority",
+          "label": "release authority is valid",
+          "role": "authority_source",
+          "frame": {
+            "actor": "release manager",
+            "patient": "deployment",
+            "resource": "release",
+            "boundary": "release gate",
+            "authority": "release manager"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "approve_deploy",
+            "direction": "open",
+            "polarity": 0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "backup_required",
+          "label": "backup invariant required",
+          "role": "precondition",
+          "frame": {
+            "actor": "system",
+            "patient": "backup",
+            "resource": "rollback point",
+            "boundary": "deployment invariant",
+            "authority": "ops"
+          },
+          "transition": {
+            "family": "process",
+            "type": "require_backup",
+            "direction": "precondition",
+            "polarity": 0.7,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "deploy_occurs",
+          "label": "deployment occurs",
+          "role": "local_transition",
+          "frame": {
+            "actor": "release manager",
+            "patient": "production",
+            "resource": "deployment",
+            "boundary": "deployment process",
+            "authority": "release manager"
+          },
+          "transition": {
+            "family": "process",
+            "type": "deploy",
+            "direction": "complete",
+            "polarity": 0.5,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "backup_violation",
+          "label": "backup invariant violated",
+          "role": "invariant_violation",
+          "frame": {
+            "actor": "deployment",
+            "patient": "backup",
+            "resource": "rollback point",
+            "boundary": "deployment invariant",
+            "authority": "ops"
+          },
+          "transition": {
+            "family": "process",
+            "type": "skip_backup",
+            "direction": "violate",
+            "polarity": -0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "release_authority",
+          "to": "deploy_occurs",
+          "type": "enables"
+        },
+        {
+          "from": "backup_required",
+          "to": "deploy_occurs",
+          "type": "blocks"
+        },
+        {
+          "from": "deploy_occurs",
+          "to": "backup_violation",
+          "type": "violates"
+        }
+      ]
+    }
+  },
+  {
+    "id": "X1",
+    "category": "X",
+    "text": "The login succeeded, but the dashboard crashed because of a separate rendering bug.",
+    "confidence": 0.83,
+    "authorityLegitimacy": "valid",
+    "eventStatus": "actual",
+    "processScope": "local_and_global",
+    "invariantStatus": "satisfied",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "auth_valid",
+          "label": "auth service valid",
+          "role": "authority_source",
+          "frame": {
+            "actor": "auth service",
+            "patient": "login",
+            "resource": "session",
+            "boundary": "authentication gate",
+            "authority": "auth service"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "authorize_login",
+            "direction": "open",
+            "polarity": 0.8,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "login_success",
+          "label": "login succeeds locally",
+          "role": "local_transition",
+          "frame": {
+            "actor": "auth service",
+            "patient": "user",
+            "resource": "session",
+            "boundary": "authentication gate",
+            "authority": "auth service"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "login",
+            "direction": "open",
+            "polarity": 0.85,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "render_bug",
+          "label": "separate rendering bug",
+          "role": "downstream_effect",
+          "frame": {
+            "actor": "frontend",
+            "patient": "dashboard",
+            "resource": "render tree",
+            "boundary": "UI process",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "render_bug",
+            "direction": "fail",
+            "polarity": -0.7,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "dashboard_crash",
+          "label": "terminal dashboard failure",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "dashboard",
+            "patient": "user",
+            "resource": "screen",
+            "boundary": "UI process",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "crash",
+            "direction": "fail",
+            "polarity": -0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "auth_valid",
+          "to": "login_success",
+          "type": "enables"
+        },
+        {
+          "from": "login_success",
+          "to": "dashboard_crash",
+          "type": "part_of"
+        },
+        {
+          "from": "render_bug",
+          "to": "dashboard_crash",
+          "type": "causes"
+        }
+      ]
+    }
+  },
+  {
+    "id": "X2",
+    "category": "X",
+    "text": "The payment authorization succeeded, but shipping failed because the address was incomplete.",
+    "confidence": 0.79,
+    "authorityLegitimacy": "valid",
+    "eventStatus": "actual",
+    "processScope": "local_and_global",
+    "invariantStatus": "satisfied",
+    "terminalOutcome": "failure",
+    "schemaInsufficiency": null,
+    "graph": {
+      "nodes": [
+        {
+          "id": "payment_authority",
+          "label": "payment processor valid",
+          "role": "authority_source",
+          "frame": {
+            "actor": "payment processor",
+            "patient": "payment",
+            "resource": "authorization",
+            "boundary": "payment gate",
+            "authority": "processor"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "authorize_payment",
+            "direction": "open",
+            "polarity": 0.85,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "payment_success",
+          "label": "payment authorization succeeds",
+          "role": "local_transition",
+          "frame": {
+            "actor": "processor",
+            "patient": "order",
+            "resource": "payment",
+            "boundary": "payment gate",
+            "authority": "processor"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "authorize",
+            "direction": "open",
+            "polarity": 0.85,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "bad_address",
+          "label": "address incomplete",
+          "role": "downstream_effect",
+          "frame": {
+            "actor": "customer",
+            "patient": "address",
+            "resource": "shipping data",
+            "boundary": "fulfillment process",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "missing_address",
+            "direction": "fail",
+            "polarity": -0.65,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        },
+        {
+          "id": "shipping_failure",
+          "label": "shipping fails terminally",
+          "role": "terminal_outcome",
+          "frame": {
+            "actor": "shipper",
+            "patient": "order",
+            "resource": "delivery",
+            "boundary": "fulfillment process",
+            "authority": null
+          },
+          "transition": {
+            "family": "process",
+            "type": "shipping_fail",
+            "direction": "fail",
+            "polarity": -0.9,
+            "stateBefore": "before",
+            "stateAfter": "after"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "payment_authority",
+          "to": "payment_success",
+          "type": "enables"
+        },
+        {
+          "from": "payment_success",
+          "to": "shipping_failure",
+          "type": "part_of"
+        },
+        {
+          "from": "bad_address",
+          "to": "shipping_failure",
+          "type": "causes"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,1956 @@
+[
+  {
+    "id": "I1",
+    "category": "I",
+    "text": "The doctor cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.96,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "I2",
+    "category": "I",
+    "text": "He was cleared by the doctor for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.94,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "I3",
+    "category": "I",
+    "text": "The manager fired the employee.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "manager",
+      "patient": "employee",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "manager"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.96,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "I4",
+    "category": "I",
+    "text": "The employee was fired by the manager.",
+    "motifBasis": [
+      0,
+      0.95,
+      0,
+      0.45,
+      0.85,
+      0.7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.9,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "manager",
+      "patient": "employee",
+      "resource": "job",
+      "boundary": "institutional role membership",
+      "authority": "manager"
+    },
+    "transition": {
+      "family": "eject",
+      "type": "employment_termination",
+      "direction": "out",
+      "polarity": -0.85,
+      "stateBefore": "person inside role boundary",
+      "stateAfter": "person outside role boundary"
+    },
+    "constraints": {
+      "invariants": [
+        "employer controls role membership"
+      ],
+      "scarcity": [
+        "job"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "J1",
+    "category": "J",
+    "text": "The doctor cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "J2",
+    "category": "J",
+    "text": "The receptionist cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "receptionist",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "receptionist"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "invalid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.86,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "J3",
+    "category": "J",
+    "text": "The judge sentenced the defendant.",
+    "motifBasis": [
+      0,
+      0.7,
+      0,
+      0,
+      0.5,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.65,
+      0
+    ],
+    "frame": {
+      "actor": "judge",
+      "patient": "defendant",
+      "resource": "sentence",
+      "boundary": "legal judgment",
+      "authority": "judge"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sentence",
+      "direction": "close",
+      "polarity": -0.75,
+      "stateBefore": "defendant awaits judgment",
+      "stateAfter": "defendant receives sentence"
+    },
+    "constraints": {
+      "invariants": [
+        "courts assign legal outcomes"
+      ],
+      "scarcity": [
+        "liberty"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "J4",
+    "category": "J",
+    "text": "The journalist sentenced the defendant.",
+    "motifBasis": [
+      0,
+      0.7,
+      0,
+      0,
+      0.5,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.65,
+      0
+    ],
+    "frame": {
+      "actor": "journalist",
+      "patient": "defendant",
+      "resource": "sentence",
+      "boundary": "legal judgment",
+      "authority": "journalist"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "sentence",
+      "direction": "close",
+      "polarity": -0.75,
+      "stateBefore": "defendant awaits judgment",
+      "stateAfter": "defendant receives sentence"
+    },
+    "constraints": {
+      "invariants": [
+        "courts assign legal outcomes"
+      ],
+      "scarcity": [
+        "liberty"
+      ],
+      "stressRegime": [
+        "invalid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.82,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "J5",
+    "category": "J",
+    "text": "They cleared him.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.45,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.6,
+      "stateBefore": "underspecified before-state",
+      "stateAfter": "underspecified after-state"
+    },
+    "constraints": {
+      "invariants": [
+        "context required"
+      ],
+      "scarcity": [],
+      "stressRegime": [
+        "ambiguous"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.58,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "missing authority domain: could be medical, legal, security, or social clearance",
+      "candidateFrames": [
+        {
+          "label": "medical_gate",
+          "frame": {
+            "actor": "doctor",
+            "patient": "him",
+            "resource": "surgery",
+            "boundary": "permission gate",
+            "authority": "doctor"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "clear",
+            "direction": "open",
+            "polarity": 0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.35
+        },
+        {
+          "label": "security_gate",
+          "frame": {
+            "actor": "security officer",
+            "patient": "him",
+            "resource": "restricted area",
+            "boundary": "permission gate",
+            "authority": "security officer"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "clear",
+            "direction": "open",
+            "polarity": 0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.3
+        },
+        {
+          "label": "legal_gate",
+          "frame": {
+            "actor": "court",
+            "patient": "him",
+            "resource": "charge",
+            "boundary": "legal judgment",
+            "authority": "court"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "clear",
+            "direction": "open",
+            "polarity": 0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "id": "J6",
+    "category": "J",
+    "text": "The security officer cleared him through the checkpoint.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "security officer",
+      "patient": "him",
+      "resource": "checkpoint passage",
+      "boundary": "permission gate",
+      "authority": "security officer"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "checkpoint passage"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.93,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "K1",
+    "category": "K",
+    "text": "The bank blocked the transfer.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.45,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "bank",
+      "patient": "transfer",
+      "resource": "fund movement",
+      "boundary": "permission gate",
+      "authority": "bank"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.6,
+      "stateBefore": "underspecified before-state",
+      "stateAfter": "underspecified after-state"
+    },
+    "constraints": {
+      "invariants": [
+        "context required"
+      ],
+      "scarcity": [],
+      "stressRegime": [
+        "ambiguous"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.58,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "bank may be financial institution or river bank without context",
+      "candidateFrames": [
+        {
+          "label": "financial_gate",
+          "frame": {
+            "actor": "bank",
+            "patient": "transfer",
+            "resource": "fund movement",
+            "boundary": "permission gate",
+            "authority": "bank"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "block",
+            "direction": "close",
+            "polarity": -0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.55
+        },
+        {
+          "label": "physical_boundary",
+          "frame": {
+            "actor": "river bank",
+            "patient": "transfer",
+            "resource": "river crossing",
+            "boundary": "physical boundary",
+            "authority": null
+          },
+          "transition": {
+            "family": "gate",
+            "type": "block",
+            "direction": "close",
+            "polarity": -0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.25
+        }
+      ]
+    }
+  },
+  {
+    "id": "K2",
+    "category": "K",
+    "text": "The bank blocked the wire transfer after fraud checks.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "bank",
+      "patient": "wire transfer",
+      "resource": "fund movement",
+      "boundary": "permission gate",
+      "authority": "bank"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "fund movement"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "K3",
+    "category": "K",
+    "text": "The server rejected the request.",
+    "motifBasis": [
+      0,
+      0.5,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.45,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "server",
+      "patient": "request",
+      "resource": "API access",
+      "boundary": "permission gate",
+      "authority": "server"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "reject",
+      "direction": "close",
+      "polarity": -0.6,
+      "stateBefore": "underspecified before-state",
+      "stateAfter": "underspecified after-state"
+    },
+    "constraints": {
+      "invariants": [
+        "context required"
+      ],
+      "scarcity": [],
+      "stressRegime": [
+        "ambiguous"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.58,
+    "ambiguity": {
+      "status": "AMBIGUOUS",
+      "reason": "server may be software service or human server without context",
+      "candidateFrames": [
+        {
+          "label": "software_gate",
+          "frame": {
+            "actor": "server",
+            "patient": "request",
+            "resource": "API access",
+            "boundary": "permission gate",
+            "authority": "server"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "reject",
+            "direction": "close",
+            "polarity": -0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.6
+        },
+        {
+          "label": "service_refusal",
+          "frame": {
+            "actor": "restaurant server",
+            "patient": "request",
+            "resource": "service",
+            "boundary": "social service boundary",
+            "authority": "restaurant server"
+          },
+          "transition": {
+            "family": "gate",
+            "type": "reject",
+            "direction": "close",
+            "polarity": -0.6,
+            "stateBefore": "underspecified before-state",
+            "stateAfter": "underspecified after-state"
+          },
+          "probability": 0.25
+        }
+      ]
+    }
+  },
+  {
+    "id": "K4",
+    "category": "K",
+    "text": "The API server rejected the malformed request.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "API server",
+      "patient": "request",
+      "resource": "API access",
+      "boundary": "permission gate",
+      "authority": "API server"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "reject",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "API access"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "L1",
+    "category": "L",
+    "text": "The doctor cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "clear",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "L2",
+    "category": "L",
+    "text": "The doctor did not clear him for surgery.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "not_clear",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.95,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "L3",
+    "category": "L",
+    "text": "The doctor may clear him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "possible_clear",
+      "direction": "pending",
+      "polarity": 0.55,
+      "stateBefore": "candidate awaits possible gate decision",
+      "stateAfter": "outcome unresolved"
+    },
+    "constraints": {
+      "invariants": [
+        "gate decision not realized"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "modal"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.62,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "L4",
+    "category": "L",
+    "text": "The doctor has not yet cleared him for surgery.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.35,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "doctor",
+      "patient": "him",
+      "resource": "surgery",
+      "boundary": "permission gate",
+      "authority": "doctor"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "pending_clear",
+      "direction": "pending",
+      "polarity": 0,
+      "stateBefore": "candidate awaits possible gate decision",
+      "stateAfter": "outcome unresolved"
+    },
+    "constraints": {
+      "invariants": [
+        "gate decision not realized"
+      ],
+      "scarcity": [
+        "surgery"
+      ],
+      "stressRegime": [
+        "pending"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.72,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "L5",
+    "category": "L",
+    "text": "The compiler accepted the program.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.96,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "L6",
+    "category": "L",
+    "text": "The compiler could accept the program.",
+    "motifBasis": [
+      0,
+      0.45,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0.8,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "possible_accept",
+      "direction": "open",
+      "polarity": 0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access granted"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "modal"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.68,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "M1",
+    "category": "M",
+    "text": "Great, the firewall blocked the safe packet.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "firewall",
+      "patient": "safe packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "firewall"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "sarcasm"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "sarcasm",
+      "register": "sarcastic"
+    },
+    "confidence": 0.82,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "M2",
+    "category": "M",
+    "text": "The firewall blocked the safe packet.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "firewall",
+      "patient": "safe packet",
+      "resource": "network passage",
+      "boundary": "permission gate",
+      "authority": "firewall"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "block",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "network passage"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.94,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "M3",
+    "category": "M",
+    "text": "Fantastic, the compiler rejected the working program.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "working program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "reject",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "sarcasm"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "sarcasm",
+      "register": "sarcastic"
+    },
+    "confidence": 0.8,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  },
+  {
+    "id": "M4",
+    "category": "M",
+    "text": "The compiler rejected the working program.",
+    "motifBasis": [
+      0,
+      0.55,
+      0,
+      0,
+      0.85,
+      0.55,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.45,
+      0.7,
+      0,
+      0
+    ],
+    "frame": {
+      "actor": "compiler",
+      "patient": "working program",
+      "resource": "valid executable path",
+      "boundary": "permission gate",
+      "authority": "compiler"
+    },
+    "transition": {
+      "family": "gate",
+      "type": "reject",
+      "direction": "close",
+      "polarity": -0.8,
+      "stateBefore": "candidate awaits gate decision",
+      "stateAfter": "access denied"
+    },
+    "constraints": {
+      "invariants": [
+        "gatekeeper evaluates candidate"
+      ],
+      "scarcity": [
+        "valid executable path"
+      ],
+      "stressRegime": [
+        "valid authority"
+      ]
+    },
+    "expression": {
+      "language": "English",
+      "literalness": "literal",
+      "register": "neutral"
+    },
+    "confidence": 0.94,
+    "ambiguity": {
+      "status": "RESOLVED",
+      "reason": null,
+      "candidateFrames": []
+    }
+  }
+]

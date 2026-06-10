@@ -1,0 +1,3205 @@
+[
+  {
+    "category": "Y1",
+    "title": "release incident",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "09:00",
+        "actor": "CI",
+        "action": "passed",
+        "target": "unit tests",
+        "status": "success",
+        "message": "Unit test gate passed."
+      },
+      {
+        "id": "e2",
+        "timestamp": "09:04",
+        "actor": "CD",
+        "action": "marked",
+        "target": "deployment successful",
+        "status": "success",
+        "message": "Deploy step returned success."
+      },
+      {
+        "id": "e3",
+        "timestamp": "09:05",
+        "actor": "release bot",
+        "action": "closed",
+        "target": "release ticket",
+        "status": "success",
+        "message": "Ticket closed from deploy success signal."
+      },
+      {
+        "id": "e4",
+        "timestamp": "09:07",
+        "actor": "health check",
+        "action": "reported",
+        "target": "500 spike",
+        "status": "failure",
+        "message": "Global service health is failing."
+      },
+      {
+        "id": "e5",
+        "timestamp": "09:09",
+        "actor": "rollback",
+        "action": "failed",
+        "target": "database migration",
+        "status": "failure",
+        "message": "Migration is irreversible without restore."
+      },
+      {
+        "id": "e6",
+        "timestamp": "09:14",
+        "actor": "incident commander",
+        "action": "reopened",
+        "target": "release",
+        "status": "failure",
+        "message": "Parent release process not terminal-valid."
+      }
+    ],
+    "gold": {
+      "id": "Y1",
+      "category": "Y1",
+      "title": "release incident",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "09:00",
+          "actor": "CI",
+          "action": "passed",
+          "target": "unit tests",
+          "status": "success",
+          "message": "Unit test gate passed."
+        },
+        {
+          "id": "e2",
+          "timestamp": "09:04",
+          "actor": "CD",
+          "action": "marked",
+          "target": "deployment successful",
+          "status": "success",
+          "message": "Deploy step returned success."
+        },
+        {
+          "id": "e3",
+          "timestamp": "09:05",
+          "actor": "release bot",
+          "action": "closed",
+          "target": "release ticket",
+          "status": "success",
+          "message": "Ticket closed from deploy success signal."
+        },
+        {
+          "id": "e4",
+          "timestamp": "09:07",
+          "actor": "health check",
+          "action": "reported",
+          "target": "500 spike",
+          "status": "failure",
+          "message": "Global service health is failing."
+        },
+        {
+          "id": "e5",
+          "timestamp": "09:09",
+          "actor": "rollback",
+          "action": "failed",
+          "target": "database migration",
+          "status": "failure",
+          "message": "Migration is irreversible without restore."
+        },
+        {
+          "id": "e6",
+          "timestamp": "09:14",
+          "actor": "incident commander",
+          "action": "reopened",
+          "target": "release",
+          "status": "failure",
+          "message": "Parent release process not terminal-valid."
+        }
+      ],
+      "entities": [
+        {
+          "id": "CI",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "unit tests",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "CD",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "deployment successful",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "release bot",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "release ticket",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "health check",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "500 spike",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "rollback",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "database migration",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "incident commander",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "release",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "tests_pass",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "CI",
+          "patient": "release",
+          "boundary": "test gate",
+          "authority": "CI",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "deploy_success",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "CD",
+          "patient": "release",
+          "boundary": "deploy boundary",
+          "authority": "CD",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "ticket_closed",
+          "sourceEvent": "e3",
+          "role": "premature_transition",
+          "actor": "release bot",
+          "patient": "release ticket",
+          "boundary": "release workflow",
+          "authority": "release bot",
+          "localStatus": "success",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "health_fail",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "health check",
+          "patient": "service",
+          "boundary": "service health",
+          "authority": "SLO",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "migration_irreversible",
+          "sourceEvent": "e5",
+          "role": "irreversible_transition",
+          "actor": "rollback",
+          "patient": "database",
+          "boundary": "migration boundary",
+          "authority": "DBA",
+          "localStatus": "failure",
+          "globalContribution": "degrades"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "tests_pass",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "CI",
+            "patient": "release",
+            "boundary": "test gate",
+            "authority": "CI",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "deploy_success",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "CD",
+            "patient": "release",
+            "boundary": "deploy boundary",
+            "authority": "CD",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "ticket_closed",
+            "sourceEvent": "e3",
+            "role": "premature_transition",
+            "actor": "release bot",
+            "patient": "release ticket",
+            "boundary": "release workflow",
+            "authority": "release bot",
+            "localStatus": "success",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "health_fail",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "health check",
+            "patient": "service",
+            "boundary": "service health",
+            "authority": "SLO",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "migration_irreversible",
+            "sourceEvent": "e5",
+            "role": "irreversible_transition",
+            "actor": "rollback",
+            "patient": "database",
+            "boundary": "migration boundary",
+            "authority": "DBA",
+            "localStatus": "failure",
+            "globalContribution": "degrades"
+          }
+        ],
+        "edges": [
+          {
+            "from": "tests_pass",
+            "to": "deploy_success",
+            "type": "enables"
+          },
+          {
+            "from": "deploy_success",
+            "to": "ticket_closed",
+            "type": "causes"
+          },
+          {
+            "from": "deploy_success",
+            "to": "health_fail",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "migration_irreversible",
+            "to": "health_fail",
+            "type": "causes"
+          }
+        ],
+        "rootCauses": [
+          "deploy_success"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Boundary",
+        "Invariant",
+        "Decay",
+        "Feedback"
+      ],
+      "prescription": [
+        "Require health/SLO reconciliation before closing release.",
+        "Treat deploy success as local transition, not parent terminal state.",
+        "Add reversible migration checkpoint."
+      ],
+      "confidence": 0.82,
+      "detection": {
+        "falseTerminalStates": [
+          "deploy_success"
+        ],
+        "prematureTransitions": [
+          "ticket_closed"
+        ],
+        "irreversibleTransitions": [
+          "migration_irreversible"
+        ],
+        "violatedInvariants": [],
+        "authorityFailures": [],
+        "reconciliationFailures": [],
+        "decaySources": [
+          "migration_irreversible"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Y1",
+      "category": "Y1",
+      "title": "release incident",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "09:00",
+          "actor": "CI",
+          "action": "passed",
+          "target": "unit tests",
+          "status": "success",
+          "message": "Unit test gate passed."
+        },
+        {
+          "id": "e2",
+          "timestamp": "09:04",
+          "actor": "CD",
+          "action": "marked",
+          "target": "deployment successful",
+          "status": "success",
+          "message": "Deploy step returned success."
+        },
+        {
+          "id": "e3",
+          "timestamp": "09:05",
+          "actor": "release bot",
+          "action": "closed",
+          "target": "release ticket",
+          "status": "success",
+          "message": "Ticket closed from deploy success signal."
+        },
+        {
+          "id": "e4",
+          "timestamp": "09:07",
+          "actor": "health check",
+          "action": "reported",
+          "target": "500 spike",
+          "status": "failure",
+          "message": "Global service health is failing."
+        },
+        {
+          "id": "e5",
+          "timestamp": "09:09",
+          "actor": "rollback",
+          "action": "failed",
+          "target": "database migration",
+          "status": "failure",
+          "message": "Migration is irreversible without restore."
+        },
+        {
+          "id": "e6",
+          "timestamp": "09:14",
+          "actor": "incident commander",
+          "action": "reopened",
+          "target": "release",
+          "status": "failure",
+          "message": "Parent release process not terminal-valid."
+        }
+      ],
+      "entities": [
+        {
+          "id": "CI",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "unit tests",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "CD",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "deployment successful",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "release bot",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "release ticket",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "health check",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "500 spike",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "rollback",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "database migration",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "incident commander",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "release",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "tests_pass",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "CI",
+          "patient": "release",
+          "boundary": "test gate",
+          "authority": "CI",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "deploy_success",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "CD",
+          "patient": "release",
+          "boundary": "deploy boundary",
+          "authority": "CD",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "ticket_closed",
+          "sourceEvent": "e3",
+          "role": "premature_transition",
+          "actor": "release bot",
+          "patient": "release ticket",
+          "boundary": "release workflow",
+          "authority": "release bot",
+          "localStatus": "success",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "health_fail",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "health check",
+          "patient": "service",
+          "boundary": "service health",
+          "authority": "SLO",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "migration_irreversible",
+          "sourceEvent": "e5",
+          "role": "irreversible_transition",
+          "actor": "rollback",
+          "patient": "database",
+          "boundary": "migration boundary",
+          "authority": "DBA",
+          "localStatus": "failure",
+          "globalContribution": "degrades"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "tests_pass",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "CI",
+            "patient": "release",
+            "boundary": "test gate",
+            "authority": "CI",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "deploy_success",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "CD",
+            "patient": "release",
+            "boundary": "deploy boundary",
+            "authority": "CD",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "ticket_closed",
+            "sourceEvent": "e3",
+            "role": "premature_transition",
+            "actor": "release bot",
+            "patient": "release ticket",
+            "boundary": "release workflow",
+            "authority": "release bot",
+            "localStatus": "success",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "health_fail",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "health check",
+            "patient": "service",
+            "boundary": "service health",
+            "authority": "SLO",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "migration_irreversible",
+            "sourceEvent": "e5",
+            "role": "irreversible_transition",
+            "actor": "rollback",
+            "patient": "database",
+            "boundary": "migration boundary",
+            "authority": "DBA",
+            "localStatus": "failure",
+            "globalContribution": "degrades"
+          }
+        ],
+        "edges": [
+          {
+            "from": "tests_pass",
+            "to": "deploy_success",
+            "type": "enables"
+          },
+          {
+            "from": "deploy_success",
+            "to": "ticket_closed",
+            "type": "causes"
+          },
+          {
+            "from": "deploy_success",
+            "to": "health_fail",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "migration_irreversible",
+            "to": "health_fail",
+            "type": "causes"
+          }
+        ],
+        "rootCauses": [
+          "deploy_success"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Boundary",
+        "Invariant",
+        "Decay",
+        "Feedback"
+      ],
+      "prescription": [
+        "Require health/SLO reconciliation before closing release.",
+        "Treat deploy success as local transition, not parent terminal state.",
+        "Add reversible migration checkpoint."
+      ],
+      "confidence": 0.82,
+      "detection": {
+        "falseTerminalStates": [
+          "deploy_success"
+        ],
+        "prematureTransitions": [
+          "ticket_closed"
+        ],
+        "irreversibleTransitions": [
+          "migration_irreversible"
+        ],
+        "violatedInvariants": [],
+        "authorityFailures": [],
+        "reconciliationFailures": [],
+        "decaySources": [
+          "migration_irreversible"
+        ]
+      }
+    }
+  },
+  {
+    "category": "Y2",
+    "title": "account signup failure",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "10:00",
+        "actor": "signup API",
+        "action": "created",
+        "target": "user row",
+        "status": "success",
+        "message": "Local account row created."
+      },
+      {
+        "id": "e2",
+        "timestamp": "10:01",
+        "actor": "email service",
+        "action": "sent",
+        "target": "verification email",
+        "status": "success",
+        "message": "Verification sent."
+      },
+      {
+        "id": "e3",
+        "timestamp": "10:02",
+        "actor": "profile service",
+        "action": "failed",
+        "target": "profile creation",
+        "status": "failure",
+        "message": "Required profile invariant missing."
+      },
+      {
+        "id": "e4",
+        "timestamp": "10:03",
+        "actor": "signup API",
+        "action": "returned",
+        "target": "201 Created",
+        "status": "success",
+        "message": "False terminal response sent."
+      },
+      {
+        "id": "e5",
+        "timestamp": "10:05",
+        "actor": "login service",
+        "action": "blocked",
+        "target": "new user login",
+        "status": "blocked",
+        "message": "User cannot log in without profile."
+      },
+      {
+        "id": "e6",
+        "timestamp": "10:08",
+        "actor": "support",
+        "action": "opened",
+        "target": "signup incident",
+        "status": "failure",
+        "message": "Parent signup failed."
+      }
+    ],
+    "gold": {
+      "id": "Y2",
+      "category": "Y2",
+      "title": "account signup failure",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "10:00",
+          "actor": "signup API",
+          "action": "created",
+          "target": "user row",
+          "status": "success",
+          "message": "Local account row created."
+        },
+        {
+          "id": "e2",
+          "timestamp": "10:01",
+          "actor": "email service",
+          "action": "sent",
+          "target": "verification email",
+          "status": "success",
+          "message": "Verification sent."
+        },
+        {
+          "id": "e3",
+          "timestamp": "10:02",
+          "actor": "profile service",
+          "action": "failed",
+          "target": "profile creation",
+          "status": "failure",
+          "message": "Required profile invariant missing."
+        },
+        {
+          "id": "e4",
+          "timestamp": "10:03",
+          "actor": "signup API",
+          "action": "returned",
+          "target": "201 Created",
+          "status": "success",
+          "message": "False terminal response sent."
+        },
+        {
+          "id": "e5",
+          "timestamp": "10:05",
+          "actor": "login service",
+          "action": "blocked",
+          "target": "new user login",
+          "status": "blocked",
+          "message": "User cannot log in without profile."
+        },
+        {
+          "id": "e6",
+          "timestamp": "10:08",
+          "actor": "support",
+          "action": "opened",
+          "target": "signup incident",
+          "status": "failure",
+          "message": "Parent signup failed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "signup API",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "user row",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "email service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "verification email",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "profile service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "profile creation",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "201 Created",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "login service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "new user login",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "support",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "signup incident",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "user_row_created",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "signup API",
+          "patient": "user",
+          "boundary": "account row",
+          "authority": "signup service",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "verification_sent",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "email service",
+          "patient": "user",
+          "boundary": "verification",
+          "authority": "email service",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "profile_missing",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "profile service",
+          "patient": "profile",
+          "boundary": "profile invariant",
+          "authority": "profile service",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "created_false_terminal",
+          "sourceEvent": "e4",
+          "role": "false_terminal",
+          "actor": "signup API",
+          "patient": "signup",
+          "boundary": "signup terminal state",
+          "authority": "signup API",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "login_blocked",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "login service",
+          "patient": "user",
+          "boundary": "login",
+          "authority": "auth service",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "user_row_created",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "signup API",
+            "patient": "user",
+            "boundary": "account row",
+            "authority": "signup service",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "verification_sent",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "email service",
+            "patient": "user",
+            "boundary": "verification",
+            "authority": "email service",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "profile_missing",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "profile service",
+            "patient": "profile",
+            "boundary": "profile invariant",
+            "authority": "profile service",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "created_false_terminal",
+            "sourceEvent": "e4",
+            "role": "false_terminal",
+            "actor": "signup API",
+            "patient": "signup",
+            "boundary": "signup terminal state",
+            "authority": "signup API",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "login_blocked",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "login service",
+            "patient": "user",
+            "boundary": "login",
+            "authority": "auth service",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          }
+        ],
+        "edges": [
+          {
+            "from": "user_row_created",
+            "to": "verification_sent",
+            "type": "enables"
+          },
+          {
+            "from": "user_row_created",
+            "to": "profile_missing",
+            "type": "requires_reconciliation"
+          },
+          {
+            "from": "profile_missing",
+            "to": "login_blocked",
+            "type": "causes"
+          },
+          {
+            "from": "created_false_terminal",
+            "to": "login_blocked",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "profile_missing"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Invariant",
+        "Reconciliation",
+        "Boundary"
+      ],
+      "prescription": [
+        "Make profile creation part of the signup terminal invariant.",
+        "Return pending until account, email, and profile reconcile.",
+        "Block 201 responses from partial local success."
+      ],
+      "confidence": 0.8,
+      "detection": {
+        "falseTerminalStates": [
+          "created_false_terminal"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [],
+        "violatedInvariants": [
+          "profile_missing"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [
+          "profile_missing"
+        ],
+        "decaySources": []
+      }
+    },
+    "predicted": {
+      "id": "Y2",
+      "category": "Y2",
+      "title": "account signup failure",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "10:00",
+          "actor": "signup API",
+          "action": "created",
+          "target": "user row",
+          "status": "success",
+          "message": "Local account row created."
+        },
+        {
+          "id": "e2",
+          "timestamp": "10:01",
+          "actor": "email service",
+          "action": "sent",
+          "target": "verification email",
+          "status": "success",
+          "message": "Verification sent."
+        },
+        {
+          "id": "e3",
+          "timestamp": "10:02",
+          "actor": "profile service",
+          "action": "failed",
+          "target": "profile creation",
+          "status": "failure",
+          "message": "Required profile invariant missing."
+        },
+        {
+          "id": "e4",
+          "timestamp": "10:03",
+          "actor": "signup API",
+          "action": "returned",
+          "target": "201 Created",
+          "status": "success",
+          "message": "False terminal response sent."
+        },
+        {
+          "id": "e5",
+          "timestamp": "10:05",
+          "actor": "login service",
+          "action": "blocked",
+          "target": "new user login",
+          "status": "blocked",
+          "message": "User cannot log in without profile."
+        },
+        {
+          "id": "e6",
+          "timestamp": "10:08",
+          "actor": "support",
+          "action": "opened",
+          "target": "signup incident",
+          "status": "failure",
+          "message": "Parent signup failed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "signup API",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "user row",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "email service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "verification email",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "profile service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "profile creation",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "201 Created",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "login service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "new user login",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "support",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "signup incident",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "user_row_created",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "signup API",
+          "patient": "user",
+          "boundary": "account row",
+          "authority": "signup service",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "verification_sent",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "email service",
+          "patient": "user",
+          "boundary": "verification",
+          "authority": "email service",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "profile_missing",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "profile service",
+          "patient": "profile",
+          "boundary": "profile invariant",
+          "authority": "profile service",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "created_false_terminal",
+          "sourceEvent": "e4",
+          "role": "false_terminal",
+          "actor": "signup API",
+          "patient": "signup",
+          "boundary": "signup terminal state",
+          "authority": "signup API",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "login_blocked",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "login service",
+          "patient": "user",
+          "boundary": "login",
+          "authority": "auth service",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "user_row_created",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "signup API",
+            "patient": "user",
+            "boundary": "account row",
+            "authority": "signup service",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "verification_sent",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "email service",
+            "patient": "user",
+            "boundary": "verification",
+            "authority": "email service",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "profile_missing",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "profile service",
+            "patient": "profile",
+            "boundary": "profile invariant",
+            "authority": "profile service",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "created_false_terminal",
+            "sourceEvent": "e4",
+            "role": "false_terminal",
+            "actor": "signup API",
+            "patient": "signup",
+            "boundary": "signup terminal state",
+            "authority": "signup API",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "login_blocked",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "login service",
+            "patient": "user",
+            "boundary": "login",
+            "authority": "auth service",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          }
+        ],
+        "edges": [
+          {
+            "from": "user_row_created",
+            "to": "verification_sent",
+            "type": "enables"
+          },
+          {
+            "from": "user_row_created",
+            "to": "profile_missing",
+            "type": "requires_reconciliation"
+          },
+          {
+            "from": "profile_missing",
+            "to": "login_blocked",
+            "type": "causes"
+          },
+          {
+            "from": "created_false_terminal",
+            "to": "login_blocked",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "profile_missing"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Invariant",
+        "Reconciliation",
+        "Boundary"
+      ],
+      "prescription": [
+        "Make profile creation part of the signup terminal invariant.",
+        "Return pending until account, email, and profile reconcile.",
+        "Block 201 responses from partial local success."
+      ],
+      "confidence": 0.8,
+      "detection": {
+        "falseTerminalStates": [
+          "created_false_terminal"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [],
+        "violatedInvariants": [
+          "profile_missing"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [
+          "profile_missing"
+        ],
+        "decaySources": []
+      }
+    }
+  },
+  {
+    "category": "Y3",
+    "title": "payment/order mismatch",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "11:00",
+        "actor": "payment gateway",
+        "action": "authorized",
+        "target": "payment",
+        "status": "success",
+        "message": "Payment authorization succeeded."
+      },
+      {
+        "id": "e2",
+        "timestamp": "11:01",
+        "actor": "order service",
+        "action": "marked",
+        "target": "order paid",
+        "status": "success",
+        "message": "Order moved to paid."
+      },
+      {
+        "id": "e3",
+        "timestamp": "11:02",
+        "actor": "inventory service",
+        "action": "failed",
+        "target": "reservation",
+        "status": "failure",
+        "message": "No inventory reserved."
+      },
+      {
+        "id": "e4",
+        "timestamp": "11:03",
+        "actor": "fulfillment",
+        "action": "blocked",
+        "target": "shipment",
+        "status": "blocked",
+        "message": "Cannot ship without inventory."
+      },
+      {
+        "id": "e5",
+        "timestamp": "11:04",
+        "actor": "reconciliation job",
+        "action": "missed",
+        "target": "payment/order mismatch",
+        "status": "failure",
+        "message": "Payment capture and order state diverged."
+      },
+      {
+        "id": "e6",
+        "timestamp": "11:20",
+        "actor": "customer",
+        "action": "charged",
+        "target": "without order",
+        "status": "failure",
+        "message": "Global order process failed."
+      }
+    ],
+    "gold": {
+      "id": "Y3",
+      "category": "Y3",
+      "title": "payment/order mismatch",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "11:00",
+          "actor": "payment gateway",
+          "action": "authorized",
+          "target": "payment",
+          "status": "success",
+          "message": "Payment authorization succeeded."
+        },
+        {
+          "id": "e2",
+          "timestamp": "11:01",
+          "actor": "order service",
+          "action": "marked",
+          "target": "order paid",
+          "status": "success",
+          "message": "Order moved to paid."
+        },
+        {
+          "id": "e3",
+          "timestamp": "11:02",
+          "actor": "inventory service",
+          "action": "failed",
+          "target": "reservation",
+          "status": "failure",
+          "message": "No inventory reserved."
+        },
+        {
+          "id": "e4",
+          "timestamp": "11:03",
+          "actor": "fulfillment",
+          "action": "blocked",
+          "target": "shipment",
+          "status": "blocked",
+          "message": "Cannot ship without inventory."
+        },
+        {
+          "id": "e5",
+          "timestamp": "11:04",
+          "actor": "reconciliation job",
+          "action": "missed",
+          "target": "payment/order mismatch",
+          "status": "failure",
+          "message": "Payment capture and order state diverged."
+        },
+        {
+          "id": "e6",
+          "timestamp": "11:20",
+          "actor": "customer",
+          "action": "charged",
+          "target": "without order",
+          "status": "failure",
+          "message": "Global order process failed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "payment gateway",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "payment",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "order service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "order paid",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "inventory service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "reservation",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "fulfillment",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "shipment",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "reconciliation job",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "payment/order mismatch",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "customer",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "without order",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "payment_auth",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "payment gateway",
+          "patient": "payment",
+          "boundary": "payment gate",
+          "authority": "gateway",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "order_paid_false",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "order service",
+          "patient": "order",
+          "boundary": "paid terminal state",
+          "authority": "order service",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "inventory_missing",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "inventory service",
+          "patient": "reservation",
+          "boundary": "stock invariant",
+          "authority": "inventory service",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "shipment_blocked",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "fulfillment",
+          "patient": "shipment",
+          "boundary": "fulfillment process",
+          "authority": "fulfillment",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "reconcile_missed",
+          "sourceEvent": "e5",
+          "role": "reconciliation_failure",
+          "actor": "reconciliation job",
+          "patient": "payment/order state",
+          "boundary": "state sync",
+          "authority": "reconciliation job",
+          "localStatus": "failure",
+          "globalContribution": "degrades"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "payment_auth",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "payment gateway",
+            "patient": "payment",
+            "boundary": "payment gate",
+            "authority": "gateway",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "order_paid_false",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "order service",
+            "patient": "order",
+            "boundary": "paid terminal state",
+            "authority": "order service",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "inventory_missing",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "inventory service",
+            "patient": "reservation",
+            "boundary": "stock invariant",
+            "authority": "inventory service",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "shipment_blocked",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "fulfillment",
+            "patient": "shipment",
+            "boundary": "fulfillment process",
+            "authority": "fulfillment",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "reconcile_missed",
+            "sourceEvent": "e5",
+            "role": "reconciliation_failure",
+            "actor": "reconciliation job",
+            "patient": "payment/order state",
+            "boundary": "state sync",
+            "authority": "reconciliation job",
+            "localStatus": "failure",
+            "globalContribution": "degrades"
+          }
+        ],
+        "edges": [
+          {
+            "from": "payment_auth",
+            "to": "order_paid_false",
+            "type": "causes"
+          },
+          {
+            "from": "inventory_missing",
+            "to": "shipment_blocked",
+            "type": "causes"
+          },
+          {
+            "from": "reconcile_missed",
+            "to": "shipment_blocked",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "order_paid_false",
+            "to": "reconcile_missed",
+            "type": "requires_reconciliation"
+          }
+        ],
+        "rootCauses": [
+          "inventory_missing",
+          "reconcile_missed"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Synchronization",
+        "Reconciliation",
+        "Invariant"
+      ],
+      "prescription": [
+        "Couple paid terminal state to inventory reservation.",
+        "Add payment/order reconciliation before capture.",
+        "Auto-void payment when inventory reservation fails."
+      ],
+      "confidence": 0.76,
+      "detection": {
+        "falseTerminalStates": [
+          "order_paid_false"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [],
+        "violatedInvariants": [
+          "inventory_missing"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [
+          "reconcile_missed"
+        ],
+        "decaySources": []
+      }
+    },
+    "predicted": {
+      "id": "Y3",
+      "category": "Y3",
+      "title": "payment/order mismatch",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "11:00",
+          "actor": "payment gateway",
+          "action": "authorized",
+          "target": "payment",
+          "status": "success",
+          "message": "Payment authorization succeeded."
+        },
+        {
+          "id": "e2",
+          "timestamp": "11:01",
+          "actor": "order service",
+          "action": "marked",
+          "target": "order paid",
+          "status": "success",
+          "message": "Order moved to paid."
+        },
+        {
+          "id": "e3",
+          "timestamp": "11:02",
+          "actor": "inventory service",
+          "action": "failed",
+          "target": "reservation",
+          "status": "failure",
+          "message": "No inventory reserved."
+        },
+        {
+          "id": "e4",
+          "timestamp": "11:03",
+          "actor": "fulfillment",
+          "action": "blocked",
+          "target": "shipment",
+          "status": "blocked",
+          "message": "Cannot ship without inventory."
+        },
+        {
+          "id": "e5",
+          "timestamp": "11:04",
+          "actor": "reconciliation job",
+          "action": "missed",
+          "target": "payment/order mismatch",
+          "status": "failure",
+          "message": "Payment capture and order state diverged."
+        },
+        {
+          "id": "e6",
+          "timestamp": "11:20",
+          "actor": "customer",
+          "action": "charged",
+          "target": "without order",
+          "status": "failure",
+          "message": "Global order process failed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "payment gateway",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "payment",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "order service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "order paid",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "inventory service",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "reservation",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "fulfillment",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "shipment",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "reconciliation job",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "payment/order mismatch",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "customer",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "without order",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "payment_auth",
+          "sourceEvent": "e1",
+          "role": "local_transition",
+          "actor": "payment gateway",
+          "patient": "payment",
+          "boundary": "payment gate",
+          "authority": "gateway",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "order_paid_false",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "order service",
+          "patient": "order",
+          "boundary": "paid terminal state",
+          "authority": "order service",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "inventory_missing",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "inventory service",
+          "patient": "reservation",
+          "boundary": "stock invariant",
+          "authority": "inventory service",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "shipment_blocked",
+          "sourceEvent": "e4",
+          "role": "terminal_outcome",
+          "actor": "fulfillment",
+          "patient": "shipment",
+          "boundary": "fulfillment process",
+          "authority": "fulfillment",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "reconcile_missed",
+          "sourceEvent": "e5",
+          "role": "reconciliation_failure",
+          "actor": "reconciliation job",
+          "patient": "payment/order state",
+          "boundary": "state sync",
+          "authority": "reconciliation job",
+          "localStatus": "failure",
+          "globalContribution": "degrades"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "payment_auth",
+            "sourceEvent": "e1",
+            "role": "local_transition",
+            "actor": "payment gateway",
+            "patient": "payment",
+            "boundary": "payment gate",
+            "authority": "gateway",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "order_paid_false",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "order service",
+            "patient": "order",
+            "boundary": "paid terminal state",
+            "authority": "order service",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "inventory_missing",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "inventory service",
+            "patient": "reservation",
+            "boundary": "stock invariant",
+            "authority": "inventory service",
+            "localStatus": "failure",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "shipment_blocked",
+            "sourceEvent": "e4",
+            "role": "terminal_outcome",
+            "actor": "fulfillment",
+            "patient": "shipment",
+            "boundary": "fulfillment process",
+            "authority": "fulfillment",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "reconcile_missed",
+            "sourceEvent": "e5",
+            "role": "reconciliation_failure",
+            "actor": "reconciliation job",
+            "patient": "payment/order state",
+            "boundary": "state sync",
+            "authority": "reconciliation job",
+            "localStatus": "failure",
+            "globalContribution": "degrades"
+          }
+        ],
+        "edges": [
+          {
+            "from": "payment_auth",
+            "to": "order_paid_false",
+            "type": "causes"
+          },
+          {
+            "from": "inventory_missing",
+            "to": "shipment_blocked",
+            "type": "causes"
+          },
+          {
+            "from": "reconcile_missed",
+            "to": "shipment_blocked",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "order_paid_false",
+            "to": "reconcile_missed",
+            "type": "requires_reconciliation"
+          }
+        ],
+        "rootCauses": [
+          "inventory_missing",
+          "reconcile_missed"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Synchronization",
+        "Reconciliation",
+        "Invariant"
+      ],
+      "prescription": [
+        "Couple paid terminal state to inventory reservation.",
+        "Add payment/order reconciliation before capture.",
+        "Auto-void payment when inventory reservation fails."
+      ],
+      "confidence": 0.76,
+      "detection": {
+        "falseTerminalStates": [
+          "order_paid_false"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [],
+        "violatedInvariants": [
+          "inventory_missing"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [
+          "reconcile_missed"
+        ],
+        "decaySources": []
+      }
+    }
+  },
+  {
+    "category": "Y4",
+    "title": "compliance workflow failure",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "12:00",
+        "actor": "analyst",
+        "action": "submitted",
+        "target": "vendor approval",
+        "status": "success",
+        "message": "Vendor requested."
+      },
+      {
+        "id": "e2",
+        "timestamp": "12:05",
+        "actor": "manager",
+        "action": "approved",
+        "target": "vendor",
+        "status": "success",
+        "message": "Business approval completed."
+      },
+      {
+        "id": "e3",
+        "timestamp": "12:06",
+        "actor": "workflow",
+        "action": "skipped",
+        "target": "sanctions screening",
+        "status": "success",
+        "message": "Workflow advanced despite missing compliance step."
+      },
+      {
+        "id": "e4",
+        "timestamp": "12:07",
+        "actor": "procurement",
+        "action": "issued",
+        "target": "purchase order",
+        "status": "success",
+        "message": "Irreversible purchase order sent."
+      },
+      {
+        "id": "e5",
+        "timestamp": "12:30",
+        "actor": "compliance",
+        "action": "flagged",
+        "target": "sanctioned vendor",
+        "status": "failure",
+        "message": "Compliance invariant violated."
+      },
+      {
+        "id": "e6",
+        "timestamp": "13:00",
+        "actor": "legal",
+        "action": "blocked",
+        "target": "payment",
+        "status": "blocked",
+        "message": "Parent compliance workflow failed."
+      }
+    ],
+    "gold": {
+      "id": "Y4",
+      "category": "Y4",
+      "title": "compliance workflow failure",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "12:00",
+          "actor": "analyst",
+          "action": "submitted",
+          "target": "vendor approval",
+          "status": "success",
+          "message": "Vendor requested."
+        },
+        {
+          "id": "e2",
+          "timestamp": "12:05",
+          "actor": "manager",
+          "action": "approved",
+          "target": "vendor",
+          "status": "success",
+          "message": "Business approval completed."
+        },
+        {
+          "id": "e3",
+          "timestamp": "12:06",
+          "actor": "workflow",
+          "action": "skipped",
+          "target": "sanctions screening",
+          "status": "success",
+          "message": "Workflow advanced despite missing compliance step."
+        },
+        {
+          "id": "e4",
+          "timestamp": "12:07",
+          "actor": "procurement",
+          "action": "issued",
+          "target": "purchase order",
+          "status": "success",
+          "message": "Irreversible purchase order sent."
+        },
+        {
+          "id": "e5",
+          "timestamp": "12:30",
+          "actor": "compliance",
+          "action": "flagged",
+          "target": "sanctioned vendor",
+          "status": "failure",
+          "message": "Compliance invariant violated."
+        },
+        {
+          "id": "e6",
+          "timestamp": "13:00",
+          "actor": "legal",
+          "action": "blocked",
+          "target": "payment",
+          "status": "blocked",
+          "message": "Parent compliance workflow failed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "analyst",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "vendor approval",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "manager",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "vendor",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "workflow",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "sanctions screening",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "procurement",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "purchase order",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "compliance",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "sanctioned vendor",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "legal",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "payment",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "business_approval",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "manager",
+          "patient": "vendor",
+          "boundary": "business approval",
+          "authority": "manager",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "approval_false_terminal",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "manager",
+          "patient": "vendor workflow",
+          "boundary": "compliance workflow",
+          "authority": "manager",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "screening_skipped",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "workflow",
+          "patient": "sanctions screening",
+          "boundary": "compliance invariant",
+          "authority": "compliance",
+          "localStatus": "success",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "po_issued",
+          "sourceEvent": "e4",
+          "role": "irreversible_transition",
+          "actor": "procurement",
+          "patient": "purchase order",
+          "boundary": "procurement boundary",
+          "authority": "procurement",
+          "localStatus": "success",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "vendor_flagged",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "compliance",
+          "patient": "vendor",
+          "boundary": "sanctions boundary",
+          "authority": "compliance",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "payment_blocked",
+          "sourceEvent": "e6",
+          "role": "terminal_outcome",
+          "actor": "legal",
+          "patient": "payment",
+          "boundary": "payment gate",
+          "authority": "legal",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "business_approval",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "manager",
+            "patient": "vendor",
+            "boundary": "business approval",
+            "authority": "manager",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "approval_false_terminal",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "manager",
+            "patient": "vendor workflow",
+            "boundary": "compliance workflow",
+            "authority": "manager",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "screening_skipped",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "workflow",
+            "patient": "sanctions screening",
+            "boundary": "compliance invariant",
+            "authority": "compliance",
+            "localStatus": "success",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "po_issued",
+            "sourceEvent": "e4",
+            "role": "irreversible_transition",
+            "actor": "procurement",
+            "patient": "purchase order",
+            "boundary": "procurement boundary",
+            "authority": "procurement",
+            "localStatus": "success",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "vendor_flagged",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "compliance",
+            "patient": "vendor",
+            "boundary": "sanctions boundary",
+            "authority": "compliance",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "payment_blocked",
+            "sourceEvent": "e6",
+            "role": "terminal_outcome",
+            "actor": "legal",
+            "patient": "payment",
+            "boundary": "payment gate",
+            "authority": "legal",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          }
+        ],
+        "edges": [
+          {
+            "from": "business_approval",
+            "to": "approval_false_terminal",
+            "type": "causes"
+          },
+          {
+            "from": "approval_false_terminal",
+            "to": "screening_skipped",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "business_approval",
+            "to": "screening_skipped",
+            "type": "enables"
+          },
+          {
+            "from": "screening_skipped",
+            "to": "po_issued",
+            "type": "causes"
+          },
+          {
+            "from": "screening_skipped",
+            "to": "vendor_flagged",
+            "type": "violates"
+          },
+          {
+            "from": "vendor_flagged",
+            "to": "payment_blocked",
+            "type": "causes"
+          }
+        ],
+        "rootCauses": [
+          "screening_skipped"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Authority",
+        "Invariant",
+        "Scheduling"
+      ],
+      "prescription": [
+        "Make compliance screening a hard precondition before procurement.",
+        "Separate business approval from compliance terminal approval.",
+        "Prevent irreversible PO issuance until sanctions check completes."
+      ],
+      "confidence": 0.84,
+      "detection": {
+        "falseTerminalStates": [
+          "approval_false_terminal"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [
+          "po_issued"
+        ],
+        "violatedInvariants": [
+          "screening_skipped"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [],
+        "decaySources": []
+      }
+    },
+    "predicted": {
+      "id": "Y4",
+      "category": "Y4",
+      "title": "compliance workflow failure",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "12:00",
+          "actor": "analyst",
+          "action": "submitted",
+          "target": "vendor approval",
+          "status": "success",
+          "message": "Vendor requested."
+        },
+        {
+          "id": "e2",
+          "timestamp": "12:05",
+          "actor": "manager",
+          "action": "approved",
+          "target": "vendor",
+          "status": "success",
+          "message": "Business approval completed."
+        },
+        {
+          "id": "e3",
+          "timestamp": "12:06",
+          "actor": "workflow",
+          "action": "skipped",
+          "target": "sanctions screening",
+          "status": "success",
+          "message": "Workflow advanced despite missing compliance step."
+        },
+        {
+          "id": "e4",
+          "timestamp": "12:07",
+          "actor": "procurement",
+          "action": "issued",
+          "target": "purchase order",
+          "status": "success",
+          "message": "Irreversible purchase order sent."
+        },
+        {
+          "id": "e5",
+          "timestamp": "12:30",
+          "actor": "compliance",
+          "action": "flagged",
+          "target": "sanctioned vendor",
+          "status": "failure",
+          "message": "Compliance invariant violated."
+        },
+        {
+          "id": "e6",
+          "timestamp": "13:00",
+          "actor": "legal",
+          "action": "blocked",
+          "target": "payment",
+          "status": "blocked",
+          "message": "Parent compliance workflow failed."
+        }
+      ],
+      "entities": [
+        {
+          "id": "analyst",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "vendor approval",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "manager",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "vendor",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "workflow",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "sanctions screening",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "procurement",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "purchase order",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "compliance",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "sanctioned vendor",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "legal",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "payment",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "business_approval",
+          "sourceEvent": "e2",
+          "role": "local_transition",
+          "actor": "manager",
+          "patient": "vendor",
+          "boundary": "business approval",
+          "authority": "manager",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "approval_false_terminal",
+          "sourceEvent": "e2",
+          "role": "false_terminal",
+          "actor": "manager",
+          "patient": "vendor workflow",
+          "boundary": "compliance workflow",
+          "authority": "manager",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "screening_skipped",
+          "sourceEvent": "e3",
+          "role": "invariant_violation",
+          "actor": "workflow",
+          "patient": "sanctions screening",
+          "boundary": "compliance invariant",
+          "authority": "compliance",
+          "localStatus": "success",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "po_issued",
+          "sourceEvent": "e4",
+          "role": "irreversible_transition",
+          "actor": "procurement",
+          "patient": "purchase order",
+          "boundary": "procurement boundary",
+          "authority": "procurement",
+          "localStatus": "success",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "vendor_flagged",
+          "sourceEvent": "e5",
+          "role": "terminal_outcome",
+          "actor": "compliance",
+          "patient": "vendor",
+          "boundary": "sanctions boundary",
+          "authority": "compliance",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "payment_blocked",
+          "sourceEvent": "e6",
+          "role": "terminal_outcome",
+          "actor": "legal",
+          "patient": "payment",
+          "boundary": "payment gate",
+          "authority": "legal",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "business_approval",
+            "sourceEvent": "e2",
+            "role": "local_transition",
+            "actor": "manager",
+            "patient": "vendor",
+            "boundary": "business approval",
+            "authority": "manager",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "approval_false_terminal",
+            "sourceEvent": "e2",
+            "role": "false_terminal",
+            "actor": "manager",
+            "patient": "vendor workflow",
+            "boundary": "compliance workflow",
+            "authority": "manager",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "screening_skipped",
+            "sourceEvent": "e3",
+            "role": "invariant_violation",
+            "actor": "workflow",
+            "patient": "sanctions screening",
+            "boundary": "compliance invariant",
+            "authority": "compliance",
+            "localStatus": "success",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "po_issued",
+            "sourceEvent": "e4",
+            "role": "irreversible_transition",
+            "actor": "procurement",
+            "patient": "purchase order",
+            "boundary": "procurement boundary",
+            "authority": "procurement",
+            "localStatus": "success",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "vendor_flagged",
+            "sourceEvent": "e5",
+            "role": "terminal_outcome",
+            "actor": "compliance",
+            "patient": "vendor",
+            "boundary": "sanctions boundary",
+            "authority": "compliance",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          },
+          {
+            "id": "payment_blocked",
+            "sourceEvent": "e6",
+            "role": "terminal_outcome",
+            "actor": "legal",
+            "patient": "payment",
+            "boundary": "payment gate",
+            "authority": "legal",
+            "localStatus": "blocked",
+            "globalContribution": "blocks"
+          }
+        ],
+        "edges": [
+          {
+            "from": "business_approval",
+            "to": "approval_false_terminal",
+            "type": "causes"
+          },
+          {
+            "from": "approval_false_terminal",
+            "to": "screening_skipped",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "business_approval",
+            "to": "screening_skipped",
+            "type": "enables"
+          },
+          {
+            "from": "screening_skipped",
+            "to": "po_issued",
+            "type": "causes"
+          },
+          {
+            "from": "screening_skipped",
+            "to": "vendor_flagged",
+            "type": "violates"
+          },
+          {
+            "from": "vendor_flagged",
+            "to": "payment_blocked",
+            "type": "causes"
+          }
+        ],
+        "rootCauses": [
+          "screening_skipped"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Authority",
+        "Invariant",
+        "Scheduling"
+      ],
+      "prescription": [
+        "Make compliance screening a hard precondition before procurement.",
+        "Separate business approval from compliance terminal approval.",
+        "Prevent irreversible PO issuance until sanctions check completes."
+      ],
+      "confidence": 0.84,
+      "detection": {
+        "falseTerminalStates": [
+          "approval_false_terminal"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [
+          "po_issued"
+        ],
+        "violatedInvariants": [
+          "screening_skipped"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [],
+        "decaySources": []
+      }
+    }
+  },
+  {
+    "category": "Y5",
+    "title": "agentic AI tool-use failure",
+    "trace": [
+      {
+        "id": "e1",
+        "timestamp": "14:00",
+        "actor": "agent",
+        "action": "planned",
+        "target": "delete temp files",
+        "status": "success",
+        "message": "Plan says only temp files."
+      },
+      {
+        "id": "e2",
+        "timestamp": "14:01",
+        "actor": "tool",
+        "action": "listed",
+        "target": "/tmp/project",
+        "status": "success",
+        "message": "Tool output included symlink to workspace."
+      },
+      {
+        "id": "e3",
+        "timestamp": "14:02",
+        "actor": "agent",
+        "action": "called",
+        "target": "rm -rf /tmp/project/cache",
+        "status": "success",
+        "message": "Tool call succeeded locally."
+      },
+      {
+        "id": "e4",
+        "timestamp": "14:02",
+        "actor": "filesystem",
+        "action": "deleted",
+        "target": "workspace cache via symlink",
+        "status": "success",
+        "message": "Irreversible deletion crossed boundary."
+      },
+      {
+        "id": "e5",
+        "timestamp": "14:03",
+        "actor": "agent",
+        "action": "reported",
+        "target": "cleanup complete",
+        "status": "success",
+        "message": "False terminal success report."
+      },
+      {
+        "id": "e6",
+        "timestamp": "14:05",
+        "actor": "tests",
+        "action": "failed",
+        "target": "missing cache artifacts",
+        "status": "failure",
+        "message": "Global task failed."
+      },
+      {
+        "id": "e7",
+        "timestamp": "14:08",
+        "actor": "operator",
+        "action": "restored",
+        "target": "cache from backup",
+        "status": "pending",
+        "message": "Manual recovery required."
+      }
+    ],
+    "gold": {
+      "id": "Y5",
+      "category": "Y5",
+      "title": "agentic AI tool-use failure",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "14:00",
+          "actor": "agent",
+          "action": "planned",
+          "target": "delete temp files",
+          "status": "success",
+          "message": "Plan says only temp files."
+        },
+        {
+          "id": "e2",
+          "timestamp": "14:01",
+          "actor": "tool",
+          "action": "listed",
+          "target": "/tmp/project",
+          "status": "success",
+          "message": "Tool output included symlink to workspace."
+        },
+        {
+          "id": "e3",
+          "timestamp": "14:02",
+          "actor": "agent",
+          "action": "called",
+          "target": "rm -rf /tmp/project/cache",
+          "status": "success",
+          "message": "Tool call succeeded locally."
+        },
+        {
+          "id": "e4",
+          "timestamp": "14:02",
+          "actor": "filesystem",
+          "action": "deleted",
+          "target": "workspace cache via symlink",
+          "status": "success",
+          "message": "Irreversible deletion crossed boundary."
+        },
+        {
+          "id": "e5",
+          "timestamp": "14:03",
+          "actor": "agent",
+          "action": "reported",
+          "target": "cleanup complete",
+          "status": "success",
+          "message": "False terminal success report."
+        },
+        {
+          "id": "e6",
+          "timestamp": "14:05",
+          "actor": "tests",
+          "action": "failed",
+          "target": "missing cache artifacts",
+          "status": "failure",
+          "message": "Global task failed."
+        },
+        {
+          "id": "e7",
+          "timestamp": "14:08",
+          "actor": "operator",
+          "action": "restored",
+          "target": "cache from backup",
+          "status": "pending",
+          "message": "Manual recovery required."
+        }
+      ],
+      "entities": [
+        {
+          "id": "agent",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "delete temp files",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "tool",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "/tmp/project",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "rm -rf /tmp/project/cache",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "filesystem",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "workspace cache via symlink",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cleanup complete",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "tests",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "missing cache artifacts",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "operator",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cache from backup",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "safe_plan",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "agent",
+          "patient": "temp files",
+          "boundary": "cleanup boundary",
+          "authority": "operator",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "symlink_decay",
+          "sourceEvent": "e2",
+          "role": "decay_source",
+          "actor": "tool",
+          "patient": "path resolution",
+          "boundary": "filesystem boundary",
+          "authority": "tool",
+          "localStatus": "success",
+          "globalContribution": "degrades"
+        },
+        {
+          "id": "tool_success",
+          "sourceEvent": "e3",
+          "role": "local_transition",
+          "actor": "agent",
+          "patient": "delete command",
+          "boundary": "tool boundary",
+          "authority": "agent",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "workspace_deleted",
+          "sourceEvent": "e4",
+          "role": "irreversible_transition",
+          "actor": "filesystem",
+          "patient": "workspace cache",
+          "boundary": "workspace boundary",
+          "authority": "operator",
+          "localStatus": "success",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "cleanup_false_terminal",
+          "sourceEvent": "e5",
+          "role": "false_terminal",
+          "actor": "agent",
+          "patient": "cleanup task",
+          "boundary": "task terminal state",
+          "authority": "agent",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "tests_failed",
+          "sourceEvent": "e6",
+          "role": "terminal_outcome",
+          "actor": "tests",
+          "patient": "build",
+          "boundary": "verification boundary",
+          "authority": "CI",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "safe_plan",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "agent",
+            "patient": "temp files",
+            "boundary": "cleanup boundary",
+            "authority": "operator",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "symlink_decay",
+            "sourceEvent": "e2",
+            "role": "decay_source",
+            "actor": "tool",
+            "patient": "path resolution",
+            "boundary": "filesystem boundary",
+            "authority": "tool",
+            "localStatus": "success",
+            "globalContribution": "degrades"
+          },
+          {
+            "id": "tool_success",
+            "sourceEvent": "e3",
+            "role": "local_transition",
+            "actor": "agent",
+            "patient": "delete command",
+            "boundary": "tool boundary",
+            "authority": "agent",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "workspace_deleted",
+            "sourceEvent": "e4",
+            "role": "irreversible_transition",
+            "actor": "filesystem",
+            "patient": "workspace cache",
+            "boundary": "workspace boundary",
+            "authority": "operator",
+            "localStatus": "success",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "cleanup_false_terminal",
+            "sourceEvent": "e5",
+            "role": "false_terminal",
+            "actor": "agent",
+            "patient": "cleanup task",
+            "boundary": "task terminal state",
+            "authority": "agent",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "tests_failed",
+            "sourceEvent": "e6",
+            "role": "terminal_outcome",
+            "actor": "tests",
+            "patient": "build",
+            "boundary": "verification boundary",
+            "authority": "CI",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          }
+        ],
+        "edges": [
+          {
+            "from": "symlink_decay",
+            "to": "workspace_deleted",
+            "type": "causes"
+          },
+          {
+            "from": "tool_success",
+            "to": "workspace_deleted",
+            "type": "causes"
+          },
+          {
+            "from": "workspace_deleted",
+            "to": "tests_failed",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "cleanup_false_terminal",
+            "to": "tests_failed",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "symlink_decay",
+          "workspace_deleted"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Boundary",
+        "Authority",
+        "Decay",
+        "Feedback"
+      ],
+      "prescription": [
+        "Resolve symlinks before destructive tool calls.",
+        "Require dry-run diff and operator authority for irreversible deletes.",
+        "Treat tool success as local until tests verify global task state."
+      ],
+      "confidence": 0.88,
+      "detection": {
+        "falseTerminalStates": [
+          "cleanup_false_terminal"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [
+          "workspace_deleted"
+        ],
+        "violatedInvariants": [
+          "workspace_deleted"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [],
+        "decaySources": [
+          "symlink_decay"
+        ]
+      }
+    },
+    "predicted": {
+      "id": "Y5",
+      "category": "Y5",
+      "title": "agentic AI tool-use failure",
+      "trace": [
+        {
+          "id": "e1",
+          "timestamp": "14:00",
+          "actor": "agent",
+          "action": "planned",
+          "target": "delete temp files",
+          "status": "success",
+          "message": "Plan says only temp files."
+        },
+        {
+          "id": "e2",
+          "timestamp": "14:01",
+          "actor": "tool",
+          "action": "listed",
+          "target": "/tmp/project",
+          "status": "success",
+          "message": "Tool output included symlink to workspace."
+        },
+        {
+          "id": "e3",
+          "timestamp": "14:02",
+          "actor": "agent",
+          "action": "called",
+          "target": "rm -rf /tmp/project/cache",
+          "status": "success",
+          "message": "Tool call succeeded locally."
+        },
+        {
+          "id": "e4",
+          "timestamp": "14:02",
+          "actor": "filesystem",
+          "action": "deleted",
+          "target": "workspace cache via symlink",
+          "status": "success",
+          "message": "Irreversible deletion crossed boundary."
+        },
+        {
+          "id": "e5",
+          "timestamp": "14:03",
+          "actor": "agent",
+          "action": "reported",
+          "target": "cleanup complete",
+          "status": "success",
+          "message": "False terminal success report."
+        },
+        {
+          "id": "e6",
+          "timestamp": "14:05",
+          "actor": "tests",
+          "action": "failed",
+          "target": "missing cache artifacts",
+          "status": "failure",
+          "message": "Global task failed."
+        },
+        {
+          "id": "e7",
+          "timestamp": "14:08",
+          "actor": "operator",
+          "action": "restored",
+          "target": "cache from backup",
+          "status": "pending",
+          "message": "Manual recovery required."
+        }
+      ],
+      "entities": [
+        {
+          "id": "agent",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "delete temp files",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "tool",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "/tmp/project",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "rm -rf /tmp/project/cache",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "filesystem",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "workspace cache via symlink",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cleanup complete",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "tests",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "missing cache artifacts",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "operator",
+          "kind": "trace_entity"
+        },
+        {
+          "id": "cache from backup",
+          "kind": "trace_entity"
+        }
+      ],
+      "eventFrames": [
+        {
+          "id": "safe_plan",
+          "sourceEvent": "e1",
+          "role": "precondition",
+          "actor": "agent",
+          "patient": "temp files",
+          "boundary": "cleanup boundary",
+          "authority": "operator",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "tool_success",
+          "sourceEvent": "e3",
+          "role": "local_transition",
+          "actor": "agent",
+          "patient": "delete command",
+          "boundary": "tool boundary",
+          "authority": "agent",
+          "localStatus": "success",
+          "globalContribution": "supports"
+        },
+        {
+          "id": "workspace_deleted",
+          "sourceEvent": "e4",
+          "role": "irreversible_transition",
+          "actor": "filesystem",
+          "patient": "workspace cache",
+          "boundary": "workspace boundary",
+          "authority": "operator",
+          "localStatus": "success",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "cleanup_false_terminal",
+          "sourceEvent": "e5",
+          "role": "false_terminal",
+          "actor": "agent",
+          "patient": "cleanup task",
+          "boundary": "task terminal state",
+          "authority": "agent",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "tests_failed",
+          "sourceEvent": "e6",
+          "role": "terminal_outcome",
+          "actor": "tests",
+          "patient": "build",
+          "boundary": "verification boundary",
+          "authority": "CI",
+          "localStatus": "failure",
+          "globalContribution": "blocks"
+        }
+      ],
+      "causalGraph": {
+        "nodes": [
+          {
+            "id": "safe_plan",
+            "sourceEvent": "e1",
+            "role": "precondition",
+            "actor": "agent",
+            "patient": "temp files",
+            "boundary": "cleanup boundary",
+            "authority": "operator",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "tool_success",
+            "sourceEvent": "e3",
+            "role": "local_transition",
+            "actor": "agent",
+            "patient": "delete command",
+            "boundary": "tool boundary",
+            "authority": "agent",
+            "localStatus": "success",
+            "globalContribution": "supports"
+          },
+          {
+            "id": "workspace_deleted",
+            "sourceEvent": "e4",
+            "role": "irreversible_transition",
+            "actor": "filesystem",
+            "patient": "workspace cache",
+            "boundary": "workspace boundary",
+            "authority": "operator",
+            "localStatus": "success",
+            "globalContribution": "violates"
+          },
+          {
+            "id": "cleanup_false_terminal",
+            "sourceEvent": "e5",
+            "role": "false_terminal",
+            "actor": "agent",
+            "patient": "cleanup task",
+            "boundary": "task terminal state",
+            "authority": "agent",
+            "localStatus": "success",
+            "globalContribution": "misleads"
+          },
+          {
+            "id": "tests_failed",
+            "sourceEvent": "e6",
+            "role": "terminal_outcome",
+            "actor": "tests",
+            "patient": "build",
+            "boundary": "verification boundary",
+            "authority": "CI",
+            "localStatus": "failure",
+            "globalContribution": "blocks"
+          }
+        ],
+        "edges": [
+          {
+            "from": "tool_success",
+            "to": "workspace_deleted",
+            "type": "causes"
+          },
+          {
+            "from": "workspace_deleted",
+            "to": "tests_failed",
+            "type": "fails_downstream"
+          },
+          {
+            "from": "cleanup_false_terminal",
+            "to": "tests_failed",
+            "type": "fails_downstream"
+          }
+        ],
+        "rootCauses": [
+          "workspace_deleted"
+        ]
+      },
+      "processStatus": "false_terminal",
+      "motifDiagnosis": [
+        "Boundary",
+        "Authority",
+        "Decay",
+        "Feedback"
+      ],
+      "prescription": [
+        "Resolve symlinks before destructive tool calls.",
+        "Require dry-run diff and operator authority for irreversible deletes.",
+        "Treat tool success as local until tests verify global task state."
+      ],
+      "confidence": 0.88,
+      "detection": {
+        "falseTerminalStates": [
+          "cleanup_false_terminal"
+        ],
+        "prematureTransitions": [],
+        "irreversibleTransitions": [
+          "workspace_deleted"
+        ],
+        "violatedInvariants": [
+          "workspace_deleted"
+        ],
+        "authorityFailures": [],
+        "reconciliationFailures": [],
+        "decaySources": []
+      }
+    }
+  }
+]

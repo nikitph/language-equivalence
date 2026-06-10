@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.cache/
+tmp/
+*.log
+output/pdf/*.aux
+output/pdf/*.out
+output/pdf/*.toc
+output/pdf/*.fls
+output/pdf/*.fdb_latexmk
