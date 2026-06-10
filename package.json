@@ -11,6 +11,7 @@
     "run:dlr6": "tsx experiments/dlr_causal_frame_graph.ts",
     "run:dlr7": "tsx experiments/dlr_trace_to_causal_ir.ts",
     "run:dlr8": "tsx experiments/dlr_hidden_preconditions.ts",
+    "run:dlr-lambda": "tsx experiments/dlr_lambda_loghub.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

@@ -15,6 +15,7 @@ npm run run:dlr5
 npm run run:dlr6
 npm run run:dlr7
 npm run run:dlr8
+npm run run:dlr-lambda
 ```
 
 By default, `run:report` uses Codex-authored local parses for the 32-D motif
@@ -120,3 +121,20 @@ the parent process.
 
 DLR-8 tests traces where local transitions appear valid but operate over stale,
 aliased, queued, replicated, or decayed representations.
+
+## DLR-Lambda Loghub Synergy Experiment
+
+`npm run run:dlr-lambda` writes:
+
+- `dlr_lambda_loghub.md`: a Loghub-backed demonstration of lambda-RLM-style
+  deterministic `SPLIT/MAP/FILTER/REDUCE` control composed with DLR ProcessIR.
+- `artifacts/dlr_lambda_loghub_process_ir.json`: gold and predicted ProcessIR
+  objects plus baseline scores.
+
+The experiment downloads Loghub's small Linux sample on demand, injects a
+distributed stale-policy incident across distant chunks, and compares direct
+first-window parsing, naive chunk event merge, and DLR-lambda ProcessIR
+composition.
+
+The standalone paper for this result is in `paper/dlr_lambda_loghub.tex`; the
+compiled PDF is written to `output/pdf/dlr_lambda_loghub.pdf`.

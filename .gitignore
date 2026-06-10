@@ -2,6 +2,7 @@ node_modules/
 dist/
 .cache/
 tmp/
+data/loghub/
 *.log
 output/pdf/*.aux
 output/pdf/*.out

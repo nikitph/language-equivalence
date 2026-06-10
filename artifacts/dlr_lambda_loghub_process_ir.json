@@ -1,0 +1,336 @@
+{
+  "source": "https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log",
+  "chunkSize": 350,
+  "gold": {
+    "id": "dlr-lambda-loghub-refund-42",
+    "title": "DLR-lambda Loghub stale-policy false terminal diagnosis",
+    "source": "https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log",
+    "eventFrames": [
+      {
+        "id": "refund_approved_false_terminal",
+        "sourceLine": 953,
+        "role": "false_terminal",
+        "actor": "worker",
+        "patient": "refund R-913",
+        "boundary": "approval terminal state",
+        "authority": "worker",
+        "localStatus": "success",
+        "globalContribution": "misleads"
+      },
+      {
+        "id": "manager_review_missing",
+        "sourceLine": 1304,
+        "role": "invariant_violation",
+        "actor": "audit",
+        "patient": "refund R-913",
+        "boundary": "manager-review invariant",
+        "authority": "audit",
+        "localStatus": "failure",
+        "globalContribution": "violates"
+      },
+      {
+        "id": "settlement_blocked",
+        "sourceLine": 1705,
+        "role": "terminal_outcome",
+        "actor": "finance",
+        "patient": "settlement",
+        "boundary": "settlement process",
+        "authority": "finance",
+        "localStatus": "blocked",
+        "globalContribution": "blocks"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_cache",
+        "description": "Worker approved refund using cached policy v17 after authoritative policy changed to v18.",
+        "motif": "Representation",
+        "inferredFrom": [
+          "cache_ttl_config",
+          "policy_update_v18",
+          "refund_approved_false_terminal",
+          "manager_review_missing"
+        ]
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "refund_approved_false_terminal",
+          "sourceLine": 953,
+          "role": "false_terminal",
+          "actor": "worker",
+          "patient": "refund R-913",
+          "boundary": "approval terminal state",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "manager_review_missing",
+          "sourceLine": 1304,
+          "role": "invariant_violation",
+          "actor": "audit",
+          "patient": "refund R-913",
+          "boundary": "manager-review invariant",
+          "authority": "audit",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "settlement_blocked",
+          "sourceLine": 1705,
+          "role": "terminal_outcome",
+          "actor": "finance",
+          "patient": "settlement",
+          "boundary": "settlement process",
+          "authority": "finance",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "lc_stale_policy_cache",
+          "description": "Worker approved refund using cached policy v17 after authoritative policy changed to v18.",
+          "motif": "Representation",
+          "inferredFrom": [
+            "cache_ttl_config",
+            "policy_update_v18",
+            "refund_approved_false_terminal",
+            "manager_review_missing"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "lc_stale_policy_cache",
+          "to": "refund_approved_false_terminal",
+          "type": "stales"
+        },
+        {
+          "from": "refund_approved_false_terminal",
+          "to": "manager_review_missing",
+          "type": "violates"
+        },
+        {
+          "from": "manager_review_missing",
+          "to": "settlement_blocked",
+          "type": "fails_downstream"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_cache"
+      ]
+    },
+    "motifDiagnosis": [
+      "Representation",
+      "Invariant",
+      "Reconciliation",
+      "Boundary"
+    ],
+    "prescription": [
+      "Invalidate policy caches on authoritative policy update.",
+      "Require policy version freshness before refund approval.",
+      "Treat local approval as pending until audit and settlement invariants reconcile."
+    ],
+    "confidence": 0.86,
+    "detection": {
+      "falseTerminalStates": [
+        "refund_approved_false_terminal"
+      ],
+      "violatedInvariants": [
+        "manager_review_missing"
+      ],
+      "reconciliationFailures": [
+        "settlement_blocked"
+      ],
+      "latentRepresentationFailures": [
+        "lc_stale_policy_cache"
+      ]
+    }
+  },
+  "predicted": {
+    "id": "dlr-lambda-loghub-refund-42",
+    "title": "DLR-lambda Loghub stale-policy false terminal diagnosis",
+    "source": "https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log",
+    "eventFrames": [
+      {
+        "id": "refund_approved_false_terminal",
+        "sourceLine": 953,
+        "role": "false_terminal",
+        "actor": "worker",
+        "patient": "refund R-913",
+        "boundary": "approval terminal state",
+        "authority": "worker",
+        "localStatus": "success",
+        "globalContribution": "misleads"
+      },
+      {
+        "id": "manager_review_missing",
+        "sourceLine": 1304,
+        "role": "invariant_violation",
+        "actor": "audit",
+        "patient": "refund R-913",
+        "boundary": "manager-review invariant",
+        "authority": "audit",
+        "localStatus": "failure",
+        "globalContribution": "violates"
+      },
+      {
+        "id": "settlement_blocked",
+        "sourceLine": 1705,
+        "role": "terminal_outcome",
+        "actor": "finance",
+        "patient": "settlement",
+        "boundary": "settlement process",
+        "authority": "finance",
+        "localStatus": "blocked",
+        "globalContribution": "blocks"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_cache",
+        "description": "Worker approved refund using cached policy v17 after authoritative policy changed to v18.",
+        "motif": "Representation",
+        "inferredFrom": [
+          "cache_ttl_config",
+          "policy_update_v18",
+          "refund_approved_false_terminal",
+          "manager_review_missing"
+        ]
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "refund_approved_false_terminal",
+          "sourceLine": 953,
+          "role": "false_terminal",
+          "actor": "worker",
+          "patient": "refund R-913",
+          "boundary": "approval terminal state",
+          "authority": "worker",
+          "localStatus": "success",
+          "globalContribution": "misleads"
+        },
+        {
+          "id": "manager_review_missing",
+          "sourceLine": 1304,
+          "role": "invariant_violation",
+          "actor": "audit",
+          "patient": "refund R-913",
+          "boundary": "manager-review invariant",
+          "authority": "audit",
+          "localStatus": "failure",
+          "globalContribution": "violates"
+        },
+        {
+          "id": "settlement_blocked",
+          "sourceLine": 1705,
+          "role": "terminal_outcome",
+          "actor": "finance",
+          "patient": "settlement",
+          "boundary": "settlement process",
+          "authority": "finance",
+          "localStatus": "blocked",
+          "globalContribution": "blocks"
+        },
+        {
+          "id": "lc_stale_policy_cache",
+          "description": "Worker approved refund using cached policy v17 after authoritative policy changed to v18.",
+          "motif": "Representation",
+          "inferredFrom": [
+            "cache_ttl_config",
+            "policy_update_v18",
+            "refund_approved_false_terminal",
+            "manager_review_missing"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "lc_stale_policy_cache",
+          "to": "refund_approved_false_terminal",
+          "type": "stales"
+        },
+        {
+          "from": "refund_approved_false_terminal",
+          "to": "manager_review_missing",
+          "type": "violates"
+        },
+        {
+          "from": "manager_review_missing",
+          "to": "settlement_blocked",
+          "type": "fails_downstream"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_cache"
+      ]
+    },
+    "motifDiagnosis": [
+      "Representation",
+      "Invariant",
+      "Reconciliation",
+      "Boundary"
+    ],
+    "prescription": [
+      "Invalidate policy caches on authoritative policy update.",
+      "Require policy version freshness before refund approval.",
+      "Treat local approval as pending until audit and settlement invariants reconcile."
+    ],
+    "confidence": 0.86,
+    "detection": {
+      "falseTerminalStates": [
+        "refund_approved_false_terminal"
+      ],
+      "violatedInvariants": [
+        "manager_review_missing"
+      ],
+      "reconciliationFailures": [
+        "settlement_blocked"
+      ],
+      "latentRepresentationFailures": [
+        "lc_stale_policy_cache"
+      ]
+    }
+  },
+  "scores": [
+    {
+      "system": "Direct first-window DLR parser",
+      "eventNodeRecall": 0,
+      "latentConditionRecall": 0,
+      "edgeRecall": 0,
+      "rootCauseAccuracy": 0,
+      "falseTerminalDetection": false,
+      "localGlobalSeparation": false,
+      "prescriptionCorrect": true,
+      "confidence": 0.86,
+      "passed": false
+    },
+    {
+      "system": "Naive chunk event merge without latent reduce",
+      "eventNodeRecall": 1,
+      "latentConditionRecall": 0,
+      "edgeRecall": 0.6666666666666666,
+      "rootCauseAccuracy": 0,
+      "falseTerminalDetection": true,
+      "localGlobalSeparation": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.78,
+      "passed": false
+    },
+    {
+      "system": "DLR-lambda Loghub ProcessIR",
+      "eventNodeRecall": 1,
+      "latentConditionRecall": 1,
+      "edgeRecall": 1,
+      "rootCauseAccuracy": 1,
+      "falseTerminalDetection": true,
+      "localGlobalSeparation": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.86,
+      "passed": true
+    }
+  ]
+}
