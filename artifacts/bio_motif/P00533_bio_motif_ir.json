@@ -1,0 +1,3569 @@
+{
+  "accession": "P00533",
+  "proteinName": "Epidermal growth factor receptor",
+  "gene": "EGFR",
+  "dataSources": [
+    "UniProt REST API",
+    "AlphaFold DB direct model file",
+    "Reactome ContentService mapping endpoint",
+    "fpocket not installed; deterministic geometry fallback used"
+  ],
+  "pathwayContext": [
+    {
+      "stId": "R-HSA-1227986",
+      "displayName": "Signaling by ERBB2",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-1236382",
+      "displayName": "Constitutive Signaling by Ligand-Responsive EGFR Cancer Variants",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-1236394",
+      "displayName": "Signaling by ERBB4",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-1250196",
+      "displayName": "SHC1 events in ERBB2 signaling",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-1251932",
+      "displayName": "PLCG1 events in ERBB2 signaling",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-1257604",
+      "displayName": "PIP3 activates AKT signaling",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-177929",
+      "displayName": "Signaling by EGFR",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-179812",
+      "displayName": "GRB2 events in EGFR signaling",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-180292",
+      "displayName": "GAB1 signalosome",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-180336",
+      "displayName": "SHC1 events in EGFR signaling",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-182971",
+      "displayName": "EGFR downregulation",
+      "source": "Reactome"
+    },
+    {
+      "stId": "R-HSA-1963640",
+      "displayName": "GRB2 events in ERBB2 signaling",
+      "source": "Reactome"
+    }
+  ],
+  "macroPathwayAst": [
+    {
+      "id": "R-HSA-1227986",
+      "label": "Signaling by ERBB2",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-1236382",
+      "label": "Constitutive Signaling by Ligand-Responsive EGFR Cancer Variants",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Invariant",
+        "Decay"
+      ],
+      "role": "disease_variant"
+    },
+    {
+      "id": "R-HSA-1236394",
+      "label": "Signaling by ERBB4",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-1250196",
+      "label": "SHC1 events in ERBB2 signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-1251932",
+      "label": "PLCG1 events in ERBB2 signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-1257604",
+      "label": "PIP3 activates AKT signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Terminal State"
+      ],
+      "role": "feedback_module"
+    },
+    {
+      "id": "R-HSA-177929",
+      "label": "Signaling by EGFR",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-179812",
+      "label": "GRB2 events in EGFR signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-180292",
+      "label": "GAB1 signalosome",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "signal_flow"
+    },
+    {
+      "id": "R-HSA-180336",
+      "label": "SHC1 events in EGFR signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-182971",
+      "label": "EGFR downregulation",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-1963640",
+      "label": "GRB2 events in ERBB2 signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-1963642",
+      "label": "PI3K events in ERBB2 signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Modularity",
+        "Reconciliation"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-212718",
+      "label": "EGFR interacts with phospholipase C-gamma",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-2179392",
+      "label": "EGFR Transactivation by Gastrin",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Authority",
+        "Boundary",
+        "Transition",
+        "Terminal State"
+      ],
+      "role": "feedback_module"
+    },
+    {
+      "id": "R-HSA-2219530",
+      "label": "Constitutive Signaling by Aberrant PI3K in Cancer",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Invariant",
+        "Decay"
+      ],
+      "role": "disease_variant"
+    },
+    {
+      "id": "R-HSA-445144",
+      "label": "Signal transduction by L1",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition"
+      ],
+      "role": "signal_flow"
+    },
+    {
+      "id": "R-HSA-5637810",
+      "label": "Constitutive Signaling by EGFRvIII",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Invariant",
+        "Decay"
+      ],
+      "role": "disease_variant"
+    },
+    {
+      "id": "R-HSA-5638303",
+      "label": "Inhibition of Signaling by Overexpressed EGFR",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-5673001",
+      "label": "RAF/MAP kinase cascade",
+      "motifs": [
+        "Composition",
+        "Hierarchy"
+      ],
+      "role": "pathway_context"
+    },
+    {
+      "id": "R-HSA-6785631",
+      "label": "ERBB2 Regulates Cell Motility",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Authority",
+        "Boundary"
+      ],
+      "role": "authority_process"
+    },
+    {
+      "id": "R-HSA-6811558",
+      "label": "PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition"
+      ],
+      "role": "signal_flow"
+    },
+    {
+      "id": "R-HSA-8847993",
+      "label": "ERBB2 Activates PTK6 Signaling",
+      "motifs": [
+        "Composition",
+        "Hierarchy",
+        "Communication",
+        "Feedback",
+        "Transition",
+        "Authority",
+        "Boundary",
+        "Terminal State"
+      ],
+      "role": "feedback_module"
+    },
+    {
+      "id": "R-HSA-8856825",
+      "label": "Cargo recognition for clathrin-mediated endocytosis",
+      "motifs": [
+        "Composition",
+        "Hierarchy"
+      ],
+      "role": "pathway_context"
+    }
+  ],
+  "structuralFeatures": [
+    {
+      "id": "feature_3",
+      "type": "Topological domain",
+      "description": "Extracellular",
+      "start": 25,
+      "end": 645,
+      "motifs": [
+        "Boundary",
+        "Communication",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Topological domain (Extracellular) maps to Boundary, Communication, Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_4",
+      "type": "Transmembrane",
+      "description": "Helical",
+      "start": 646,
+      "end": 668,
+      "motifs": [
+        "Boundary",
+        "Communication"
+      ],
+      "motifRationale": "Transmembrane (Helical) maps to Boundary, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_5",
+      "type": "Topological domain",
+      "description": "Cytoplasmic",
+      "start": 669,
+      "end": 1210,
+      "motifs": [
+        "Boundary",
+        "Communication",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Topological domain (Cytoplasmic) maps to Boundary, Communication, Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_6",
+      "type": "Repeat",
+      "description": "Approximate",
+      "start": 75,
+      "end": 300,
+      "motifs": [
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Repeat (Approximate) maps to Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_7",
+      "type": "Repeat",
+      "description": "Approximate",
+      "start": 390,
+      "end": 600,
+      "motifs": [
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Repeat (Approximate) maps to Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_8",
+      "type": "Domain",
+      "description": "Protein kinase",
+      "start": 712,
+      "end": 979,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Domain (Protein kinase) maps to Transition, Authority, Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_9",
+      "type": "Region",
+      "description": "Important for dimerization, phosphorylation and activation",
+      "start": 688,
+      "end": 704,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Region (Important for dimerization, phosphorylation and activation) maps to Communication, Feedback, Authority, Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_10",
+      "type": "Region",
+      "description": "Disordered",
+      "start": 1097,
+      "end": 1137,
+      "motifs": [
+        "Decay",
+        "Representation",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "motifRationale": "Region (Disordered) maps to Decay, Representation, Modularity, Hierarchy because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_11",
+      "type": "Compositional bias",
+      "description": "Polar residues",
+      "start": 1104,
+      "end": 1115,
+      "motifs": [
+        "Decay",
+        "Representation"
+      ],
+      "motifRationale": "Compositional bias (Polar residues) maps to Decay, Representation because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_12",
+      "type": "Compositional bias",
+      "description": "Polar residues",
+      "start": 1128,
+      "end": 1137,
+      "motifs": [
+        "Decay",
+        "Representation"
+      ],
+      "motifRationale": "Compositional bias (Polar residues) maps to Decay, Representation because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_13",
+      "type": "Active site",
+      "description": "Proton acceptor",
+      "start": 837,
+      "end": 837,
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "motifRationale": "Active site (Proton acceptor) maps to Transition, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_14",
+      "type": "Binding site",
+      "description": "",
+      "start": 718,
+      "end": 726,
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "motifRationale": "Binding site maps to Boundary, Transition because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_15",
+      "type": "Binding site",
+      "description": "",
+      "start": 745,
+      "end": 745,
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "motifRationale": "Binding site maps to Boundary, Transition because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_16",
+      "type": "Binding site",
+      "description": "",
+      "start": 790,
+      "end": 791,
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "motifRationale": "Binding site maps to Boundary, Transition because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_17",
+      "type": "Binding site",
+      "description": "",
+      "start": 855,
+      "end": 855,
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "motifRationale": "Binding site maps to Boundary, Transition because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_18",
+      "type": "Site",
+      "description": "Important for interaction with PIK3C2B",
+      "start": 1016,
+      "end": 1016,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Site (Important for interaction with PIK3C2B) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_19",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 229,
+      "end": 229,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_20",
+      "type": "Modified residue",
+      "description": "Phosphothreonine; by PKC and PKD/PRKD1",
+      "start": 678,
+      "end": 678,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphothreonine; by PKC and PKD/PRKD1) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_21",
+      "type": "Modified residue",
+      "description": "Phosphothreonine; by PKD/PRKD1",
+      "start": 693,
+      "end": 693,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphothreonine; by PKD/PRKD1) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_22",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 695,
+      "end": 695,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_23",
+      "type": "Modified residue",
+      "description": "N6-(2-hydroxyisobutyryl)lysine",
+      "start": 745,
+      "end": 745,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (N6-(2-hydroxyisobutyryl)lysine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_24",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine",
+      "start": 869,
+      "end": 869,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_25",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 991,
+      "end": 991,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_26",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 995,
+      "end": 995,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_27",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine; by autocatalysis",
+      "start": 998,
+      "end": 998,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine; by autocatalysis) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_28",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine; by autocatalysis",
+      "start": 1016,
+      "end": 1016,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine; by autocatalysis) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_29",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1026,
+      "end": 1026,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_30",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1039,
+      "end": 1039,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_31",
+      "type": "Modified residue",
+      "description": "Phosphothreonine",
+      "start": 1041,
+      "end": 1041,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphothreonine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_32",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1042,
+      "end": 1042,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_33",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1064,
+      "end": 1064,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_34",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine",
+      "start": 1069,
+      "end": 1069,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_35",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1070,
+      "end": 1070,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_36",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1071,
+      "end": 1071,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_37",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1081,
+      "end": 1081,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_38",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine; by autocatalysis",
+      "start": 1092,
+      "end": 1092,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine; by autocatalysis) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_39",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine; by autocatalysis",
+      "start": 1110,
+      "end": 1110,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine; by autocatalysis) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_40",
+      "type": "Modified residue",
+      "description": "Phosphoserine",
+      "start": 1166,
+      "end": 1166,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphoserine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_41",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine; by autocatalysis",
+      "start": 1172,
+      "end": 1172,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine; by autocatalysis) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_42",
+      "type": "Modified residue",
+      "description": "Phosphotyrosine; by autocatalysis",
+      "start": 1197,
+      "end": 1197,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Phosphotyrosine; by autocatalysis) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_43",
+      "type": "Modified residue",
+      "description": "Omega-N-methylarginine",
+      "start": 1199,
+      "end": 1199,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Modified residue (Omega-N-methylarginine) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_105",
+      "type": "Natural variant",
+      "description": "found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs397517085",
+      "start": 709,
+      "end": 709,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Natural variant (found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs397517085) maps to Transition, Authority, Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_110",
+      "type": "Natural variant",
+      "description": "found in a lung cancer sample; somatic mutation; strongly increased kinase activity; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs28929495",
+      "start": 719,
+      "end": 719,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Natural variant (found in a lung cancer sample; somatic mutation; strongly increased kinase activity; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs28929495) maps to Transition, Authority, Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_122",
+      "type": "Natural variant",
+      "description": "found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs121913465",
+      "start": 768,
+      "end": 768,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Natural variant (found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs121913465) maps to Transition, Authority, Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_125",
+      "type": "Natural variant",
+      "description": "found in a lung cancer sample; increased kinase activity; dbSNP:rs121434569",
+      "start": 790,
+      "end": 790,
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "motifRationale": "Natural variant (found in a lung cancer sample; increased kinase activity; dbSNP:rs121434569) maps to Transition, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_131",
+      "type": "Natural variant",
+      "description": "found in a lung cancer sample; somatic mutation; constitutively activated enzyme with strongly increased kinase activity; more sensitive to gefitinib than wild-type; dbSNP:rs121434568",
+      "start": 858,
+      "end": 858,
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "motifRationale": "Natural variant (found in a lung cancer sample; somatic mutation; constitutively activated enzyme with strongly increased kinase activity; more sensitive to gefitinib than wild-type; dbSNP:rs121434568) maps to Transition, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_132",
+      "type": "Natural variant",
+      "description": "found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs121913444",
+      "start": 861,
+      "end": 861,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Natural variant (found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs121913444) maps to Transition, Authority, Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_138",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-309.",
+      "start": 275,
+      "end": 275,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-309.) maps to Transition, Authority, Communication, Feedback because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_139",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-309.",
+      "start": 287,
+      "end": 287,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-309.) maps to Transition, Authority, Communication, Feedback because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_140",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-275. Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-287.",
+      "start": 309,
+      "end": 309,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-275. Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-287.) maps to Transition, Authority, Communication, Feedback because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_141",
+      "type": "Mutagenesis",
+      "description": "Abolishes autophosphorylation and activation of downstream kinases.",
+      "start": 429,
+      "end": 429,
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes autophosphorylation and activation of downstream kinases.) maps to Transition, Authority, Communication, Feedback because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_143",
+      "type": "Mutagenesis",
+      "description": "Decreases intramolecular interactions and facilitates EGF binding.",
+      "start": 587,
+      "end": 590,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Decreases intramolecular interactions and facilitates EGF binding.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_146",
+      "type": "Mutagenesis",
+      "description": "Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609.",
+      "start": 609,
+      "end": 609,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_147",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced phosphorylation.",
+      "start": 688,
+      "end": 688,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_148",
+      "type": "Mutagenesis",
+      "description": "Reduced autophosphorylation.",
+      "start": 689,
+      "end": 689,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Reduced autophosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_149",
+      "type": "Mutagenesis",
+      "description": "Constitutively activated kinase.",
+      "start": 689,
+      "end": 689,
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Constitutively activated kinase.) maps to Transition, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_150",
+      "type": "Mutagenesis",
+      "description": "Reduced phosphorylation.",
+      "start": 690,
+      "end": 690,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_151",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced phosphorylation.",
+      "start": 692,
+      "end": 692,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_152",
+      "type": "Mutagenesis",
+      "description": "Increased phosphorylation.",
+      "start": 693,
+      "end": 693,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Increased phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_153",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced phosphorylation.",
+      "start": 693,
+      "end": 693,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_154",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced phosphorylation.",
+      "start": 694,
+      "end": 694,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_155",
+      "type": "Mutagenesis",
+      "description": "Reduced phosphorylation.",
+      "start": 699,
+      "end": 699,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_156",
+      "type": "Mutagenesis",
+      "description": "Abolishes phosphorylation.",
+      "start": 700,
+      "end": 700,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_157",
+      "type": "Mutagenesis",
+      "description": "Abolishes phosphorylation.",
+      "start": 704,
+      "end": 704,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_158",
+      "type": "Mutagenesis",
+      "description": "Abolishes phosphorylation.",
+      "start": 705,
+      "end": 705,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_159",
+      "type": "Mutagenesis",
+      "description": "Abolishes phosphorylation.",
+      "start": 706,
+      "end": 706,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_160",
+      "type": "Mutagenesis",
+      "description": "Abolishes kinase activity.",
+      "start": 745,
+      "end": 745,
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes kinase activity.) maps to Transition, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_161",
+      "type": "Mutagenesis",
+      "description": "Strongly reduced phosphorylation.",
+      "start": 974,
+      "end": 974,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Strongly reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_162",
+      "type": "Mutagenesis",
+      "description": "Reduced phosphorylation.",
+      "start": 977,
+      "end": 977,
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "motifRationale": "Mutagenesis (Reduced phosphorylation.) maps to Feedback, Communication because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_163",
+      "type": "Mutagenesis",
+      "description": "Constitutively activated kinase.",
+      "start": 1005,
+      "end": 1006,
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Constitutively activated kinase.) maps to Transition, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_164",
+      "type": "Mutagenesis",
+      "description": "50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092.",
+      "start": 1016,
+      "end": 1016,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_167",
+      "type": "Mutagenesis",
+      "description": "No effect on interaction with CBLC.",
+      "start": 1067,
+      "end": 1067,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (No effect on interaction with CBLC.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_168",
+      "type": "Mutagenesis",
+      "description": "Strongly decreases interaction with CBLC.",
+      "start": 1068,
+      "end": 1068,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Strongly decreases interaction with CBLC.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_169",
+      "type": "Mutagenesis",
+      "description": "Abolishes interaction with CBLC.",
+      "start": 1069,
+      "end": 1069,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (Abolishes interaction with CBLC.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_170",
+      "type": "Mutagenesis",
+      "description": "No change in interaction with PIK3C2B. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1016.",
+      "start": 1092,
+      "end": 1092,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (No change in interaction with PIK3C2B. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1016.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_171",
+      "type": "Mutagenesis",
+      "description": "No change in interaction with PIK3C2B.",
+      "start": 1110,
+      "end": 1110,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (No change in interaction with PIK3C2B.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_173",
+      "type": "Mutagenesis",
+      "description": "No change in interaction with PIK3C2B.",
+      "start": 1172,
+      "end": 1172,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (No change in interaction with PIK3C2B.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    },
+    {
+      "id": "feature_174",
+      "type": "Mutagenesis",
+      "description": "No change in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1016. Abolishes interaction with PIK3C2B; when associated with F-1092 and F-1016.",
+      "start": 1197,
+      "end": 1197,
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "motifRationale": "Mutagenesis (No change in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1016. Abolishes interaction with PIK3C2B; when associated with F-1092 and F-1016.) maps to Communication, Feedback, Authority because it marks a structural role or regulatory boundary in the protein AST."
+    }
+  ],
+  "structureSummary": {
+    "residueCount": 1210,
+    "meanPlddt": 75.94988429752068,
+    "lowConfidenceResidues": 355,
+    "pdbPath": "/Users/truckx/Documents/language-equivalence/artifacts/bio_motif/AF-P00533-F1-model_v6.pdb"
+  },
+  "pocketCandidates": [
+    {
+      "id": "feature_proxy_feature_146",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609.",
+      "center": {
+        "x": -28.796,
+        "y": -9.509,
+        "z": -33.513
+      },
+      "residueStart": 609,
+      "residueEnd": 609,
+      "nearestFeature": "feature_146",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 4.3425,
+      "orthostericPenalty": 0,
+      "confidence": 0.9425,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_143",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding.",
+      "center": {
+        "x": -20.66525,
+        "y": -1.8954999999999997,
+        "z": -37.85725
+      },
+      "residueStart": 587,
+      "residueEnd": 590,
+      "nearestFeature": "feature_143",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 4.3367249999999995,
+      "orthostericPenalty": 0,
+      "confidence": 0.936725,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_9",
+      "source": "uniprot_feature_proxy",
+      "label": "Region: Important for dimerization, phosphorylation and activation",
+      "center": {
+        "x": -2.5734705882352937,
+        "y": 8.845,
+        "z": 10.496411764705883
+      },
+      "residueStart": 688,
+      "residueEnd": 704,
+      "nearestFeature": "feature_9",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 4.105405882352941,
+      "orthostericPenalty": 0,
+      "confidence": 0.4054058823529412,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_18",
+      "source": "uniprot_feature_proxy",
+      "label": "Site: Important for interaction with PIK3C2B",
+      "center": {
+        "x": -22.182,
+        "y": 20.178,
+        "z": 11.25
+      },
+      "residueStart": 1016,
+      "residueEnd": 1016,
+      "nearestFeature": "feature_18",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.9919,
+      "orthostericPenalty": 0,
+      "confidence": 0.5919,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_164",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: 50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092.",
+      "center": {
+        "x": -22.182,
+        "y": 20.178,
+        "z": 11.25
+      },
+      "residueStart": 1016,
+      "residueEnd": 1016,
+      "nearestFeature": "feature_164",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.9919,
+      "orthostericPenalty": 0,
+      "confidence": 0.5919,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1009_1026",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1009-1026",
+      "center": {
+        "x": -26.02161111111111,
+        "y": 18.089055555555557,
+        "z": 14.942666666666664
+      },
+      "residueStart": 1009,
+      "residueEnd": 1026,
+      "nearestFeature": "feature_18",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.867094444444444,
+      "orthostericPenalty": 0,
+      "confidence": 0.46709444444444437,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_173",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: No change in interaction with PIK3C2B.",
+      "center": {
+        "x": -16.15,
+        "y": -10.352,
+        "z": -10.402
+      },
+      "residueStart": 1172,
+      "residueEnd": 1172,
+      "nearestFeature": "feature_173",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7675,
+      "orthostericPenalty": 0,
+      "confidence": 0.3675,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_168",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly decreases interaction with CBLC.",
+      "center": {
+        "x": -11.853,
+        "y": 41.822,
+        "z": 17.265
+      },
+      "residueStart": 1068,
+      "residueEnd": 1068,
+      "nearestFeature": "feature_168",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7594,
+      "orthostericPenalty": 0,
+      "confidence": 0.3594,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_171",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: No change in interaction with PIK3C2B.",
+      "center": {
+        "x": 49.951,
+        "y": 8.102,
+        "z": 36.963
+      },
+      "residueStart": 1110,
+      "residueEnd": 1110,
+      "nearestFeature": "feature_171",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7334,
+      "orthostericPenalty": 0,
+      "confidence": 0.33340000000000003,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_170",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: No change in interaction with PIK3C2B. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1016.",
+      "center": {
+        "x": 34.418,
+        "y": 32.884,
+        "z": 7.482
+      },
+      "residueStart": 1092,
+      "residueEnd": 1092,
+      "nearestFeature": "feature_170",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7111,
+      "orthostericPenalty": 0,
+      "confidence": 0.3111,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_167",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: No effect on interaction with CBLC.",
+      "center": {
+        "x": -11.187,
+        "y": 45.431,
+        "z": 15.941
+      },
+      "residueStart": 1067,
+      "residueEnd": 1067,
+      "nearestFeature": "feature_167",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7077999999999998,
+      "orthostericPenalty": 0,
+      "confidence": 0.3078,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_174",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: No change in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1016. Abolishes interaction with PIK3C2B; when associated with F-1092 and F-1016.",
+      "center": {
+        "x": 1.759,
+        "y": 15.232,
+        "z": -3.774
+      },
+      "residueStart": 1197,
+      "residueEnd": 1197,
+      "nearestFeature": "feature_174",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.6911,
+      "orthostericPenalty": 0,
+      "confidence": 0.29109999999999997,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_169",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes interaction with CBLC.",
+      "center": {
+        "x": -9.21,
+        "y": 39.525,
+        "z": 15.654
+      },
+      "residueStart": 1069,
+      "residueEnd": 1069,
+      "nearestFeature": "feature_169",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.6877999999999997,
+      "orthostericPenalty": 0,
+      "confidence": 0.2878,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_19",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -45.482,
+        "y": -23.03,
+        "z": -4.244
+      },
+      "residueStart": 229,
+      "residueEnd": 229,
+      "nearestFeature": "feature_19",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.4318999999999997,
+      "orthostericPenalty": 0,
+      "confidence": 0.9319,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_162",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Reduced phosphorylation.",
+      "center": {
+        "x": -12.094,
+        "y": 32.495,
+        "z": 48.427
+      },
+      "residueStart": 977,
+      "residueEnd": 977,
+      "nearestFeature": "feature_162",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.415,
+      "orthostericPenalty": 0,
+      "confidence": 0.915,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_161",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced phosphorylation.",
+      "center": {
+        "x": -15.035,
+        "y": 28.151,
+        "z": 45.832
+      },
+      "residueStart": 974,
+      "residueEnd": 974,
+      "nearestFeature": "feature_161",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.4138,
+      "orthostericPenalty": 0,
+      "confidence": 0.9138,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_23",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: N6-(2-hydroxyisobutyryl)lysine",
+      "center": {
+        "x": -7.185,
+        "y": 33.6,
+        "z": 7.59
+      },
+      "residueStart": 745,
+      "residueEnd": 745,
+      "nearestFeature": "feature_23",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.3638,
+      "orthostericPenalty": 0,
+      "confidence": 0.8637999999999999,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_159",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes phosphorylation.",
+      "center": {
+        "x": -8.5,
+        "y": 20.89,
+        "z": 0.741
+      },
+      "residueStart": 706,
+      "residueEnd": 706,
+      "nearestFeature": "feature_159",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.3019,
+      "orthostericPenalty": 0,
+      "confidence": 0.8019,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_138",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-309.",
+      "center": {
+        "x": -24.055,
+        "y": 0.815,
+        "z": -33.115
+      },
+      "residueStart": 275,
+      "residueEnd": 275,
+      "nearestFeature": "feature_138",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "allostericScore": 3.2906,
+      "orthostericPenalty": 0,
+      "confidence": 0.8906000000000001,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_139",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-309.",
+      "center": {
+        "x": -20.225,
+        "y": -1.96,
+        "z": -4.111
+      },
+      "residueStart": 287,
+      "residueEnd": 287,
+      "nearestFeature": "feature_139",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "allostericScore": 3.2762000000000002,
+      "orthostericPenalty": 0,
+      "confidence": 0.8762000000000001,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_973_990",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 973-990",
+      "center": {
+        "x": -17.378111111111114,
+        "y": 36.492944444444454,
+        "z": 42.015888888888895
+      },
+      "residueStart": 973,
+      "residueEnd": 990,
+      "nearestFeature": "feature_162",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.2742722222222223,
+      "orthostericPenalty": 0,
+      "confidence": 0.7742722222222223,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_158",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes phosphorylation.",
+      "center": {
+        "x": -9.527,
+        "y": 19.098,
+        "z": 3.956
+      },
+      "residueStart": 705,
+      "residueEnd": 705,
+      "nearestFeature": "feature_158",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.2512,
+      "orthostericPenalty": 0,
+      "confidence": 0.7512000000000001,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_105",
+      "source": "uniprot_feature_proxy",
+      "label": "Natural variant: found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs397517085",
+      "center": {
+        "x": -12.557,
+        "y": 28.872,
+        "z": -3.417
+      },
+      "residueStart": 709,
+      "residueEnd": 709,
+      "nearestFeature": "feature_105",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.2131,
+      "orthostericPenalty": 0,
+      "confidence": 0.8131,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_3",
+      "source": "uniprot_feature_proxy",
+      "label": "Topological domain: Extracellular",
+      "center": {
+        "x": -5.870809983896959,
+        "y": -7.338399355877631,
+        "z": -10.233877616747186
+      },
+      "residueStart": 25,
+      "residueEnd": 645,
+      "nearestFeature": "feature_3",
+      "motifs": [
+        "Boundary",
+        "Communication",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 3.2097761674718193,
+      "orthostericPenalty": 0,
+      "confidence": 0.9097761674718197,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_141",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes autophosphorylation and activation of downstream kinases.",
+      "center": {
+        "x": 21.032,
+        "y": 16.055,
+        "z": -10.237
+      },
+      "residueStart": 429,
+      "residueEnd": 429,
+      "nearestFeature": "feature_141",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "allostericScore": 3.205,
+      "orthostericPenalty": 0,
+      "confidence": 0.805,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_703_720",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 703-720",
+      "center": {
+        "x": -12.532444444444444,
+        "y": 30.65366666666667,
+        "z": 3.317888888888889
+      },
+      "residueStart": 703,
+      "residueEnd": 720,
+      "nearestFeature": "feature_105",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.192138888888889,
+      "orthostericPenalty": 0,
+      "confidence": 0.7921388888888891,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_307_324",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 307-324",
+      "center": {
+        "x": -8.262888888888888,
+        "y": 4.001611111111111,
+        "z": -9.48388888888889
+      },
+      "residueStart": 307,
+      "residueEnd": 324,
+      "nearestFeature": "feature_140",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "allostericScore": 3.1912277777777778,
+      "orthostericPenalty": 0,
+      "confidence": 0.7912277777777779,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_157",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes phosphorylation.",
+      "center": {
+        "x": -6.664,
+        "y": 17.926,
+        "z": 6.246
+      },
+      "residueStart": 704,
+      "residueEnd": 704,
+      "nearestFeature": "feature_157",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.1469,
+      "orthostericPenalty": 0,
+      "confidence": 0.6469,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_122",
+      "source": "uniprot_feature_proxy",
+      "label": "Natural variant: found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs121913465",
+      "center": {
+        "x": -5.158,
+        "y": 16.874,
+        "z": 13.492
+      },
+      "residueStart": 768,
+      "residueEnd": 768,
+      "nearestFeature": "feature_122",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.1456,
+      "orthostericPenalty": 0,
+      "confidence": 0.7456,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_110",
+      "source": "uniprot_feature_proxy",
+      "label": "Natural variant: found in a lung cancer sample; somatic mutation; strongly increased kinase activity; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs28929495",
+      "center": {
+        "x": -8.69,
+        "y": 41.762,
+        "z": 11.649
+      },
+      "residueStart": 719,
+      "residueEnd": 719,
+      "nearestFeature": "feature_110",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.1330999999999998,
+      "orthostericPenalty": 0,
+      "confidence": 0.7331,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_140",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-275. Strongly reduced autophosphorylation and activation of downstream kinases; when associated with A-287.",
+      "center": {
+        "x": -10.587,
+        "y": 0.655,
+        "z": -2.016
+      },
+      "residueStart": 309,
+      "residueEnd": 309,
+      "nearestFeature": "feature_140",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Communication",
+        "Feedback"
+      ],
+      "allostericScore": 3.1144,
+      "orthostericPenalty": 0,
+      "confidence": 0.7143999999999999,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_667_684",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 667-684",
+      "center": {
+        "x": -31.491888888888884,
+        "y": 13.302833333333334,
+        "z": 4.9222777777777775
+      },
+      "residueStart": 667,
+      "residueEnd": 684,
+      "nearestFeature": "feature_20",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.1111555555555555,
+      "orthostericPenalty": 0,
+      "confidence": 0.6111555555555556,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_28",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine; by autocatalysis",
+      "center": {
+        "x": -22.182,
+        "y": 20.178,
+        "z": 11.25
+      },
+      "residueStart": 1016,
+      "residueEnd": 1016,
+      "nearestFeature": "feature_28",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.0919,
+      "orthostericPenalty": 0,
+      "confidence": 0.5919,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_20",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphothreonine; by PKC and PKD/PRKD1",
+      "center": {
+        "x": -27.128,
+        "y": 14.698,
+        "z": 4.677
+      },
+      "residueStart": 678,
+      "residueEnd": 678,
+      "nearestFeature": "feature_20",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 3.0597,
+      "orthostericPenalty": 0,
+      "confidence": 0.5597,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_27",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine; by autocatalysis",
+      "center": {
+        "x": -27.462,
+        "y": 36.516,
+        "z": 17.11
+      },
+      "residueStart": 998,
+      "residueEnd": 998,
+      "nearestFeature": "feature_27",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.945,
+      "orthostericPenalty": 0,
+      "confidence": 0.445,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_991_1008",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 991-1008",
+      "center": {
+        "x": -29.361055555555552,
+        "y": 36.67322222222222,
+        "z": 15.149666666666668
+      },
+      "residueStart": 991,
+      "residueEnd": 1008,
+      "nearestFeature": "feature_27",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.936011111111111,
+      "orthostericPenalty": 0,
+      "confidence": 0.43601111111111107,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_26",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -28.205,
+        "y": 38.078,
+        "z": 22.408
+      },
+      "residueStart": 995,
+      "residueEnd": 995,
+      "nearestFeature": "feature_26",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.9044,
+      "orthostericPenalty": 0,
+      "confidence": 0.4044,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_155",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Reduced phosphorylation.",
+      "center": {
+        "x": -0.031,
+        "y": 13.332,
+        "z": 12.134
+      },
+      "residueStart": 699,
+      "residueEnd": 699,
+      "nearestFeature": "feature_155",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.9019,
+      "orthostericPenalty": 0,
+      "confidence": 0.4019,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_156",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes phosphorylation.",
+      "center": {
+        "x": -2.751,
+        "y": 11.629,
+        "z": 9.914
+      },
+      "residueStart": 700,
+      "residueEnd": 700,
+      "nearestFeature": "feature_156",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8894,
+      "orthostericPenalty": 0,
+      "confidence": 0.38939999999999997,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_685_702",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 685-702",
+      "center": {
+        "x": -4.361944444444446,
+        "y": 8.111333333333333,
+        "z": 10.673944444444444
+      },
+      "residueStart": 685,
+      "residueEnd": 702,
+      "nearestFeature": "feature_21",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8876388888888886,
+      "orthostericPenalty": 0,
+      "confidence": 0.38763888888888887,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_25",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -27.465,
+        "y": 34.05,
+        "z": 29.348
+      },
+      "residueStart": 991,
+      "residueEnd": 991,
+      "nearestFeature": "feature_25",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8866,
+      "orthostericPenalty": 0,
+      "confidence": 0.38659999999999994,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_22",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": 5.073,
+        "y": 4.663,
+        "z": 14.859
+      },
+      "residueStart": 695,
+      "residueEnd": 695,
+      "nearestFeature": "feature_22",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8853,
+      "orthostericPenalty": 0,
+      "confidence": 0.38530000000000003,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_147",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced phosphorylation.",
+      "center": {
+        "x": -13.439,
+        "y": 6.143,
+        "z": 7.793
+      },
+      "residueStart": 688,
+      "residueEnd": 688,
+      "nearestFeature": "feature_147",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8722,
+      "orthostericPenalty": 0,
+      "confidence": 0.3722,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_41",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine; by autocatalysis",
+      "center": {
+        "x": -16.15,
+        "y": -10.352,
+        "z": -10.402
+      },
+      "residueStart": 1172,
+      "residueEnd": 1172,
+      "nearestFeature": "feature_41",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8675,
+      "orthostericPenalty": 0,
+      "confidence": 0.3675,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_21",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphothreonine; by PKD/PRKD1",
+      "center": {
+        "x": 1.315,
+        "y": 4.187,
+        "z": 10.773
+      },
+      "residueStart": 693,
+      "residueEnd": 693,
+      "nearestFeature": "feature_21",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8644,
+      "orthostericPenalty": 0,
+      "confidence": 0.3644,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_152",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Increased phosphorylation.",
+      "center": {
+        "x": 1.315,
+        "y": 4.187,
+        "z": 10.773
+      },
+      "residueStart": 693,
+      "residueEnd": 693,
+      "nearestFeature": "feature_152",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8644,
+      "orthostericPenalty": 0,
+      "confidence": 0.3644,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_153",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced phosphorylation.",
+      "center": {
+        "x": 1.315,
+        "y": 4.187,
+        "z": 10.773
+      },
+      "residueStart": 693,
+      "residueEnd": 693,
+      "nearestFeature": "feature_153",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8644,
+      "orthostericPenalty": 0,
+      "confidence": 0.3644,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_148",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Reduced autophosphorylation.",
+      "center": {
+        "x": -10.003,
+        "y": 7.448,
+        "z": 9.078
+      },
+      "residueStart": 689,
+      "residueEnd": 689,
+      "nearestFeature": "feature_148",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8641,
+      "orthostericPenalty": 0,
+      "confidence": 0.3641,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_154",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced phosphorylation.",
+      "center": {
+        "x": 2.499,
+        "y": 1.989,
+        "z": 13.748
+      },
+      "residueStart": 694,
+      "residueEnd": 694,
+      "nearestFeature": "feature_154",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8531,
+      "orthostericPenalty": 0,
+      "confidence": 0.3531,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_150",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Reduced phosphorylation.",
+      "center": {
+        "x": -8.037,
+        "y": 4.409,
+        "z": 10.362
+      },
+      "residueStart": 690,
+      "residueEnd": 690,
+      "nearestFeature": "feature_150",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8466,
+      "orthostericPenalty": 0,
+      "confidence": 0.34659999999999996,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_39",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine; by autocatalysis",
+      "center": {
+        "x": 49.951,
+        "y": 8.102,
+        "z": 36.963
+      },
+      "residueStart": 1110,
+      "residueEnd": 1110,
+      "nearestFeature": "feature_39",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8334,
+      "orthostericPenalty": 0,
+      "confidence": 0.33340000000000003,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_32",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -40.967,
+        "y": 28.627,
+        "z": 47.96
+      },
+      "residueStart": 1042,
+      "residueEnd": 1042,
+      "nearestFeature": "feature_32",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8247,
+      "orthostericPenalty": 0,
+      "confidence": 0.3247,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_40",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -3.001,
+        "y": -11.783,
+        "z": -4.304
+      },
+      "residueStart": 1166,
+      "residueEnd": 1166,
+      "nearestFeature": "feature_40",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8178,
+      "orthostericPenalty": 0,
+      "confidence": 0.3178,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_38",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine; by autocatalysis",
+      "center": {
+        "x": 34.418,
+        "y": 32.884,
+        "z": 7.482
+      },
+      "residueStart": 1092,
+      "residueEnd": 1092,
+      "nearestFeature": "feature_38",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8111,
+      "orthostericPenalty": 0,
+      "confidence": 0.3111,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1027_1044",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1027-1044",
+      "center": {
+        "x": -37.80633333333334,
+        "y": 17.16294444444445,
+        "z": 39.36127777777778
+      },
+      "residueStart": 1027,
+      "residueEnd": 1044,
+      "nearestFeature": "feature_30",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.808511111111111,
+      "orthostericPenalty": 0,
+      "confidence": 0.30851111111111107,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_151",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly reduced phosphorylation.",
+      "center": {
+        "x": -2.131,
+        "y": 3.791,
+        "z": 9.164
+      },
+      "residueStart": 692,
+      "residueEnd": 692,
+      "nearestFeature": "feature_151",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8058,
+      "orthostericPenalty": 0,
+      "confidence": 0.30579999999999996,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_31",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphothreonine",
+      "center": {
+        "x": -38.69,
+        "y": 26.417,
+        "z": 48.632
+      },
+      "residueStart": 1041,
+      "residueEnd": 1041,
+      "nearestFeature": "feature_31",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.8002000000000002,
+      "orthostericPenalty": 0,
+      "confidence": 0.3002,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_43",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Omega-N-methylarginine",
+      "center": {
+        "x": 4.752,
+        "y": 18.937,
+        "z": -8.667
+      },
+      "residueStart": 1199,
+      "residueEnd": 1199,
+      "nearestFeature": "feature_43",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7989,
+      "orthostericPenalty": 0,
+      "confidence": 0.2989,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_42",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine; by autocatalysis",
+      "center": {
+        "x": 1.759,
+        "y": 15.232,
+        "z": -3.774
+      },
+      "residueStart": 1197,
+      "residueEnd": 1197,
+      "nearestFeature": "feature_42",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7911,
+      "orthostericPenalty": 0,
+      "confidence": 0.29109999999999997,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1081_1098",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1081-1098",
+      "center": {
+        "x": 29.625000000000007,
+        "y": 39.18194444444444,
+        "z": 4.639055555555555
+      },
+      "residueStart": 1081,
+      "residueEnd": 1098,
+      "nearestFeature": "feature_38",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7906444444444443,
+      "orthostericPenalty": 0,
+      "confidence": 0.2906444444444445,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_30",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -32.865,
+        "y": 22.466,
+        "z": 48.692
+      },
+      "residueStart": 1039,
+      "residueEnd": 1039,
+      "nearestFeature": "feature_30",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7898,
+      "orthostericPenalty": 0,
+      "confidence": 0.2898,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_34",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine",
+      "center": {
+        "x": -9.21,
+        "y": 39.525,
+        "z": 15.654
+      },
+      "residueStart": 1069,
+      "residueEnd": 1069,
+      "nearestFeature": "feature_34",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7878,
+      "orthostericPenalty": 0,
+      "confidence": 0.2878,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1063_1080",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1063-1080",
+      "center": {
+        "x": -4.193055555555556,
+        "y": 48.58422222222222,
+        "z": 14.733444444444444
+      },
+      "residueStart": 1063,
+      "residueEnd": 1080,
+      "nearestFeature": "feature_36",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7870388888888886,
+      "orthostericPenalty": 0,
+      "confidence": 0.28703888888888884,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_29",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -38.711,
+        "y": 10.942,
+        "z": 18.89
+      },
+      "residueStart": 1026,
+      "residueEnd": 1026,
+      "nearestFeature": "feature_29",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7867,
+      "orthostericPenalty": 0,
+      "confidence": 0.2867,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1045_1062",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1045-1062",
+      "center": {
+        "x": -40.29833333333333,
+        "y": 51.156777777777776,
+        "z": 25.918611111111108
+      },
+      "residueStart": 1045,
+      "residueEnd": 1062,
+      "nearestFeature": "feature_33",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7790055555555555,
+      "orthostericPenalty": 0,
+      "confidence": 0.27900555555555556,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_37",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": 12.093,
+        "y": 58.805,
+        "z": 4.761
+      },
+      "residueStart": 1081,
+      "residueEnd": 1081,
+      "nearestFeature": "feature_37",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7645,
+      "orthostericPenalty": 0,
+      "confidence": 0.2645,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_33",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -17.058,
+        "y": 51.593,
+        "z": 15.856
+      },
+      "residueStart": 1064,
+      "residueEnd": 1064,
+      "nearestFeature": "feature_33",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 2.7612,
+      "orthostericPenalty": 0,
+      "confidence": 0.2612,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_649_666",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 649-666",
+      "center": {
+        "x": -54.231222222222215,
+        "y": 10.195833333333333,
+        "z": -6.455166666666667
+      },
+      "residueStart": 649,
+      "residueEnd": 666,
+      "nearestFeature": "feature_4",
+      "motifs": [
+        "Boundary",
+        "Communication"
+      ],
+      "allostericScore": 2.6865944444444443,
+      "orthostericPenalty": 0,
+      "confidence": 0.6865944444444443,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_4",
+      "source": "uniprot_feature_proxy",
+      "label": "Transmembrane: Helical",
+      "center": {
+        "x": -53.921652173913046,
+        "y": 8.73004347826087,
+        "z": -7.472695652173915
+      },
+      "residueStart": 646,
+      "residueEnd": 668,
+      "nearestFeature": "feature_4",
+      "motifs": [
+        "Boundary",
+        "Communication"
+      ],
+      "allostericScore": 2.6613565217391306,
+      "orthostericPenalty": 0,
+      "confidence": 0.6613565217391306,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_631_648",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 631-648",
+      "center": {
+        "x": -45.823166666666665,
+        "y": -14.219111111111111,
+        "z": -27.61766666666667
+      },
+      "residueStart": 631,
+      "residueEnd": 648,
+      "nearestFeature": "feature_4",
+      "motifs": [
+        "Boundary",
+        "Communication"
+      ],
+      "allostericScore": 2.5747222222222224,
+      "orthostericPenalty": 0,
+      "confidence": 0.5747222222222222,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_757_774",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 757-774",
+      "center": {
+        "x": -3.236666666666667,
+        "y": 21.435111111111112,
+        "z": 12.839722222222223
+      },
+      "residueStart": 757,
+      "residueEnd": 774,
+      "nearestFeature": "feature_122",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 1.7594444444444446,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.7594444444444445,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_865_882",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 865-882",
+      "center": {
+        "x": 11.457888888888887,
+        "y": 29.172555555555554,
+        "z": 20.849833333333336
+      },
+      "residueStart": 865,
+      "residueEnd": 882,
+      "nearestFeature": "feature_24",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 1.7303777777777776,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.6303777777777777,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_5",
+      "source": "uniprot_feature_proxy",
+      "label": "Topological domain: Cytoplasmic",
+      "center": {
+        "x": -3.7777583025830195,
+        "y": 22.477217712177126,
+        "z": 18.42374723247232
+      },
+      "residueStart": 669,
+      "residueEnd": 1210,
+      "nearestFeature": "feature_5",
+      "motifs": [
+        "Boundary",
+        "Communication",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 1.50555184501845,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.6055518450184502,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_24",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphotyrosine",
+      "center": {
+        "x": 13.299,
+        "y": 22.366,
+        "z": 19.849
+      },
+      "residueStart": 869,
+      "residueEnd": 869,
+      "nearestFeature": "feature_24",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 1.5028000000000001,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.4028,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_132",
+      "source": "uniprot_feature_proxy",
+      "label": "Natural variant: found in a lung cancer sample; constitutively activated kinase with higher levels of basal autophosphorylation; more sensitive to gefitinib than wild-type; dbSNP:rs121913444",
+      "center": {
+        "x": 6.116,
+        "y": 18.063,
+        "z": 16.731
+      },
+      "residueStart": 861,
+      "residueEnd": 861,
+      "nearestFeature": "feature_132",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 1.4341,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.4341,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_35",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -5.522,
+        "y": 39.973,
+        "z": 16.694
+      },
+      "residueStart": 1070,
+      "residueEnd": 1070,
+      "nearestFeature": "feature_35",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 1.4325,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.3325,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_36",
+      "source": "uniprot_feature_proxy",
+      "label": "Modified residue: Phosphoserine",
+      "center": {
+        "x": -4.048,
+        "y": 43.42,
+        "z": 15.954
+      },
+      "residueStart": 1071,
+      "residueEnd": 1071,
+      "nearestFeature": "feature_36",
+      "motifs": [
+        "Feedback",
+        "Communication"
+      ],
+      "allostericScore": 1.3688000000000002,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.2688,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_19_36",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 19-36",
+      "center": {
+        "x": -28.067833333333343,
+        "y": -2.170722222222222,
+        "z": 6.799333333333332
+      },
+      "residueStart": 19,
+      "residueEnd": 36,
+      "nearestFeature": "feature_6",
+      "motifs": [
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 0.9186666666666665,
+      "orthostericPenalty": 0,
+      "confidence": 0.6186666666666666,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_125",
+      "source": "uniprot_feature_proxy",
+      "label": "Natural variant: found in a lung cancer sample; increased kinase activity; dbSNP:rs121434569",
+      "center": {
+        "x": -11.599,
+        "y": 27.815,
+        "z": 11.208
+      },
+      "residueStart": 790,
+      "residueEnd": 790,
+      "nearestFeature": "feature_125",
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "allostericScore": 0.7837999999999999,
+      "orthostericPenalty": 0,
+      "confidence": 0.8837999999999999,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1_18",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1-18",
+      "center": {
+        "x": -64.96355555555559,
+        "y": 5.526111111111111,
+        "z": 15.850777777777775
+      },
+      "residueStart": 1,
+      "residueEnd": 18,
+      "nearestFeature": "feature_6",
+      "motifs": [
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 0.7756944444444445,
+      "orthostericPenalty": 0,
+      "confidence": 0.4756944444444444,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_160",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Abolishes kinase activity.",
+      "center": {
+        "x": -7.185,
+        "y": 33.6,
+        "z": 7.59
+      },
+      "residueStart": 745,
+      "residueEnd": 745,
+      "nearestFeature": "feature_160",
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "allostericScore": 0.7637999999999999,
+      "orthostericPenalty": 0,
+      "confidence": 0.8637999999999999,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_16",
+      "source": "uniprot_feature_proxy",
+      "label": "Binding site",
+      "center": {
+        "x": -13.286999999999999,
+        "y": 27.9055,
+        "z": 12.1225
+      },
+      "residueStart": 790,
+      "residueEnd": 791,
+      "nearestFeature": "feature_16",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0.5719,
+      "orthostericPenalty": 0,
+      "confidence": 0.8719,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_15",
+      "source": "uniprot_feature_proxy",
+      "label": "Binding site",
+      "center": {
+        "x": -7.185,
+        "y": 33.6,
+        "z": 7.59
+      },
+      "residueStart": 745,
+      "residueEnd": 745,
+      "nearestFeature": "feature_15",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0.5637999999999999,
+      "orthostericPenalty": 0,
+      "confidence": 0.8637999999999999,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_721_738",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 721-738",
+      "center": {
+        "x": -14.649999999999999,
+        "y": 31.104833333333335,
+        "z": 4.875666666666667
+      },
+      "residueStart": 721,
+      "residueEnd": 738,
+      "nearestFeature": "feature_14",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0.465261111111111,
+      "orthostericPenalty": 0,
+      "confidence": 0.7652611111111111,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_14",
+      "source": "uniprot_feature_proxy",
+      "label": "Binding site",
+      "center": {
+        "x": -4.738,
+        "y": 39.68377777777777,
+        "z": 9.702222222222222
+      },
+      "residueStart": 718,
+      "residueEnd": 726,
+      "nearestFeature": "feature_14",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0.42351111111111106,
+      "orthostericPenalty": 0,
+      "confidence": 0.7235111111111111,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_739_756",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 739-756",
+      "center": {
+        "x": -3.7789444444444436,
+        "y": 31.070555555555554,
+        "z": 3.826222222222223
+      },
+      "residueStart": 739,
+      "residueEnd": 756,
+      "nearestFeature": "feature_15",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0.3855388888888889,
+      "orthostericPenalty": 0,
+      "confidence": 0.6855388888888889,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_163",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Constitutively activated kinase.",
+      "center": {
+        "x": -31.589,
+        "y": 36.68,
+        "z": 3.5535
+      },
+      "residueStart": 1005,
+      "residueEnd": 1006,
+      "nearestFeature": "feature_163",
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "allostericScore": 0.36785,
+      "orthostericPenalty": 0,
+      "confidence": 0.46785,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_149",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Constitutively activated kinase.",
+      "center": {
+        "x": -10.003,
+        "y": 7.448,
+        "z": 9.078
+      },
+      "residueStart": 689,
+      "residueEnd": 689,
+      "nearestFeature": "feature_149",
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "allostericScore": 0.2641,
+      "orthostericPenalty": 0,
+      "confidence": 0.3641,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_8",
+      "source": "uniprot_feature_proxy",
+      "label": "Domain: Protein kinase",
+      "center": {
+        "x": -2.5695149253731353,
+        "y": 30.611473880596993,
+        "z": 23.04600746268656
+      },
+      "residueStart": 712,
+      "residueEnd": 979,
+      "nearestFeature": "feature_8",
+      "motifs": [
+        "Transition",
+        "Authority",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 0,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.8411190298507464,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_13",
+      "source": "uniprot_feature_proxy",
+      "label": "Active site: Proton acceptor",
+      "center": {
+        "x": 2.816,
+        "y": 31.605,
+        "z": 21.679
+      },
+      "residueStart": 837,
+      "residueEnd": 837,
+      "nearestFeature": "feature_13",
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "allostericScore": 0,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.8812000000000001,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_17",
+      "source": "uniprot_feature_proxy",
+      "label": "Binding site",
+      "center": {
+        "x": -2.805,
+        "y": 30.307,
+        "z": 16.515
+      },
+      "residueStart": 855,
+      "residueEnd": 855,
+      "nearestFeature": "feature_17",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.7675,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_131",
+      "source": "uniprot_feature_proxy",
+      "label": "Natural variant: found in a lung cancer sample; somatic mutation; constitutively activated enzyme with strongly increased kinase activity; more sensitive to gefitinib than wild-type; dbSNP:rs121434568",
+      "center": {
+        "x": 4.259,
+        "y": 28.022,
+        "z": 15.134
+      },
+      "residueStart": 858,
+      "residueEnd": 858,
+      "nearestFeature": "feature_131",
+      "motifs": [
+        "Transition",
+        "Authority"
+      ],
+      "allostericScore": 0,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.5122,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_847_864",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 847-864",
+      "center": {
+        "x": -3.486000000000001,
+        "y": 25.34105555555555,
+        "z": 20.307833333333335
+      },
+      "residueStart": 847,
+      "residueEnd": 864,
+      "nearestFeature": "feature_17",
+      "motifs": [
+        "Boundary",
+        "Transition"
+      ],
+      "allostericScore": 0,
+      "orthostericPenalty": 1.4,
+      "confidence": 0.6836666666666668,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    }
+  ],
+  "topAllostericTargets": [
+    {
+      "id": "feature_proxy_feature_146",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609.",
+      "center": {
+        "x": -28.796,
+        "y": -9.509,
+        "z": -33.513
+      },
+      "residueStart": 609,
+      "residueEnd": 609,
+      "nearestFeature": "feature_146",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 4.3425,
+      "orthostericPenalty": 0,
+      "confidence": 0.9425,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_143",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding.",
+      "center": {
+        "x": -20.66525,
+        "y": -1.8954999999999997,
+        "z": -37.85725
+      },
+      "residueStart": 587,
+      "residueEnd": 590,
+      "nearestFeature": "feature_143",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 4.3367249999999995,
+      "orthostericPenalty": 0,
+      "confidence": 0.936725,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_9",
+      "source": "uniprot_feature_proxy",
+      "label": "Region: Important for dimerization, phosphorylation and activation",
+      "center": {
+        "x": -2.5734705882352937,
+        "y": 8.845,
+        "z": 10.496411764705883
+      },
+      "residueStart": 688,
+      "residueEnd": 704,
+      "nearestFeature": "feature_9",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority",
+        "Modularity",
+        "Hierarchy"
+      ],
+      "allostericScore": 4.105405882352941,
+      "orthostericPenalty": 0,
+      "confidence": 0.4054058823529412,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_18",
+      "source": "uniprot_feature_proxy",
+      "label": "Site: Important for interaction with PIK3C2B",
+      "center": {
+        "x": -22.182,
+        "y": 20.178,
+        "z": 11.25
+      },
+      "residueStart": 1016,
+      "residueEnd": 1016,
+      "nearestFeature": "feature_18",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.9919,
+      "orthostericPenalty": 0,
+      "confidence": 0.5919,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_164",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: 50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092.",
+      "center": {
+        "x": -22.182,
+        "y": 20.178,
+        "z": 11.25
+      },
+      "residueStart": 1016,
+      "residueEnd": 1016,
+      "nearestFeature": "feature_164",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.9919,
+      "orthostericPenalty": 0,
+      "confidence": 0.5919,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "geometry_low_conf_1009_1026",
+      "source": "confidence_geometry_proxy",
+      "label": "Lower-confidence flexible window 1009-1026",
+      "center": {
+        "x": -26.02161111111111,
+        "y": 18.089055555555557,
+        "z": 14.942666666666664
+      },
+      "residueStart": 1009,
+      "residueEnd": 1026,
+      "nearestFeature": "feature_18",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.867094444444444,
+      "orthostericPenalty": 0,
+      "confidence": 0.46709444444444437,
+      "rationale": "AlphaFold pLDDT suggests a flexible or uncertain region that may participate in regulation or disorder. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_173",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: No change in interaction with PIK3C2B.",
+      "center": {
+        "x": -16.15,
+        "y": -10.352,
+        "z": -10.402
+      },
+      "residueStart": 1172,
+      "residueEnd": 1172,
+      "nearestFeature": "feature_173",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7675,
+      "orthostericPenalty": 0,
+      "confidence": 0.3675,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    },
+    {
+      "id": "feature_proxy_feature_168",
+      "source": "uniprot_feature_proxy",
+      "label": "Mutagenesis: Strongly decreases interaction with CBLC.",
+      "center": {
+        "x": -11.853,
+        "y": 41.822,
+        "z": 17.265
+      },
+      "residueStart": 1068,
+      "residueEnd": 1068,
+      "nearestFeature": "feature_168",
+      "motifs": [
+        "Communication",
+        "Feedback",
+        "Authority"
+      ],
+      "allostericScore": 3.7594,
+      "orthostericPenalty": 0,
+      "confidence": 0.3594,
+      "rationale": "UniProt feature projected onto AlphaFold residue coordinates. Motif score favors Communication/Feedback/Authority and penalizes direct active-site Transition proximity."
+    }
+  ],
+  "caveats": [
+    "This MVP ranks structural intervention candidates; it does not predict clinical efficacy, toxicity, binding energy, or druggability.",
+    "AlphaFold structures are predictions. Low pLDDT or disordered regions should be treated carefully.",
+    "Fpocket was not available in this local run unless explicitly listed in dataSources; fallback pockets are geometry/annotation proxies.",
+    "Use experimental structures, ligand co-crystals, molecular docking, and wet-lab validation before making scientific claims."
+  ]
+}

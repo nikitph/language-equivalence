@@ -1,0 +1,187 @@
+[
+  {
+    "stId": "R-HSA-1227986",
+    "displayName": "Signaling by ERBB2",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1236382",
+    "displayName": "Constitutive Signaling by Ligand-Responsive EGFR Cancer Variants",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1236394",
+    "displayName": "Signaling by ERBB4",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1250196",
+    "displayName": "SHC1 events in ERBB2 signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1251932",
+    "displayName": "PLCG1 events in ERBB2 signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1257604",
+    "displayName": "PIP3 activates AKT signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-177929",
+    "displayName": "Signaling by EGFR",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-179812",
+    "displayName": "GRB2 events in EGFR signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-180292",
+    "displayName": "GAB1 signalosome",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-180336",
+    "displayName": "SHC1 events in EGFR signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-182971",
+    "displayName": "EGFR downregulation",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1963640",
+    "displayName": "GRB2 events in ERBB2 signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-1963642",
+    "displayName": "PI3K events in ERBB2 signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-212718",
+    "displayName": "EGFR interacts with phospholipase C-gamma",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-2179392",
+    "displayName": "EGFR Transactivation by Gastrin",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-2219530",
+    "displayName": "Constitutive Signaling by Aberrant PI3K in Cancer",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-445144",
+    "displayName": "Signal transduction by L1",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-5637810",
+    "displayName": "Constitutive Signaling by EGFRvIII",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-5638303",
+    "displayName": "Inhibition of Signaling by Overexpressed EGFR",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-5673001",
+    "displayName": "RAF/MAP kinase cascade",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-6785631",
+    "displayName": "ERBB2 Regulates Cell Motility",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-6811558",
+    "displayName": "PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-8847993",
+    "displayName": "ERBB2 Activates PTK6 Signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-8856825",
+    "displayName": "Cargo recognition for clathrin-mediated endocytosis",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-8856828",
+    "displayName": "Clathrin-mediated endocytosis",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-8857538",
+    "displayName": "PTK6 promotes HIF1A stabilization",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-8863795",
+    "displayName": "Downregulation of ERBB2 signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-8866910",
+    "displayName": "TFAP2 (AP-2) family regulates transcription of growth factors and their receptors",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9009391",
+    "displayName": "Extra-nuclear estrogen signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9013507",
+    "displayName": "NOTCH3 Activation and Transmission of Signal to the Nucleus",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9609690",
+    "displayName": "HCMV Early Events",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9634638",
+    "displayName": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9664565",
+    "displayName": "Signaling by ERBB2 KD Mutants",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9665348",
+    "displayName": "Signaling by ERBB2 ECD mutants",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9665686",
+    "displayName": "Signaling by ERBB2 TMD/JMD mutants",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9820960",
+    "displayName": "Respiratory syncytial virus (RSV) attachment and entry",
+    "source": "Reactome"
+  },
+  {
+    "stId": "R-HSA-9927432",
+    "displayName": "Developmental Lineage of Mammary Gland Myoepithelial Cells",
+    "source": "Reactome"
+  }
+]

@@ -1,0 +1,978 @@
+{
+  "motifs": [
+    {
+      "id": 1,
+      "name": "State",
+      "group": "Existence & Change",
+      "question": "What currently exists?"
+    },
+    {
+      "id": 2,
+      "name": "Transition",
+      "group": "Existence & Change",
+      "question": "How does it change?"
+    },
+    {
+      "id": 3,
+      "name": "Invariant",
+      "group": "Existence & Change",
+      "question": "What must remain true?"
+    },
+    {
+      "id": 4,
+      "name": "Identity",
+      "group": "Existence & Change",
+      "question": "What makes this uniquely itself?"
+    },
+    {
+      "id": 5,
+      "name": "Boundary",
+      "group": "Existence & Change",
+      "question": "What separates inside from outside?"
+    },
+    {
+      "id": 6,
+      "name": "Terminal State",
+      "group": "Existence & Change",
+      "question": "When is it done?"
+    },
+    {
+      "id": 7,
+      "name": "Decay",
+      "group": "Existence & Change",
+      "question": "What degrades without maintenance?"
+    },
+    {
+      "id": 8,
+      "name": "Storage",
+      "group": "Memory & Persistence",
+      "question": "Where does information persist?"
+    },
+    {
+      "id": 9,
+      "name": "Addressing",
+      "group": "Memory & Persistence",
+      "question": "How do you find it?"
+    },
+    {
+      "id": 10,
+      "name": "Replication",
+      "group": "Memory & Persistence",
+      "question": "Can multiple copies exist?"
+    },
+    {
+      "id": 11,
+      "name": "Synchronization",
+      "group": "Memory & Persistence",
+      "question": "How do copies stay consistent?"
+    },
+    {
+      "id": 12,
+      "name": "Representation",
+      "group": "Intelligence & Learning",
+      "question": "How is reality encoded?"
+    },
+    {
+      "id": 13,
+      "name": "Feedback",
+      "group": "Intelligence & Learning",
+      "question": "How does outcome influence future behavior?"
+    },
+    {
+      "id": 14,
+      "name": "Prediction",
+      "group": "Intelligence & Learning",
+      "question": "What happens next?"
+    },
+    {
+      "id": 15,
+      "name": "Search",
+      "group": "Intelligence & Learning",
+      "question": "How do you find a valid path?"
+    },
+    {
+      "id": 16,
+      "name": "Model",
+      "group": "Intelligence & Learning",
+      "question": "What internal simulation exists?"
+    },
+    {
+      "id": 17,
+      "name": "Compression",
+      "group": "Intelligence & Learning",
+      "question": "How can less describe more?"
+    },
+    {
+      "id": 18,
+      "name": "Optimization",
+      "group": "Intelligence & Learning",
+      "question": "What should improve?"
+    },
+    {
+      "id": 19,
+      "name": "Explore/Exploit",
+      "group": "Intelligence & Learning",
+      "question": "Learn or use?"
+    },
+    {
+      "id": 20,
+      "name": "Self-Reference",
+      "group": "Intelligence & Learning",
+      "question": "When does a system reference itself?"
+    },
+    {
+      "id": 21,
+      "name": "Composition",
+      "group": "Structure & Scale",
+      "question": "How do pieces combine?"
+    },
+    {
+      "id": 22,
+      "name": "Hierarchy",
+      "group": "Structure & Scale",
+      "question": "How do small things form larger things under direction?"
+    },
+    {
+      "id": 23,
+      "name": "Modularity",
+      "group": "Structure & Scale",
+      "question": "What can change independently?"
+    },
+    {
+      "id": 24,
+      "name": "Abstraction",
+      "group": "Structure & Scale",
+      "question": "What can be hidden?"
+    },
+    {
+      "id": 25,
+      "name": "Emergence",
+      "group": "Structure & Scale",
+      "question": "How do micro-behaviors produce macro-properties?"
+    },
+    {
+      "id": 26,
+      "name": "Scarcity",
+      "group": "Resources & Allocation",
+      "question": "What is limited?"
+    },
+    {
+      "id": 27,
+      "name": "Queue",
+      "group": "Resources & Allocation",
+      "question": "Who waits?"
+    },
+    {
+      "id": 28,
+      "name": "Scheduling",
+      "group": "Resources & Allocation",
+      "question": "Who gets resources next?"
+    },
+    {
+      "id": 29,
+      "name": "Communication",
+      "group": "Coordination & Governance",
+      "question": "How does information move?"
+    },
+    {
+      "id": 30,
+      "name": "Authority",
+      "group": "Coordination & Governance",
+      "question": "Who decides?"
+    },
+    {
+      "id": 31,
+      "name": "Reconciliation",
+      "group": "Coordination & Governance",
+      "question": "How do divergent states converge?"
+    },
+    {
+      "id": 32,
+      "name": "Negotiation",
+      "group": "Coordination & Governance",
+      "question": "How do competing interests reach agreement?"
+    }
+  ],
+  "compositionRules": [
+    {
+      "composite": "Prediction",
+      "requires": [
+        "Representation",
+        "Feedback"
+      ],
+      "provides": [
+        "anticipation"
+      ],
+      "rationale": "Prediction is representation refined by prior outcomes."
+    },
+    {
+      "composite": "Model",
+      "requires": [
+        "Representation",
+        "Prediction",
+        "Boundary"
+      ],
+      "provides": [
+        "counterfactual simulation"
+      ],
+      "rationale": "A model is a bounded internal simulation of possible states."
+    },
+    {
+      "composite": "Compression",
+      "requires": [
+        "Representation",
+        "Scarcity"
+      ],
+      "provides": [
+        "generalization"
+      ],
+      "rationale": "Compression is representation optimized under storage or attention scarcity."
+    },
+    {
+      "composite": "Optimization",
+      "requires": [
+        "Prediction",
+        "Search",
+        "Scarcity"
+      ],
+      "provides": [
+        "directed improvement"
+      ],
+      "rationale": "Optimization requires expected outcomes, alternatives, and a constrained objective."
+    },
+    {
+      "composite": "Hierarchy",
+      "requires": [
+        "Composition",
+        "Authority"
+      ],
+      "provides": [
+        "directed scale"
+      ],
+      "rationale": "Hierarchy is composition under direction."
+    },
+    {
+      "composite": "Modularity",
+      "requires": [
+        "Boundary",
+        "Composition"
+      ],
+      "provides": [
+        "independent change"
+      ],
+      "rationale": "A module is a composed unit with a boundary."
+    },
+    {
+      "composite": "Abstraction",
+      "requires": [
+        "Boundary",
+        "Representation"
+      ],
+      "provides": [
+        "interface hiding"
+      ],
+      "rationale": "Abstraction hides internal representation behind a boundary."
+    },
+    {
+      "composite": "Emergence",
+      "requires": [
+        "Composition",
+        "Feedback"
+      ],
+      "provides": [
+        "macro behavior"
+      ],
+      "rationale": "Emergence arises when composed parts feed back into system-level behavior."
+    },
+    {
+      "composite": "Queue",
+      "requires": [
+        "Scarcity",
+        "Composition"
+      ],
+      "provides": [
+        "visible waiting"
+      ],
+      "rationale": "Queues expose competing demands under scarcity."
+    },
+    {
+      "composite": "Scheduling",
+      "requires": [
+        "Queue",
+        "Authority"
+      ],
+      "provides": [
+        "priority over time"
+      ],
+      "rationale": "Scheduling is authoritative ordering of queued scarcity."
+    },
+    {
+      "composite": "Reconciliation",
+      "requires": [
+        "Communication",
+        "Invariant",
+        "Authority"
+      ],
+      "provides": [
+        "divergence resolution"
+      ],
+      "rationale": "Reconciliation compares divergent states against a rule and resolves conflict."
+    },
+    {
+      "composite": "Negotiation",
+      "requires": [
+        "Communication",
+        "Scarcity",
+        "Authority"
+      ],
+      "provides": [
+        "agreement under conflict"
+      ],
+      "rationale": "Negotiation coordinates competing claims under constraint."
+    }
+  ],
+  "valenceRules": [
+    {
+      "motif": "Reconciliation",
+      "requires": [
+        "Communication",
+        "Authority",
+        "Invariant"
+      ],
+      "rationale": "Convergence requires state exchange, a deciding rule, and a target truth condition."
+    },
+    {
+      "motif": "Optimization",
+      "requires": [
+        "Prediction",
+        "Search",
+        "Scarcity"
+      ],
+      "rationale": "Improvement needs alternatives, expected outcomes, and a scarce objective."
+    },
+    {
+      "motif": "Scheduling",
+      "requires": [
+        "Queue",
+        "Scarcity",
+        "Authority"
+      ],
+      "rationale": "Scheduling exists only when limited resources force a priority rule."
+    },
+    {
+      "motif": "Feedback",
+      "requires": [
+        "State",
+        "Transition",
+        "Communication"
+      ],
+      "rationale": "Outcome must be observed and routed back into future transitions."
+    },
+    {
+      "motif": "Authority",
+      "requires": [
+        "Boundary",
+        "Invariant"
+      ],
+      "rationale": "Authority is scoped decision power over a rule."
+    },
+    {
+      "motif": "Replication",
+      "requires": [
+        "Identity",
+        "Storage"
+      ],
+      "rationale": "Copies need persistent state and identity boundaries."
+    },
+    {
+      "motif": "Synchronization",
+      "requires": [
+        "Replication",
+        "Communication",
+        "Invariant"
+      ],
+      "rationale": "Copies can only stay aligned by communicating against a shared invariant."
+    },
+    {
+      "motif": "Negotiation",
+      "requires": [
+        "Communication",
+        "Identity",
+        "Scarcity"
+      ],
+      "rationale": "Agreement requires actors, exchange, and conflicting constraints."
+    },
+    {
+      "motif": "Self-Reference",
+      "requires": [
+        "Representation",
+        "Model"
+      ],
+      "rationale": "A system must represent itself before it can refer to itself."
+    }
+  ],
+  "collisionRules": [
+    {
+      "motifs": [
+        "Prediction",
+        "Self-Reference",
+        "Terminal State"
+      ],
+      "verdict": "COLLISION",
+      "rationale": "A self-referential predictor with a forced terminal verdict recreates the halting-style paradox."
+    },
+    {
+      "motifs": [
+        "Authority",
+        "Boundary"
+      ],
+      "verdict": "COLLISION",
+      "rationale": "Authority without a scoped boundary is unbounded power; the compiler treats this as a missing-valence collision when Boundary is absent."
+    }
+  ],
+  "audits": [
+    {
+      "node": {
+        "id": "market_volatility_circuit_breaker",
+        "label": "Market volatility circuit breaker",
+        "domain": "finance",
+        "motifs": [
+          "State",
+          "Transition",
+          "Invariant",
+          "Boundary",
+          "Feedback",
+          "Representation",
+          "Prediction",
+          "Communication",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "State",
+            "Transition",
+            "Invariant",
+            "Boundary",
+            "Feedback",
+            "Representation",
+            "Prediction",
+            "Communication",
+            "Authority"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Markets have observable price ticks.",
+            "Halt rules are enforceable by exchange authority."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "TRUST",
+        "missingValences": [],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": true,
+        "threeTestGate": {
+          "coverage": "pass",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Transfer is structurally admissible subject to substrate validation."
+      }
+    },
+    {
+      "node": {
+        "id": "static_allosteric_wedge",
+        "label": "Static allosteric wedge",
+        "domain": "biology",
+        "motifs": [
+          "Boundary",
+          "Communication",
+          "Transition"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Boundary",
+            "Communication",
+            "Transition"
+          ],
+          "fidelity": "low",
+          "stressAssumptions": [
+            "Constant binding friction is acceptable across healthy and pathological contexts."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "fail",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_1_circuit_breaker_609_609",
+        "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609.",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_2_circuit_breaker_587_590",
+        "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding.",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_3_debounce_filter_688_704",
+        "label": "Region: Important for dimerization, phosphorylation and activation",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority",
+          "Modularity",
+          "Hierarchy"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Modularity",
+            "Hierarchy",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [
+          "Hierarchy requires Composition",
+          "Modularity requires Composition"
+        ],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_4_circuit_breaker_1016_1016",
+        "label": "Site: Important for interaction with PIK3C2B",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_5_circuit_breaker_1016_1016",
+        "label": "Mutagenesis: 50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092.",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_6_circuit_breaker_1009_1026",
+        "label": "Lower-confidence flexible window 1009-1026",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_7_circuit_breaker_1172_1172",
+        "label": "Mutagenesis: No change in interaction with PIK3C2B.",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    },
+    {
+      "node": {
+        "id": "egfr_contract_8_circuit_breaker_1068_1068",
+        "label": "Mutagenesis: Strongly decreases interaction with CBLC.",
+        "domain": "bio_contract",
+        "motifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "claims": [
+          "Feedback",
+          "Authority"
+        ],
+        "implementation": {
+          "coverage": [
+            "Communication",
+            "Feedback",
+            "Authority",
+            "Prediction",
+            "Boundary",
+            "Feedback",
+            "Communication"
+          ],
+          "fidelity": "high",
+          "stressAssumptions": [
+            "Docking or generative model must return a pose and contact map, not only a molecule string.",
+            "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+            "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+            "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+            "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+          ]
+        }
+      },
+      "audit": {
+        "verdict": "MIRACLE",
+        "missingValences": [
+          "Feedback requires State",
+          "Feedback requires Transition",
+          "Authority requires Invariant"
+        ],
+        "missingCompositions": [],
+        "collisions": [],
+        "fepViable": false,
+        "threeTestGate": {
+          "coverage": "fail",
+          "fidelity": "pass",
+          "stress": "warn"
+        },
+        "recommendation": "Add missing valence prerequisites before transfer."
+      }
+    }
+  ],
+  "transfers": [
+    {
+      "sourcePattern": "Market volatility circuit breaker",
+      "targetDomain": "Region: Important for dimerization, phosphorylation and activation",
+      "transferredMotifs": [
+        "Boundary",
+        "Feedback",
+        "Prediction",
+        "Communication",
+        "Authority"
+      ],
+      "substrateAssumptionMismatches": [
+        "Financial markets expose discrete price ticks; proteins expose conformational ensembles indirectly.",
+        "Exchange halts are externally enforceable; molecular regulation must be encoded through affinity, kinetics, and local environment.",
+        "Market time is observable and digital; protein transitions are stochastic and continuous."
+      ],
+      "engineeringBridge": [
+        "Translate volatility threshold into use-dependent affinity for transition-like conformations.",
+        "Translate exchange authority into local allosteric gating at the dimerization/interface region.",
+        "Translate market halt into reversible kinetic modulation, not permanent catalytic shutdown."
+      ],
+      "verdict": "WRAP"
+    }
+  ]
+}

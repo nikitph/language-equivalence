@@ -1,0 +1,665 @@
+{
+  "source": "/Users/truckx/Documents/language-equivalence/artifacts/system2vec/P00533_system2vec_bridge.json",
+  "contracts": [
+    {
+      "id": "egfr_contract_1_circuit_breaker_609_609",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609.",
+        "residues": "609-609",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 4.3425,
+        "confidence": 0.9425
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 609-609 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 609-609.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 609-609.\nTarget annotation: Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding. Increased EGF binding; when associated with A-587; A-590 and A-609..\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 609-609 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 609-609.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_2_circuit_breaker_587_590",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding.",
+        "residues": "587-590",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 4.3367249999999995,
+        "confidence": 0.936725
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 587-590 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 587-590.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 587-590.\nTarget annotation: Mutagenesis: Decreases intramolecular interactions and facilitates EGF binding..\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 587-590 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 587-590.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_3_debounce_filter_688_704",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Region: Important for dimerization, phosphorylation and activation",
+        "residues": "688-704",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority",
+          "Modularity",
+          "Hierarchy"
+        ],
+        "allostericScore": 4.105405882352941,
+        "confidence": 0.4054058823529412
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Debounce filter",
+        "domain": "control systems",
+        "similarity": 0.684738522918862,
+        "mechanism": "Fast repeated signals are ignored until a stable interval confirms intent."
+      },
+      "motifPayload": {
+        "intent": "Suppress transient regulatory-interface activation while preserving sustained physiological signaling.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority + Modularity + Hierarchy motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Increase the persistence threshold required for productive dimer/interface activation.",
+          "Filter noisy or transient contacts more strongly than sustained physiological contacts."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from passive friction to a context-aware kinetic filter. Target 688-704 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer high affinity for open/active or transition-like hinge conformations; avoid strong resting-state affinity. The hypothesized binder should require repeated or persistent interface exposure before stable engagement.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 688-704.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Increase the time or persistence threshold for productive interface engagement.",
+        "Avoid permanent locking; healthy sustained signaling should remain plausible.",
+        "Prefer mechanisms that alter on/off kinetics at the interface rather than abolishing catalytic capability."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 688-704.\nTarget annotation: Region: Important for dimerization, phosphorylation and activation.\nMotif payload: Communication + Feedback + Authority + Modularity + Hierarchy.\nSystems analogy: Debounce filter (control systems), similarity 0.6847.\nMechanistic intent: Suppress transient regulatory-interface activation while preserving sustained physiological signaling.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from passive friction to a context-aware kinetic filter. Target 688-704 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer high affinity for open/active or transition-like hinge conformations; avoid strong resting-state affinity. The hypothesized binder should require repeated or persistent interface exposure before stable engagement.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 688-704.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Increase the time or persistence threshold for productive interface engagement.\n- Avoid permanent locking; healthy sustained signaling should remain plausible.\n- Prefer mechanisms that alter on/off kinetics at the interface rather than abolishing catalytic capability.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_4_circuit_breaker_1016_1016",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Site: Important for interaction with PIK3C2B",
+        "residues": "1016-1016",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 3.9919,
+        "confidence": 0.5919
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1016-1016 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 1016-1016.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 1016-1016.\nTarget annotation: Site: Important for interaction with PIK3C2B.\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1016-1016 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 1016-1016.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_5_circuit_breaker_1016_1016",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Mutagenesis: 50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092.",
+        "residues": "1016-1016",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 3.9919,
+        "confidence": 0.5919
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1016-1016 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 1016-1016.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 1016-1016.\nTarget annotation: Mutagenesis: 50% decrease in interaction with PIK3C2B. 65% decrease in interaction with PIK3C2B; when associated with F-1197. Abolishes interaction with PIK3C2B; when associated with F-1197 and F-1092..\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1016-1016 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 1016-1016.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_6_circuit_breaker_1009_1026",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Lower-confidence flexible window 1009-1026",
+        "residues": "1009-1026",
+        "source": "confidence_geometry_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 3.867094444444444,
+        "confidence": 0.46709444444444437
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1009-1026 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 1009-1026.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 1009-1026.\nTarget annotation: Lower-confidence flexible window 1009-1026.\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1009-1026 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 1009-1026.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_7_circuit_breaker_1172_1172",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Mutagenesis: No change in interaction with PIK3C2B.",
+        "residues": "1172-1172",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 3.7675,
+        "confidence": 0.3675
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1172-1172 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 1172-1172.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 1172-1172.\nTarget annotation: Mutagenesis: No change in interaction with PIK3C2B..\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1172-1172 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 1172-1172.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    },
+    {
+      "id": "egfr_contract_8_circuit_breaker_1068_1068",
+      "protein": "Epidermal growth factor receptor",
+      "gene": "EGFR",
+      "target": {
+        "label": "Mutagenesis: Strongly decreases interaction with CBLC.",
+        "residues": "1068-1068",
+        "source": "uniprot_feature_proxy",
+        "bioMotifs": [
+          "Communication",
+          "Feedback",
+          "Authority"
+        ],
+        "allostericScore": 3.7594,
+        "confidence": 0.3594
+      },
+      "systemsAnalogy": {
+        "primaryPattern": "Circuit breaker",
+        "domain": "operations",
+        "similarity": 0.7812005144406764,
+        "mechanism": "Feedback opens a boundary when downstream behavior becomes unsafe, stopping repeated activation attempts."
+      },
+      "motifPayload": {
+        "intent": "Open a reversible safety boundary when pathological feedback loops dominate.",
+        "requiredEffects": [
+          "Modulate the target's Communication + Feedback + Authority motif signature.",
+          "Act through an allosteric/interface mechanism rather than direct orthosteric shutdown.",
+          "Prefer reversible, tunable modulation over irreversible blockade.",
+          "Bias the protein toward a recoverable inactive or open-loop regulatory state under excessive activation."
+        ],
+        "prohibitedEffects": [
+          "Do not directly lock the ATP/catalytic active site as the primary mechanism.",
+          "Do not force a permanent terminal inactive state unless explicitly validated as selective.",
+          "Do not disrupt unrelated housekeeping signaling without selectivity evidence."
+        ]
+      },
+      "fidelityTest": {
+        "baselineDrugArchitecture": "Conventional allosteric modulation is often a static wedge: once bound, it applies constant friction regardless of signaling context.",
+        "richerReferenceArchitectures": [
+          "Market volatility circuit breaker: dormant until rate-of-change exceeds a threshold.",
+          "Highway ramp metering: local gate controlled by downstream congestion feedback.",
+          "Debounce filter: transient contacts are ignored; persistent signals pass.",
+          "Backpressure: downstream overload slows upstream throughput without full shutdown."
+        ],
+        "fidelityGap": "The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.",
+        "upgradePrinciple": "Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1068-1068 should be regulated by signal dynamics and environment, not geometry alone."
+      },
+      "smartModulatorSpec": {
+        "volatilityTrigger": "Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.",
+        "downstreamSensor": "Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.",
+        "dualGateLogic": "Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.",
+        "suggestedEnvironmentalGates": [
+          "lower pH tumor microenvironment",
+          "elevated reactive oxygen species",
+          "protease-cleavable tumor-context linker",
+          "redox-sensitive steric shield"
+        ]
+      },
+      "geometryConstraints": [
+        "Prefer candidate binders near EGFR residues 1068-1068.",
+        "Prefer interface-adjacent poses over catalytic active-site poses.",
+        "Avoid poses whose primary contact map is dominated by orthosteric Transition residues.",
+        "Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs."
+      ],
+      "kineticStructuralConstraints": [
+        "Favor reversible inactive-state stabilization under excessive activation pressure.",
+        "Avoid irreversible terminal-state traps unless validated as selective."
+      ],
+      "validationGates": [
+        "Docking or generative model must return a pose and contact map, not only a molecule string.",
+        "Contact map should overlap the target residue window or a justified adjacent regulatory interface.",
+        "Predicted mechanism should modulate dimerization/interface signaling rather than ATP chemistry alone.",
+        "Run selectivity checks against related kinases or receptor family members before claiming specificity.",
+        "Treat all output as a hypothesis until validated by experimental structure, binding, signaling, and toxicity assays."
+      ],
+      "generatorPrompt": "Design-hypothesis contract for EGFR (Epidermal growth factor receptor).\nTarget region: residues 1068-1068.\nTarget annotation: Mutagenesis: Strongly decreases interaction with CBLC..\nMotif payload: Communication + Feedback + Authority.\nSystems analogy: Circuit breaker (operations), similarity 0.7812.\nMechanistic intent: Open a reversible safety boundary when pathological feedback loops dominate.\nFidelity upgrade:\n- Avoid static allosteric friction as the only mechanism.\n- Prefer a context-aware smart modulator with feedback-like gating.\n- Fidelity gap: The static wedge lacks an internal Feedback loop and therefore cannot distinguish healthy baseline signaling from pathological high-frequency or tumor-context signaling.\n- Upgrade principle: Upgrade the molecule from static binding to state-dependent, feedback-gated modulation. Target 1068-1068 should be regulated by signal dynamics and environment, not geometry alone.\nSmart modulator gates:\n- Volatility trigger: Prefer state-dependent affinity that rises under pathological activation dynamics and remains weak in resting conformations.\n- Downstream sensor: Add an environment-gated activation concept: the binding interface should be masked or weak at healthy extracellular pH and become exposed or stronger under tumor-like context such as lower pH or oxidative stress. This is a hypothesis specification, not a validated chemistry claim.\n- Dual gate logic: Engage only when both gates are satisfied: (1) target conformation indicates high-frequency/pathological activation and (2) local environment indicates disease-context stress. If either gate is absent, remain weakly binding or inactive.\nGeometry constraints:\n- Prefer candidate binders near EGFR residues 1068-1068.\n- Prefer interface-adjacent poses over catalytic active-site poses.\n- Avoid poses whose primary contact map is dominated by orthosteric Transition residues.\n- Prioritize contacts that can perturb Communication, Feedback, Authority, Boundary, or Modularity motifs.\nKinetic/structural constraints:\n- Favor reversible inactive-state stabilization under excessive activation pressure.\n- Avoid irreversible terminal-state traps unless validated as selective.\nReturn candidate molecules or binders only with predicted pose, contact map, and rationale. Do not claim therapeutic efficacy.",
+      "caveats": [
+        "This contract is a cross-domain design hypothesis, not a drug candidate.",
+        "It does not estimate binding affinity, ADMET, clinical efficacy, or safety.",
+        "Use chemistry-specific and biology-specific validation before scientific or medical claims."
+      ]
+    }
+  ]
+}

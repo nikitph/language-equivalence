@@ -1,9 +1,12 @@
 node_modules/
 dist/
 .cache/
+.venv/
+.python-version
 tmp/
 data/loghub/
 *.log
+models/motif-embed-minilm-v1/
 output/pdf/*.aux
 output/pdf/*.out
 output/pdf/*.toc

@@ -16,6 +16,12 @@ npm run run:dlr6
 npm run run:dlr7
 npm run run:dlr8
 npm run run:dlr-lambda
+npm run run:bio-motif
+npm run run:system2vec-bio
+npm run run:bio-contracts
+npm run run:usc-kernel
+npm run run:motif2vec
+npm run train:motif2vec
 ```
 
 By default, `run:report` uses Codex-authored local parses for the 32-D motif
@@ -138,3 +144,115 @@ composition.
 
 The standalone paper for this result is in `paper/dlr_lambda_loghub.tex`; the
 compiled PDF is written to `output/pdf/dlr_lambda_loghub.pdf`.
+
+## motif2vec Dataset Scope
+
+`npm run run:motif2vec` writes:
+
+- `motif2vec_dataset.md`: dataset-generation scope for a 32-D motif embedding
+  library.
+- `artifacts/motif2vec/seed.jsonl`: deterministic seed examples with
+  inspectable 32-D motif vectors.
+- `artifacts/motif2vec/corpus_10k.jsonl`: 10,000 synthetic oracle-labeled
+  structural examples.
+- `artifacts/motif2vec/train.jsonl`, `dev.jsonl`, and `test.jsonl`: training
+  splits for the embedding model.
+- `artifacts/motif2vec/eval_pairs.jsonl`: cross-domain positive and lexical
+  hard-negative retrieval pairs.
+
+The goal is to package the DLR motif basis as a structural retrieval embedding
+layer. This is intentionally separate from ProcessIR: motif vectors are for
+retrieval and similarity search; typed IR is for causal reasoning.
+
+`npm run train:motif2vec` trains `motif-embed-v0`, a no-dependency hashed
+n-gram baseline regressor that maps text to 32 motif dimensions. It writes:
+
+- `models/motif-embed-v0/model.json`
+- `motif2vec_training.md`
+
+This baseline keeps the output contract stable for a future
+`all-MiniLM-L6-v2 -> 32-D regression head` implementation.
+
+The optional MiniLM trainer is available at
+`experiments/motif2vec_train_minilm.py`. It expects:
+
+```bash
+python3.11 -m pip install sentence-transformers scikit-learn numpy joblib
+python3.11 experiments/motif2vec_train_minilm.py
+```
+
+It is intentionally dependency-gated so the default repo path remains runnable
+with only Node dependencies.
+
+## Bio Motif Compiler MVP
+
+`npm run run:bio-motif` builds a first BioMotifIR artifact for a UniProt
+accession. By default it uses EGFR (`P00533`):
+
+```bash
+npm run run:bio-motif
+npm run run:bio-motif -- P04637
+```
+
+It writes:
+
+- `bio_motif_compiler.md`: macro/micro structural biology compiler report.
+- `artifacts/bio_motif/<ACCESSION>_bio_motif_ir.json`: BioMotifIR with
+  pathway context, protein feature motifs, structure summary, and ranked
+  allosteric-style pocket candidates.
+- cached UniProt, Reactome, and AlphaFold files under `artifacts/bio_motif/`.
+
+The MVP uses UniProt REST, Reactome ContentService, and AlphaFold DB direct PDB
+files. If `fpocket` is installed locally, it attempts to use it; otherwise it
+falls back to deterministic UniProt-feature and AlphaFold-confidence geometry
+proxies. This is a structural target-ranking prototype, not a docking, clinical,
+or drug-efficacy predictor.
+
+## System2Vec Bio Bridge
+
+`npm run run:system2vec-bio` flattens the EGFR BioMotifIR target signatures into
+32-D motif vectors and retrieves cross-domain software/control-system analogies
+such as token buckets, semaphores, backpressure, circuit breakers, and quorum
+gates.
+
+It writes:
+
+- `system2vec_bio_bridge.md`
+- `artifacts/system2vec/P00533_system2vec_bridge.json`
+
+This is a design-analogy layer. It can suggest regulatory mechanisms to hand to
+chemistry-specific tooling, but it does not generate or validate molecules.
+
+## Bio AST Execution Contracts
+
+`npm run run:bio-contracts` converts the EGFR BioMotifIR + System2Vec bridge
+into molecule-generator-facing AST execution contracts.
+
+It writes:
+
+- `bio_ast_execution_contracts.md`
+- `artifacts/bio_contracts/P00533_ast_execution_contracts.json`
+
+Each contract includes target residues, bio motifs, the systems analogy,
+required effects, prohibited effects, geometry constraints, kinetic/structural
+constraints, validation gates, and a generator prompt. These are computational
+design hypotheses only, not therapeutic claims.
+
+## USC Atlas Kernel
+
+`npm run run:usc-kernel` runs a deterministic Layer-1 guardrail over System2Vec
+and Bio AST contract patterns.
+
+It writes:
+
+- `usc_atlas_kernel.md`
+- `artifacts/usc/atlas_kernel_audit.json`
+
+The audit checks motif valence prerequisites, collision rules, implementation
+fidelity, and typed substrate-assumption mismatches. This is the safety layer
+that prevents naive cross-domain transfer from being accepted merely because two
+vectors are close.
+
+The standalone Universal Systems Compiler / Motif Atlas paper is in
+`paper/usc_motif_atlas.tex`; the compiled PDF is written to
+`output/pdf/usc_motif_atlas.pdf`.

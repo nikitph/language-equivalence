@@ -12,6 +12,12 @@
     "run:dlr7": "tsx experiments/dlr_trace_to_causal_ir.ts",
     "run:dlr8": "tsx experiments/dlr_hidden_preconditions.ts",
     "run:dlr-lambda": "tsx experiments/dlr_lambda_loghub.ts",
+    "run:bio-motif": "tsx experiments/bio_motif_compiler.ts",
+    "run:system2vec-bio": "tsx experiments/system2vec_bio_bridge.ts",
+    "run:bio-contracts": "tsx experiments/bio_ast_execution_contract.ts",
+    "run:usc-kernel": "tsx experiments/usc_atlas_kernel.ts",
+    "run:motif2vec": "tsx experiments/motif2vec_dataset.ts",
+    "train:motif2vec": "tsx experiments/motif2vec_train.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
