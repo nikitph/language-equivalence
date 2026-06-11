@@ -256,3 +256,6 @@ vectors are close.
 The standalone Universal Systems Compiler / Motif Atlas paper is in
 `paper/usc_motif_atlas.tex`; the compiled PDF is written to
 `output/pdf/usc_motif_atlas.pdf`.
+
+The expanded theory manuscript is stored separately at
+`paper/usc_motif_atlas_theory.tex`.
