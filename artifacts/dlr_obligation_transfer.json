@@ -1,0 +1,1185 @@
+{
+  "cases": [
+    {
+      "id": "O1_graph_frontier_false_terminal",
+      "domain": "graph_traversal",
+      "title": "Graph traversal target reached before frontier exhausted",
+      "facts": [
+        {
+          "id": "target_reached_graph_traversal",
+          "domain": "graph_traversal",
+          "kind": "target_reached",
+          "text": "Traversal reports target node T reached from source S.",
+          "fields": {
+            "target": "T"
+          }
+        },
+        {
+          "id": "frontier_nonempty_graph_traversal",
+          "domain": "graph_traversal",
+          "kind": "frontier_nonempty",
+          "text": "Frontier still contains nodes N7 and N8.",
+          "fields": {
+            "frontierEmpty": false
+          }
+        },
+        {
+          "id": "unexplored_edges_graph_traversal",
+          "domain": "graph_traversal",
+          "kind": "unexplored_edges",
+          "text": "Node N7 has outgoing edges that were not traversed.",
+          "fields": {
+            "unexploredEdges": 3
+          }
+        },
+        {
+          "id": "cycle_seen_graph_traversal",
+          "domain": "graph_traversal",
+          "kind": "cycle_seen",
+          "text": "Cycle S->A->S was encountered and marked visited.",
+          "fields": {
+            "cycleHandled": true
+          }
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_target_found",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_terminal_state",
+          "target": "target_found",
+          "requiredEvidence": [
+            "frontier_nonempty",
+            "unexplored_edges"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "frontier_nonempty_graph_traversal",
+            "unexplored_edges_graph_traversal"
+          ],
+          "rationale": "A target hit is not global traversal completion."
+        },
+        {
+          "id": "validate_reconciliation_frontier_empty",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_reconciliation",
+          "target": "frontier_empty",
+          "requiredEvidence": [
+            "frontier_nonempty"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "frontier_nonempty_graph_traversal"
+          ],
+          "rationale": "Traversal must reconcile target success with frontier exhaustion."
+        },
+        {
+          "id": "validate_invariant_cycle_handling",
+          "domain": "graph_traversal",
+          "triggeredBy": "cycle_seen_graph_traversal",
+          "obligationType": "validate_invariant",
+          "target": "cycle_handling",
+          "requiredEvidence": [
+            "cycle_seen"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "cycle_seen_graph_traversal"
+          ],
+          "rationale": "Cycle evidence must preserve the visited-set invariant."
+        }
+      ],
+      "goldTerminalValidity": "invalid",
+      "goldRootCause": "frontier_not_exhausted",
+      "prescription": "Do not accept target-found as terminal until frontier and unexplored-edge obligations discharge."
+    },
+    {
+      "id": "O2_agent_delete_boundary_authority",
+      "domain": "agent_deletion",
+      "title": "Agent deletion success over aliased production boundary",
+      "facts": [
+        {
+          "id": "tool_success_agent_deletion",
+          "domain": "agent_deletion",
+          "kind": "tool_success",
+          "text": "Agent tool reports delete('/tmp/cache') succeeded.",
+          "fields": {
+            "terminalClaim": true
+          }
+        },
+        {
+          "id": "path_alias_agent_deletion",
+          "domain": "agent_deletion",
+          "kind": "path_alias",
+          "text": "/tmp/cache resolves through a symlink to /prod/cache.",
+          "fields": {
+            "canonicalBoundary": "/prod/cache"
+          }
+        },
+        {
+          "id": "authority_missing_agent_deletion",
+          "domain": "agent_deletion",
+          "kind": "authority_missing",
+          "text": "User authorized test workspace cleanup but not production cache deletion.",
+          "fields": {
+            "authorized": false
+          }
+        },
+        {
+          "id": "irreversible_action_agent_deletion",
+          "domain": "agent_deletion",
+          "kind": "irreversible_action",
+          "text": "Deletion is irreversible because no backup snapshot exists.",
+          "fields": {
+            "reversible": false
+          }
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_delete_success",
+          "domain": "agent_deletion",
+          "triggeredBy": "tool_success_agent_deletion",
+          "obligationType": "validate_terminal_state",
+          "target": "delete_success",
+          "requiredEvidence": [
+            "path_alias",
+            "authority_missing",
+            "irreversible_action"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "path_alias_agent_deletion",
+            "authority_missing_agent_deletion",
+            "irreversible_action_agent_deletion"
+          ],
+          "rationale": "Tool success must satisfy parent goal and safety invariants."
+        },
+        {
+          "id": "validate_boundary_delete_target_boundary",
+          "domain": "agent_deletion",
+          "triggeredBy": "path_alias_agent_deletion",
+          "obligationType": "validate_boundary",
+          "target": "delete_target_boundary",
+          "requiredEvidence": [
+            "path_alias"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "path_alias_agent_deletion"
+          ],
+          "rationale": "Path aliases must be canonicalized before destructive actions."
+        },
+        {
+          "id": "validate_authority_delete_authority",
+          "domain": "agent_deletion",
+          "triggeredBy": "authority_missing_agent_deletion",
+          "obligationType": "validate_authority",
+          "target": "delete_authority",
+          "requiredEvidence": [
+            "authority_missing"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "authority_missing_agent_deletion"
+          ],
+          "rationale": "Authority must cover the canonical target, not only the requested path."
+        },
+        {
+          "id": "validate_irreversibility_delete_reversibility",
+          "domain": "agent_deletion",
+          "triggeredBy": "irreversible_action_agent_deletion",
+          "obligationType": "validate_irreversibility",
+          "target": "delete_reversibility",
+          "requiredEvidence": [
+            "irreversible_action"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "irreversible_action_agent_deletion"
+          ],
+          "rationale": "Irreversible transitions require stronger authorization and rollback evidence."
+        }
+      ],
+      "goldTerminalValidity": "invalid",
+      "goldRootCause": "boundary_and_authority_violation",
+      "prescription": "Canonicalize target paths and require authority over the canonical boundary before irreversible deletion."
+    },
+    {
+      "id": "O3_compliance_vendor_false_approval",
+      "domain": "compliance_approval",
+      "title": "Vendor approved while sanctions screen remains pending",
+      "facts": [
+        {
+          "id": "vendor_approved_compliance_approval",
+          "domain": "compliance_approval",
+          "kind": "vendor_approved",
+          "text": "Vendor V-44 was approved for onboarding.",
+          "fields": {
+            "terminalClaim": true
+          }
+        },
+        {
+          "id": "approver_role_compliance_approval",
+          "domain": "compliance_approval",
+          "kind": "approver_role",
+          "text": "Approval came from procurement analyst A-12.",
+          "fields": {
+            "role": "analyst"
+          }
+        },
+        {
+          "id": "sanctions_pending_compliance_approval",
+          "domain": "compliance_approval",
+          "kind": "sanctions_pending",
+          "text": "Sanctions screening job is still pending.",
+          "fields": {
+            "sanctionsScreened": false
+          }
+        },
+        {
+          "id": "deadline_satisfied_compliance_approval",
+          "domain": "compliance_approval",
+          "kind": "deadline_satisfied",
+          "text": "Approval was completed before the procurement deadline.",
+          "fields": {
+            "deadlineMet": true
+          }
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_vendor_approval_terminal",
+          "domain": "compliance_approval",
+          "triggeredBy": "vendor_approved_compliance_approval",
+          "obligationType": "validate_terminal_state",
+          "target": "vendor_approval_terminal",
+          "requiredEvidence": [
+            "sanctions_pending",
+            "approver_role"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "approver_role_compliance_approval",
+            "sanctions_pending_compliance_approval"
+          ],
+          "rationale": "Vendor approval is terminal only when authority and screening obligations discharge."
+        },
+        {
+          "id": "validate_authority_approval_authority",
+          "domain": "compliance_approval",
+          "triggeredBy": "approver_role_compliance_approval",
+          "obligationType": "validate_authority",
+          "target": "approval_authority",
+          "requiredEvidence": [
+            "approver_role"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "approver_role_compliance_approval"
+          ],
+          "rationale": "Approver role must authorize vendor onboarding."
+        },
+        {
+          "id": "validate_invariant_sanctions_screening",
+          "domain": "compliance_approval",
+          "triggeredBy": "sanctions_pending_compliance_approval",
+          "obligationType": "validate_invariant",
+          "target": "sanctions_screening",
+          "requiredEvidence": [
+            "sanctions_pending"
+          ],
+          "status": "unknown",
+          "resolvedBy": [
+            "sanctions_pending_compliance_approval"
+          ],
+          "rationale": "Compliance invariant requires completed sanctions screening."
+        },
+        {
+          "id": "validate_freshness_approval_deadline",
+          "domain": "compliance_approval",
+          "triggeredBy": "deadline_satisfied_compliance_approval",
+          "obligationType": "validate_freshness",
+          "target": "approval_deadline",
+          "requiredEvidence": [
+            "deadline_satisfied"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "deadline_satisfied_compliance_approval"
+          ],
+          "rationale": "Deadline evidence must be current at approval time."
+        }
+      ],
+      "goldTerminalValidity": "invalid",
+      "goldRootCause": "compliance_invariant_unresolved",
+      "prescription": "Mark vendor approval as pending until authority and sanctions-screening obligations discharge."
+    },
+    {
+      "id": "O4_payment_authorized_not_order_complete",
+      "domain": "payment_order",
+      "title": "Payment authorized but order has not reached terminal state",
+      "facts": [
+        {
+          "id": "payment_authorized_payment_order",
+          "domain": "payment_order",
+          "kind": "payment_authorized",
+          "text": "Payment P-18 authorized for order O-88.",
+          "fields": {
+            "terminalClaim": true
+          }
+        },
+        {
+          "id": "inventory_reserved_payment_order",
+          "domain": "payment_order",
+          "kind": "inventory_reserved",
+          "text": "Inventory reservation exists for SKU-2.",
+          "fields": {
+            "inventoryReserved": true
+          }
+        },
+        {
+          "id": "capture_missing_payment_order",
+          "domain": "payment_order",
+          "kind": "capture_missing",
+          "text": "Payment capture has not completed.",
+          "fields": {
+            "captured": false
+          }
+        },
+        {
+          "id": "order_not_reconciled_payment_order",
+          "domain": "payment_order",
+          "kind": "order_not_reconciled",
+          "text": "Order service has no final reconciliation event for O-88.",
+          "fields": {
+            "reconciled": false
+          }
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_order_terminal",
+          "domain": "payment_order",
+          "triggeredBy": "payment_authorized_payment_order",
+          "obligationType": "validate_terminal_state",
+          "target": "order_terminal",
+          "requiredEvidence": [
+            "capture_missing",
+            "order_not_reconciled"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "capture_missing_payment_order",
+            "order_not_reconciled_payment_order"
+          ],
+          "rationale": "Payment authorization is not order completion."
+        },
+        {
+          "id": "validate_invariant_inventory_reservation",
+          "domain": "payment_order",
+          "triggeredBy": "inventory_reserved_payment_order",
+          "obligationType": "validate_invariant",
+          "target": "inventory_reservation",
+          "requiredEvidence": [
+            "inventory_reserved"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "inventory_reserved_payment_order"
+          ],
+          "rationale": "Order completion requires inventory reservation."
+        },
+        {
+          "id": "validate_reconciliation_payment_capture",
+          "domain": "payment_order",
+          "triggeredBy": "capture_missing_payment_order",
+          "obligationType": "validate_reconciliation",
+          "target": "payment_capture",
+          "requiredEvidence": [
+            "capture_missing"
+          ],
+          "status": "unknown",
+          "resolvedBy": [
+            "capture_missing_payment_order"
+          ],
+          "rationale": "Authorization must reconcile with capture."
+        },
+        {
+          "id": "validate_reconciliation_order_payment_reconciliation",
+          "domain": "payment_order",
+          "triggeredBy": "order_not_reconciled_payment_order",
+          "obligationType": "validate_reconciliation",
+          "target": "order_payment_reconciliation",
+          "requiredEvidence": [
+            "order_not_reconciled"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "order_not_reconciled_payment_order"
+          ],
+          "rationale": "Order and payment state must converge."
+        }
+      ],
+      "goldTerminalValidity": "invalid",
+      "goldRootCause": "authorization_without_capture_reconciliation",
+      "prescription": "Separate payment authorization from terminal order completion until capture and order reconciliation discharge."
+    },
+    {
+      "id": "O5_code_authn_not_authz",
+      "domain": "code_security",
+      "title": "Authenticated user reaches admin route without authorization",
+      "facts": [
+        {
+          "id": "user_authenticated_code_security",
+          "domain": "code_security",
+          "kind": "user_authenticated",
+          "text": "User U-7 authenticated successfully.",
+          "fields": {
+            "terminalClaim": true
+          }
+        },
+        {
+          "id": "admin_route_accessed_code_security",
+          "domain": "code_security",
+          "kind": "admin_route_accessed",
+          "text": "Request accessed /admin/export.",
+          "fields": {
+            "boundary": "admin"
+          }
+        },
+        {
+          "id": "role_scope_user_code_security",
+          "domain": "code_security",
+          "kind": "role_scope_user",
+          "text": "User role is viewer, not admin.",
+          "fields": {
+            "role": "viewer"
+          }
+        },
+        {
+          "id": "audit_log_written_code_security",
+          "domain": "code_security",
+          "kind": "audit_log_written",
+          "text": "Audit log entry was written for the request.",
+          "fields": {
+            "auditLogged": true
+          }
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_access_allowed",
+          "domain": "code_security",
+          "triggeredBy": "user_authenticated_code_security",
+          "obligationType": "validate_terminal_state",
+          "target": "access_allowed",
+          "requiredEvidence": [
+            "admin_route_accessed",
+            "role_scope_user"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "admin_route_accessed_code_security",
+            "role_scope_user_code_security"
+          ],
+          "rationale": "Authentication alone is not authorization."
+        },
+        {
+          "id": "validate_boundary_admin_resource_boundary",
+          "domain": "code_security",
+          "triggeredBy": "admin_route_accessed_code_security",
+          "obligationType": "validate_boundary",
+          "target": "admin_resource_boundary",
+          "requiredEvidence": [
+            "admin_route_accessed"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "admin_route_accessed_code_security"
+          ],
+          "rationale": "Resource boundary must be checked after route resolution."
+        },
+        {
+          "id": "validate_authority_role_scope",
+          "domain": "code_security",
+          "triggeredBy": "role_scope_user_code_security",
+          "obligationType": "validate_authority",
+          "target": "role_scope",
+          "requiredEvidence": [
+            "role_scope_user"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "role_scope_user_code_security"
+          ],
+          "rationale": "Role scope must authorize the target resource."
+        },
+        {
+          "id": "validate_invariant_audit_logging",
+          "domain": "code_security",
+          "triggeredBy": "audit_log_written_code_security",
+          "obligationType": "validate_invariant",
+          "target": "audit_logging",
+          "requiredEvidence": [
+            "audit_log_written"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "audit_log_written_code_security"
+          ],
+          "rationale": "Access path should preserve audit logging invariant."
+        }
+      ],
+      "goldTerminalValidity": "invalid",
+      "goldRootCause": "authentication_without_authorization",
+      "prescription": "Treat authentication as an identity fact that opens authority and boundary obligations before access is terminal-valid."
+    }
+  ],
+  "predictions": [
+    {
+      "id": "O1_graph_frontier_false_terminal",
+      "system": "Domain checklist baseline",
+      "domain": "graph_traversal",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_target_reached",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_terminal_state",
+          "target": "target_reached",
+          "requiredEvidence": [],
+          "status": "satisfied",
+          "resolvedBy": [
+            "target_reached_graph_traversal"
+          ],
+          "rationale": "Domain checklist accepts the local terminal claim."
+        }
+      ],
+      "terminalValidity": "valid",
+      "rootCause": "none",
+      "unknowns": [],
+      "prescription": "Accept local terminal claim.",
+      "confidence": 0.72
+    },
+    {
+      "id": "O1_graph_frontier_false_terminal",
+      "system": "DLR-O cross-domain obligation ledger",
+      "domain": "graph_traversal",
+      "obligations": [
+        {
+          "id": "validate_invariant_cycle_handling",
+          "domain": "graph_traversal",
+          "triggeredBy": "cycle_seen_graph_traversal",
+          "obligationType": "validate_invariant",
+          "target": "cycle_handling",
+          "requiredEvidence": [
+            "cycle_seen"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "cycle_seen_graph_traversal"
+          ],
+          "rationale": "Cycle evidence must preserve the visited-set invariant."
+        },
+        {
+          "id": "validate_reconciliation_frontier_empty",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_reconciliation",
+          "target": "frontier_empty",
+          "requiredEvidence": [
+            "frontier_nonempty"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "frontier_nonempty_graph_traversal"
+          ],
+          "rationale": "Traversal must reconcile target success with frontier exhaustion."
+        },
+        {
+          "id": "validate_terminal_state_target_found",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_terminal_state",
+          "target": "target_found",
+          "requiredEvidence": [
+            "frontier_nonempty",
+            "unexplored_edges"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "frontier_nonempty_graph_traversal",
+            "unexplored_edges_graph_traversal"
+          ],
+          "rationale": "A target hit is not global traversal completion."
+        }
+      ],
+      "terminalValidity": "invalid",
+      "rootCause": "frontier_not_exhausted",
+      "unknowns": [],
+      "prescription": "Do not accept target-found as terminal until frontier and unexplored-edge obligations discharge.",
+      "confidence": 0.9
+    },
+    {
+      "id": "O2_agent_delete_boundary_authority",
+      "system": "Domain checklist baseline",
+      "domain": "agent_deletion",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_tool_success",
+          "domain": "agent_deletion",
+          "triggeredBy": "tool_success_agent_deletion",
+          "obligationType": "validate_terminal_state",
+          "target": "tool_success",
+          "requiredEvidence": [],
+          "status": "satisfied",
+          "resolvedBy": [
+            "tool_success_agent_deletion"
+          ],
+          "rationale": "Domain checklist accepts the local terminal claim."
+        }
+      ],
+      "terminalValidity": "valid",
+      "rootCause": "none",
+      "unknowns": [],
+      "prescription": "Accept local terminal claim.",
+      "confidence": 0.72
+    },
+    {
+      "id": "O2_agent_delete_boundary_authority",
+      "system": "DLR-O cross-domain obligation ledger",
+      "domain": "agent_deletion",
+      "obligations": [
+        {
+          "id": "validate_authority_delete_authority",
+          "domain": "agent_deletion",
+          "triggeredBy": "authority_missing_agent_deletion",
+          "obligationType": "validate_authority",
+          "target": "delete_authority",
+          "requiredEvidence": [
+            "authority_missing"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "authority_missing_agent_deletion"
+          ],
+          "rationale": "Authority must cover the canonical target, not only the requested path."
+        },
+        {
+          "id": "validate_boundary_delete_target_boundary",
+          "domain": "agent_deletion",
+          "triggeredBy": "path_alias_agent_deletion",
+          "obligationType": "validate_boundary",
+          "target": "delete_target_boundary",
+          "requiredEvidence": [
+            "path_alias"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "path_alias_agent_deletion"
+          ],
+          "rationale": "Path aliases must be canonicalized before destructive actions."
+        },
+        {
+          "id": "validate_irreversibility_delete_reversibility",
+          "domain": "agent_deletion",
+          "triggeredBy": "irreversible_action_agent_deletion",
+          "obligationType": "validate_irreversibility",
+          "target": "delete_reversibility",
+          "requiredEvidence": [
+            "irreversible_action"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "irreversible_action_agent_deletion"
+          ],
+          "rationale": "Irreversible transitions require stronger authorization and rollback evidence."
+        },
+        {
+          "id": "validate_terminal_state_delete_success",
+          "domain": "agent_deletion",
+          "triggeredBy": "tool_success_agent_deletion",
+          "obligationType": "validate_terminal_state",
+          "target": "delete_success",
+          "requiredEvidence": [
+            "path_alias",
+            "authority_missing",
+            "irreversible_action"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "path_alias_agent_deletion",
+            "authority_missing_agent_deletion",
+            "irreversible_action_agent_deletion"
+          ],
+          "rationale": "Tool success must satisfy parent goal and safety invariants."
+        }
+      ],
+      "terminalValidity": "invalid",
+      "rootCause": "boundary_and_authority_violation",
+      "unknowns": [],
+      "prescription": "Canonicalize target paths and require authority over the canonical boundary before irreversible deletion.",
+      "confidence": 0.9
+    },
+    {
+      "id": "O3_compliance_vendor_false_approval",
+      "system": "Domain checklist baseline",
+      "domain": "compliance_approval",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_vendor_approved",
+          "domain": "compliance_approval",
+          "triggeredBy": "vendor_approved_compliance_approval",
+          "obligationType": "validate_terminal_state",
+          "target": "vendor_approved",
+          "requiredEvidence": [],
+          "status": "satisfied",
+          "resolvedBy": [
+            "vendor_approved_compliance_approval"
+          ],
+          "rationale": "Domain checklist accepts the local terminal claim."
+        }
+      ],
+      "terminalValidity": "valid",
+      "rootCause": "none",
+      "unknowns": [],
+      "prescription": "Accept local terminal claim.",
+      "confidence": 0.72
+    },
+    {
+      "id": "O3_compliance_vendor_false_approval",
+      "system": "DLR-O cross-domain obligation ledger",
+      "domain": "compliance_approval",
+      "obligations": [
+        {
+          "id": "validate_authority_approval_authority",
+          "domain": "compliance_approval",
+          "triggeredBy": "approver_role_compliance_approval",
+          "obligationType": "validate_authority",
+          "target": "approval_authority",
+          "requiredEvidence": [
+            "approver_role"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "approver_role_compliance_approval"
+          ],
+          "rationale": "Approver role must authorize vendor onboarding."
+        },
+        {
+          "id": "validate_freshness_approval_deadline",
+          "domain": "compliance_approval",
+          "triggeredBy": "deadline_satisfied_compliance_approval",
+          "obligationType": "validate_freshness",
+          "target": "approval_deadline",
+          "requiredEvidence": [
+            "deadline_satisfied"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "deadline_satisfied_compliance_approval"
+          ],
+          "rationale": "Deadline evidence must be current at approval time."
+        },
+        {
+          "id": "validate_invariant_sanctions_screening",
+          "domain": "compliance_approval",
+          "triggeredBy": "sanctions_pending_compliance_approval",
+          "obligationType": "validate_invariant",
+          "target": "sanctions_screening",
+          "requiredEvidence": [
+            "sanctions_pending"
+          ],
+          "status": "unknown",
+          "resolvedBy": [
+            "sanctions_pending_compliance_approval"
+          ],
+          "rationale": "Compliance invariant requires completed sanctions screening."
+        },
+        {
+          "id": "validate_terminal_state_vendor_approval_terminal",
+          "domain": "compliance_approval",
+          "triggeredBy": "vendor_approved_compliance_approval",
+          "obligationType": "validate_terminal_state",
+          "target": "vendor_approval_terminal",
+          "requiredEvidence": [
+            "sanctions_pending",
+            "approver_role"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "approver_role_compliance_approval",
+            "sanctions_pending_compliance_approval"
+          ],
+          "rationale": "Vendor approval is terminal only when authority and screening obligations discharge."
+        }
+      ],
+      "terminalValidity": "invalid",
+      "rootCause": "compliance_invariant_unresolved",
+      "unknowns": [
+        "validate_invariant_sanctions_screening"
+      ],
+      "prescription": "Mark vendor approval as pending until authority and sanctions-screening obligations discharge.",
+      "confidence": 0.9
+    },
+    {
+      "id": "O4_payment_authorized_not_order_complete",
+      "system": "Domain checklist baseline",
+      "domain": "payment_order",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_payment_authorized",
+          "domain": "payment_order",
+          "triggeredBy": "payment_authorized_payment_order",
+          "obligationType": "validate_terminal_state",
+          "target": "payment_authorized",
+          "requiredEvidence": [],
+          "status": "satisfied",
+          "resolvedBy": [
+            "payment_authorized_payment_order"
+          ],
+          "rationale": "Domain checklist accepts the local terminal claim."
+        }
+      ],
+      "terminalValidity": "valid",
+      "rootCause": "none",
+      "unknowns": [],
+      "prescription": "Accept local terminal claim.",
+      "confidence": 0.72
+    },
+    {
+      "id": "O4_payment_authorized_not_order_complete",
+      "system": "DLR-O cross-domain obligation ledger",
+      "domain": "payment_order",
+      "obligations": [
+        {
+          "id": "validate_invariant_inventory_reservation",
+          "domain": "payment_order",
+          "triggeredBy": "inventory_reserved_payment_order",
+          "obligationType": "validate_invariant",
+          "target": "inventory_reservation",
+          "requiredEvidence": [
+            "inventory_reserved"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "inventory_reserved_payment_order"
+          ],
+          "rationale": "Order completion requires inventory reservation."
+        },
+        {
+          "id": "validate_reconciliation_order_payment_reconciliation",
+          "domain": "payment_order",
+          "triggeredBy": "order_not_reconciled_payment_order",
+          "obligationType": "validate_reconciliation",
+          "target": "order_payment_reconciliation",
+          "requiredEvidence": [
+            "order_not_reconciled"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "order_not_reconciled_payment_order"
+          ],
+          "rationale": "Order and payment state must converge."
+        },
+        {
+          "id": "validate_reconciliation_payment_capture",
+          "domain": "payment_order",
+          "triggeredBy": "capture_missing_payment_order",
+          "obligationType": "validate_reconciliation",
+          "target": "payment_capture",
+          "requiredEvidence": [
+            "capture_missing"
+          ],
+          "status": "unknown",
+          "resolvedBy": [
+            "capture_missing_payment_order"
+          ],
+          "rationale": "Authorization must reconcile with capture."
+        },
+        {
+          "id": "validate_terminal_state_order_terminal",
+          "domain": "payment_order",
+          "triggeredBy": "payment_authorized_payment_order",
+          "obligationType": "validate_terminal_state",
+          "target": "order_terminal",
+          "requiredEvidence": [
+            "capture_missing",
+            "order_not_reconciled"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "capture_missing_payment_order",
+            "order_not_reconciled_payment_order"
+          ],
+          "rationale": "Payment authorization is not order completion."
+        }
+      ],
+      "terminalValidity": "invalid",
+      "rootCause": "authorization_without_capture_reconciliation",
+      "unknowns": [
+        "validate_reconciliation_payment_capture"
+      ],
+      "prescription": "Separate payment authorization from terminal order completion until capture and order reconciliation discharge.",
+      "confidence": 0.9
+    },
+    {
+      "id": "O5_code_authn_not_authz",
+      "system": "Domain checklist baseline",
+      "domain": "code_security",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_user_authenticated",
+          "domain": "code_security",
+          "triggeredBy": "user_authenticated_code_security",
+          "obligationType": "validate_terminal_state",
+          "target": "user_authenticated",
+          "requiredEvidence": [],
+          "status": "satisfied",
+          "resolvedBy": [
+            "user_authenticated_code_security"
+          ],
+          "rationale": "Domain checklist accepts the local terminal claim."
+        }
+      ],
+      "terminalValidity": "valid",
+      "rootCause": "none",
+      "unknowns": [],
+      "prescription": "Accept local terminal claim.",
+      "confidence": 0.72
+    },
+    {
+      "id": "O5_code_authn_not_authz",
+      "system": "DLR-O cross-domain obligation ledger",
+      "domain": "code_security",
+      "obligations": [
+        {
+          "id": "validate_authority_role_scope",
+          "domain": "code_security",
+          "triggeredBy": "role_scope_user_code_security",
+          "obligationType": "validate_authority",
+          "target": "role_scope",
+          "requiredEvidence": [
+            "role_scope_user"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "role_scope_user_code_security"
+          ],
+          "rationale": "Role scope must authorize the target resource."
+        },
+        {
+          "id": "validate_boundary_admin_resource_boundary",
+          "domain": "code_security",
+          "triggeredBy": "admin_route_accessed_code_security",
+          "obligationType": "validate_boundary",
+          "target": "admin_resource_boundary",
+          "requiredEvidence": [
+            "admin_route_accessed"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "admin_route_accessed_code_security"
+          ],
+          "rationale": "Resource boundary must be checked after route resolution."
+        },
+        {
+          "id": "validate_invariant_audit_logging",
+          "domain": "code_security",
+          "triggeredBy": "audit_log_written_code_security",
+          "obligationType": "validate_invariant",
+          "target": "audit_logging",
+          "requiredEvidence": [
+            "audit_log_written"
+          ],
+          "status": "satisfied",
+          "resolvedBy": [
+            "audit_log_written_code_security"
+          ],
+          "rationale": "Access path should preserve audit logging invariant."
+        },
+        {
+          "id": "validate_terminal_state_access_allowed",
+          "domain": "code_security",
+          "triggeredBy": "user_authenticated_code_security",
+          "obligationType": "validate_terminal_state",
+          "target": "access_allowed",
+          "requiredEvidence": [
+            "admin_route_accessed",
+            "role_scope_user"
+          ],
+          "status": "violated",
+          "resolvedBy": [
+            "admin_route_accessed_code_security",
+            "role_scope_user_code_security"
+          ],
+          "rationale": "Authentication alone is not authorization."
+        }
+      ],
+      "terminalValidity": "invalid",
+      "rootCause": "authentication_without_authorization",
+      "unknowns": [],
+      "prescription": "Treat authentication as an identity fact that opens authority and boundary obligations before access is terminal-valid.",
+      "confidence": 0.9
+    }
+  ],
+  "scores": [
+    {
+      "caseId": "O1_graph_frontier_false_terminal",
+      "domain": "graph_traversal",
+      "system": "Domain checklist baseline",
+      "obligationRecall": 0,
+      "obligationPrecision": 0,
+      "statusAccuracy": 0,
+      "terminalValidityCorrect": false,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": false,
+      "prescriptionCorrect": false,
+      "confidence": 0.72,
+      "passed": false
+    },
+    {
+      "caseId": "O1_graph_frontier_false_terminal",
+      "domain": "graph_traversal",
+      "system": "DLR-O cross-domain obligation ledger",
+      "obligationRecall": 1,
+      "obligationPrecision": 1,
+      "statusAccuracy": 1,
+      "terminalValidityCorrect": true,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.9,
+      "passed": true
+    },
+    {
+      "caseId": "O2_agent_delete_boundary_authority",
+      "domain": "agent_deletion",
+      "system": "Domain checklist baseline",
+      "obligationRecall": 0,
+      "obligationPrecision": 0,
+      "statusAccuracy": 0,
+      "terminalValidityCorrect": false,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": false,
+      "prescriptionCorrect": false,
+      "confidence": 0.72,
+      "passed": false
+    },
+    {
+      "caseId": "O2_agent_delete_boundary_authority",
+      "domain": "agent_deletion",
+      "system": "DLR-O cross-domain obligation ledger",
+      "obligationRecall": 1,
+      "obligationPrecision": 1,
+      "statusAccuracy": 1,
+      "terminalValidityCorrect": true,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.9,
+      "passed": true
+    },
+    {
+      "caseId": "O3_compliance_vendor_false_approval",
+      "domain": "compliance_approval",
+      "system": "Domain checklist baseline",
+      "obligationRecall": 0,
+      "obligationPrecision": 0,
+      "statusAccuracy": 0,
+      "terminalValidityCorrect": false,
+      "unknownHandlingCorrect": false,
+      "rootCauseCorrect": false,
+      "prescriptionCorrect": false,
+      "confidence": 0.72,
+      "passed": false
+    },
+    {
+      "caseId": "O3_compliance_vendor_false_approval",
+      "domain": "compliance_approval",
+      "system": "DLR-O cross-domain obligation ledger",
+      "obligationRecall": 1,
+      "obligationPrecision": 1,
+      "statusAccuracy": 1,
+      "terminalValidityCorrect": true,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.9,
+      "passed": true
+    },
+    {
+      "caseId": "O4_payment_authorized_not_order_complete",
+      "domain": "payment_order",
+      "system": "Domain checklist baseline",
+      "obligationRecall": 0,
+      "obligationPrecision": 0,
+      "statusAccuracy": 0,
+      "terminalValidityCorrect": false,
+      "unknownHandlingCorrect": false,
+      "rootCauseCorrect": false,
+      "prescriptionCorrect": false,
+      "confidence": 0.72,
+      "passed": false
+    },
+    {
+      "caseId": "O4_payment_authorized_not_order_complete",
+      "domain": "payment_order",
+      "system": "DLR-O cross-domain obligation ledger",
+      "obligationRecall": 1,
+      "obligationPrecision": 1,
+      "statusAccuracy": 1,
+      "terminalValidityCorrect": true,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.9,
+      "passed": true
+    },
+    {
+      "caseId": "O5_code_authn_not_authz",
+      "domain": "code_security",
+      "system": "Domain checklist baseline",
+      "obligationRecall": 0,
+      "obligationPrecision": 0,
+      "statusAccuracy": 0,
+      "terminalValidityCorrect": false,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": false,
+      "prescriptionCorrect": false,
+      "confidence": 0.72,
+      "passed": false
+    },
+    {
+      "caseId": "O5_code_authn_not_authz",
+      "domain": "code_security",
+      "system": "DLR-O cross-domain obligation ledger",
+      "obligationRecall": 1,
+      "obligationPrecision": 1,
+      "statusAccuracy": 1,
+      "terminalValidityCorrect": true,
+      "unknownHandlingCorrect": true,
+      "rootCauseCorrect": true,
+      "prescriptionCorrect": true,
+      "confidence": 0.9,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "Domain checklist baseline": {
+      "passRate": 0,
+      "obligationRecall": 0,
+      "statusAccuracy": 0,
+      "terminalValidity": 0
+    },
+    "DLR-O cross-domain obligation ledger": {
+      "passRate": 1,
+      "obligationRecall": 1,
+      "statusAccuracy": 1,
+      "terminalValidity": 1
+    }
+  }
+}

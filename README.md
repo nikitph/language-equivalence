@@ -16,6 +16,10 @@ npm run run:dlr6
 npm run run:dlr7
 npm run run:dlr8
 npm run run:dlr-lambda
+npm run run:dlr-lambda-worklist
+npm run run:dlr-lambda-obligations
+npm run run:dlr-o
+npm run run:dlr-o-stress
 npm run run:bio-motif
 npm run run:system2vec-bio
 npm run run:bio-contracts
@@ -144,6 +148,65 @@ composition.
 
 The standalone paper for this result is in `paper/dlr_lambda_loghub.tex`; the
 compiled PDF is written to `output/pdf/dlr_lambda_loghub.pdf`.
+
+## DLR-Lambda Worklist/Fixpoint Experiment
+
+`npm run run:dlr-lambda-worklist` writes:
+
+- `dlr_lambda_worklist.md`: a Loghub-backed comparison of one-pass
+  MapReduce-style DLR-lambda against a typed worklist/fixpoint controller.
+- `artifacts/dlr_lambda_worklist_process_ir.json`: gold, MapReduce, and
+  worklist ProcessIR outputs plus the worklist trace.
+
+The experiment injects a marker-free refund incident where a VIP exemption claim
+initially weakens the stale-policy hypothesis, but a scheduled follow-up join
+finds that the exemption expired before approval. The goal is to test whether
+DLR-lambda should be treated as batch reduction or as recursive investigative
+control with joins, hypothesis revision, and coverage verification.
+
+The standalone DLR-lambda-2 paper is in `paper/dlr_lambda_worklist.tex`; the
+compiled PDF is written to `output/pdf/dlr_lambda_worklist.pdf`.
+
+## DLR-Lambda Motif Obligation Calculus
+
+`npm run run:dlr-lambda-obligations` writes:
+
+- `dlr_lambda_obligations.md`: a Loghub-backed DLR-lambda-3 report comparing
+  worklist/fixpoint recovery against an explicit motif obligation ledger.
+- `artifacts/dlr_lambda_obligations_process_ir.json`: gold, worklist-only, and
+  obligation-calculus ProcessIR outputs plus the obligation trace.
+
+DLR-lambda-3 treats facts such as cache use, exemption claims, authority
+assertions, and terminal success reports as obligation-generating facts.
+ProcessIR is terminal-valid only when mandatory obligations are satisfied,
+violated, or explicitly unknown under budget.
+
+## DLR-O Cross-Domain Obligation Transfer
+
+`npm run run:dlr-o` writes:
+
+- `dlr_obligation_transfer.md`: a cross-domain obligation-transfer report.
+- `artifacts/dlr_obligation_transfer.json`: cases, predictions, scores, and
+  summary metrics.
+
+DLR-O tests whether the obligation ledger is motif-native rather than
+log-specific. The same obligation types are applied to graph traversal, agent
+deletion, compliance approval, payment/order reconciliation, and code security.
+The key claim is that terminal claims are unsafe unless the motif obligations
+they generate are discharged.
+
+`npm run run:dlr-o-stress` writes:
+
+- `dlr_obligation_stress.md`: an adversarial unknown-handling stress test.
+- `artifacts/dlr_obligation_stress.json`: stress cases, predictions, scores,
+  and summary metrics.
+
+The stress test verifies that DLR-O preserves `unknown` as a valid terminal
+state when required evidence is unavailable, instead of forcing local success
+into global validity.
+
+The standalone DLR-O paper is in `paper/dlr_obligation_ledger.tex`; the
+compiled PDF is written to `output/pdf/dlr_obligation_ledger.pdf`.
 
 ## motif2vec Dataset Scope
 

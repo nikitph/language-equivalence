@@ -1,0 +1,1486 @@
+{
+  "source": "https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log",
+  "chunkSize": 300,
+  "injectedLines": [
+    {
+      "lineNumber": 91,
+      "text": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+    },
+    {
+      "lineNumber": 368,
+      "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+    },
+    {
+      "lineNumber": 705,
+      "text": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+    },
+    {
+      "lineNumber": 990,
+      "text": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+    },
+    {
+      "lineNumber": 1249,
+      "text": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+    },
+    {
+      "lineNumber": 1502,
+      "text": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+    },
+    {
+      "lineNumber": 1765,
+      "text": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+    }
+  ],
+  "gold": {
+    "id": "dlr-lambda-obligations-gold",
+    "title": "Gold obligation ProcessIR",
+    "facts": [
+      {
+        "id": "cache_config_c6c07af6",
+        "kind": "cache_config",
+        "sourceLine": 91,
+        "timestamp": "Mar 10 12:00:00",
+        "text": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval",
+        "refund": "R-915"
+      },
+      {
+        "id": "authority_source_2f96cf5a",
+        "kind": "authority_source",
+        "sourceLine": 368,
+        "timestamp": "Mar 10 12:01:00",
+        "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption",
+        "authority": "primary-policy",
+        "policyVersion": "v18"
+      },
+      {
+        "id": "policy_update_05820d5a",
+        "kind": "policy_update",
+        "sourceLine": 368,
+        "timestamp": "Mar 10 12:01:00",
+        "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption",
+        "policyVersion": "v18"
+      },
+      {
+        "id": "approval_c2c3acac",
+        "kind": "approval",
+        "sourceLine": 705,
+        "timestamp": "Mar 10 12:05:00",
+        "text": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache",
+        "refund": "R-915",
+        "usedPolicyVersion": "v17",
+        "exemptionId": "EX-91",
+        "authority": "local-cache"
+      },
+      {
+        "id": "exemption_claim_a9409db5",
+        "kind": "exemption_claim",
+        "sourceLine": 990,
+        "timestamp": "Mar 10 12:05:20",
+        "text": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed",
+        "refund": "R-915",
+        "exemptionId": "EX-91"
+      },
+      {
+        "id": "exemption_expired_b4d81fac",
+        "kind": "exemption_expired",
+        "sourceLine": 1249,
+        "timestamp": "Mar 10 12:03:00",
+        "text": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91",
+        "exemptionId": "EX-91",
+        "refund": "R-915"
+      },
+      {
+        "id": "audit_violation_c24daeac",
+        "kind": "audit_violation",
+        "sourceLine": 1502,
+        "timestamp": "Mar 10 12:06:00",
+        "text": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91",
+        "refund": "R-915",
+        "policyVersion": "v18",
+        "usedPolicyVersion": "v17",
+        "exemptionId": "EX-91"
+      },
+      {
+        "id": "settlement_blocked_68e593b3",
+        "kind": "settlement_blocked",
+        "sourceLine": 1765,
+        "timestamp": "Mar 10 12:09:00",
+        "text": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid",
+        "refund": "R-915"
+      }
+    ],
+    "obligations": [
+      {
+        "id": "validate_freshness_policy_cache",
+        "triggeredBy": "cache_config_c6c07af6",
+        "obligationType": "validate_freshness",
+        "target": "policy_cache",
+        "requiredEvidence": [
+          "policy_update"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "policy_update_05820d5a"
+        ],
+        "rationale": "Cache use creates stale-representation risk."
+      },
+      {
+        "id": "validate_authority_refund_policy_v18",
+        "triggeredBy": "policy_update_05820d5a",
+        "obligationType": "validate_authority",
+        "target": "refund_policy_v18",
+        "requiredEvidence": [
+          "authority_source"
+        ],
+        "status": "satisfied",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "authority_source_2f96cf5a"
+        ],
+        "rationale": "Policy version only matters if it is authoritative."
+      },
+      {
+        "id": "validate_freshness_approval_policy_version",
+        "triggeredBy": "approval_c2c3acac",
+        "obligationType": "validate_freshness",
+        "target": "approval_policy_version",
+        "requiredEvidence": [
+          "policy_update"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "policy_update_05820d5a"
+        ],
+        "rationale": "Approval must use a current policy representation."
+      },
+      {
+        "id": "validate_terminal_state_approval_terminal_state",
+        "triggeredBy": "approval_c2c3acac",
+        "obligationType": "validate_terminal_state",
+        "target": "approval_terminal_state",
+        "requiredEvidence": [
+          "audit_violation",
+          "settlement_blocked"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "audit_violation_c24daeac",
+          "settlement_blocked_68e593b3"
+        ],
+        "rationale": "Local terminal success must satisfy parent invariants."
+      },
+      {
+        "id": "validate_exemption_EX-91",
+        "triggeredBy": "approval_c2c3acac",
+        "obligationType": "validate_exemption",
+        "target": "EX-91",
+        "requiredEvidence": [
+          "exemption_claim",
+          "exemption_expired"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "exemption_claim_a9409db5",
+          "exemption_expired_b4d81fac"
+        ],
+        "rationale": "An exemption claim is a frontier item, not an answer."
+      },
+      {
+        "id": "validate_invariant_manager_review_invariant",
+        "triggeredBy": "audit_violation_c24daeac",
+        "obligationType": "validate_invariant",
+        "target": "manager_review_invariant",
+        "requiredEvidence": [
+          "policy_update",
+          "approval"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "policy_update_05820d5a",
+          "approval_c2c3acac"
+        ],
+        "rationale": "Audit violation must be connected to policy authority and local transition."
+      },
+      {
+        "id": "validate_reconciliation_settlement_reconciliation",
+        "triggeredBy": "settlement_blocked_68e593b3",
+        "obligationType": "validate_reconciliation",
+        "target": "settlement_reconciliation",
+        "requiredEvidence": [
+          "audit_violation"
+        ],
+        "status": "satisfied",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "audit_violation_c24daeac"
+        ],
+        "rationale": "Downstream block must be reconciled with upstream invariant failure."
+      }
+    ],
+    "eventFrames": [
+      {
+        "id": "cache_config_c6c07af6",
+        "nodeKind": "event",
+        "role": "precondition",
+        "sourceLine": 91,
+        "description": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+      },
+      {
+        "id": "authority_source_2f96cf5a",
+        "nodeKind": "event",
+        "role": "authority_source",
+        "sourceLine": 368,
+        "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "policy_update_05820d5a",
+        "nodeKind": "event",
+        "role": "authority_update",
+        "sourceLine": 368,
+        "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "approval_c2c3acac",
+        "nodeKind": "event",
+        "role": "local_terminal_claim",
+        "sourceLine": 705,
+        "description": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+      },
+      {
+        "id": "exemption_claim_a9409db5",
+        "nodeKind": "event",
+        "role": "exception_claim",
+        "sourceLine": 990,
+        "description": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+      },
+      {
+        "id": "exemption_expired_b4d81fac",
+        "nodeKind": "event",
+        "role": "exception_invalidator",
+        "sourceLine": 1249,
+        "description": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+      },
+      {
+        "id": "audit_violation_c24daeac",
+        "nodeKind": "event",
+        "role": "invariant_violation",
+        "sourceLine": 1502,
+        "description": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+      },
+      {
+        "id": "settlement_blocked_68e593b3",
+        "nodeKind": "event",
+        "role": "terminal_outcome",
+        "sourceLine": 1765,
+        "description": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_representation",
+        "nodeKind": "latent",
+        "role": "latent_representation_failure",
+        "description": "Approval used local policy v17 despite authoritative policy v18."
+      },
+      {
+        "id": "lc_expired_exemption",
+        "nodeKind": "latent",
+        "role": "latent_authority_failure",
+        "description": "The exemption claim was invalid at approval time."
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "cache_config_c6c07af6",
+          "nodeKind": "event",
+          "role": "precondition",
+          "sourceLine": 91,
+          "description": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+        },
+        {
+          "id": "authority_source_2f96cf5a",
+          "nodeKind": "event",
+          "role": "authority_source",
+          "sourceLine": 368,
+          "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "policy_update_05820d5a",
+          "nodeKind": "event",
+          "role": "authority_update",
+          "sourceLine": 368,
+          "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "approval_c2c3acac",
+          "nodeKind": "event",
+          "role": "local_terminal_claim",
+          "sourceLine": 705,
+          "description": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+        },
+        {
+          "id": "exemption_claim_a9409db5",
+          "nodeKind": "event",
+          "role": "exception_claim",
+          "sourceLine": 990,
+          "description": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+        },
+        {
+          "id": "exemption_expired_b4d81fac",
+          "nodeKind": "event",
+          "role": "exception_invalidator",
+          "sourceLine": 1249,
+          "description": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+        },
+        {
+          "id": "audit_violation_c24daeac",
+          "nodeKind": "event",
+          "role": "invariant_violation",
+          "sourceLine": 1502,
+          "description": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+        },
+        {
+          "id": "settlement_blocked_68e593b3",
+          "nodeKind": "event",
+          "role": "terminal_outcome",
+          "sourceLine": 1765,
+          "description": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+        },
+        {
+          "id": "lc_stale_policy_representation",
+          "nodeKind": "latent",
+          "role": "latent_representation_failure",
+          "description": "Approval used local policy v17 despite authoritative policy v18."
+        },
+        {
+          "id": "lc_expired_exemption",
+          "nodeKind": "latent",
+          "role": "latent_authority_failure",
+          "description": "The exemption claim was invalid at approval time."
+        },
+        {
+          "id": "validate_freshness_policy_cache",
+          "nodeKind": "obligation",
+          "role": "validate_freshness",
+          "description": "violated: Cache use creates stale-representation risk."
+        },
+        {
+          "id": "validate_authority_refund_policy_v18",
+          "nodeKind": "obligation",
+          "role": "validate_authority",
+          "description": "satisfied: Policy version only matters if it is authoritative."
+        },
+        {
+          "id": "validate_freshness_approval_policy_version",
+          "nodeKind": "obligation",
+          "role": "validate_freshness",
+          "description": "violated: Approval must use a current policy representation."
+        },
+        {
+          "id": "validate_terminal_state_approval_terminal_state",
+          "nodeKind": "obligation",
+          "role": "validate_terminal_state",
+          "description": "violated: Local terminal success must satisfy parent invariants."
+        },
+        {
+          "id": "validate_exemption_EX-91",
+          "nodeKind": "obligation",
+          "role": "validate_exemption",
+          "description": "violated: An exemption claim is a frontier item, not an answer."
+        },
+        {
+          "id": "validate_invariant_manager_review_invariant",
+          "nodeKind": "obligation",
+          "role": "validate_invariant",
+          "description": "violated: Audit violation must be connected to policy authority and local transition."
+        },
+        {
+          "id": "validate_reconciliation_settlement_reconciliation",
+          "nodeKind": "obligation",
+          "role": "validate_reconciliation",
+          "description": "satisfied: Downstream block must be reconciled with upstream invariant failure."
+        }
+      ],
+      "edges": [
+        {
+          "from": "cache_config_c6c07af6",
+          "type": "creates_obligation",
+          "to": "validate_freshness_policy_cache"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "violates",
+          "to": "validate_freshness_policy_cache"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "creates_obligation",
+          "to": "validate_authority_refund_policy_v18"
+        },
+        {
+          "from": "authority_source_2f96cf5a",
+          "type": "satisfies",
+          "to": "validate_authority_refund_policy_v18"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "creates_obligation",
+          "to": "validate_freshness_approval_policy_version"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "violates",
+          "to": "validate_freshness_approval_policy_version"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "creates_obligation",
+          "to": "validate_terminal_state_approval_terminal_state"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "violates",
+          "to": "validate_terminal_state_approval_terminal_state"
+        },
+        {
+          "from": "settlement_blocked_68e593b3",
+          "type": "violates",
+          "to": "validate_terminal_state_approval_terminal_state"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "creates_obligation",
+          "to": "validate_exemption_EX-91"
+        },
+        {
+          "from": "exemption_claim_a9409db5",
+          "type": "violates",
+          "to": "validate_exemption_EX-91"
+        },
+        {
+          "from": "exemption_expired_b4d81fac",
+          "type": "violates",
+          "to": "validate_exemption_EX-91"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "creates_obligation",
+          "to": "validate_invariant_manager_review_invariant"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "violates",
+          "to": "validate_invariant_manager_review_invariant"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "violates",
+          "to": "validate_invariant_manager_review_invariant"
+        },
+        {
+          "from": "settlement_blocked_68e593b3",
+          "type": "creates_obligation",
+          "to": "validate_reconciliation_settlement_reconciliation"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "satisfies",
+          "to": "validate_reconciliation_settlement_reconciliation"
+        },
+        {
+          "from": "lc_stale_policy_representation",
+          "type": "causes",
+          "to": "approval_c2c3acac"
+        },
+        {
+          "from": "lc_expired_exemption",
+          "type": "invalidates",
+          "to": "approval_c2c3acac"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "violates",
+          "to": "audit_violation_c24daeac"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "fails_downstream",
+          "to": "settlement_blocked_68e593b3"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_representation",
+        "lc_expired_exemption"
+      ]
+    },
+    "terminalValidity": "invalid",
+    "detection": {
+      "falseTerminalStates": [
+        "approval_c2c3acac"
+      ],
+      "violatedInvariants": [
+        "audit_violation_c24daeac"
+      ],
+      "unknownObligations": [],
+      "violatedObligations": [
+        "validate_freshness_policy_cache",
+        "validate_freshness_approval_policy_version",
+        "validate_terminal_state_approval_terminal_state",
+        "validate_exemption_EX-91",
+        "validate_invariant_manager_review_invariant"
+      ],
+      "satisfiedObligations": [
+        "validate_authority_refund_policy_v18",
+        "validate_reconciliation_settlement_reconciliation"
+      ]
+    },
+    "prescription": [
+      "Make terminal approval conditional on an explicit obligation ledger.",
+      "Discharge policy freshness, exemption validity, authority, invariant, and reconciliation obligations before settlement.",
+      "Treat unresolved mandatory obligations as terminal-unknown, not terminal-success."
+    ],
+    "confidence": 0.91
+  },
+  "worklistOnly": {
+    "id": "dlr-lambda-obligations-worklist-only",
+    "title": "Worklist/fixpoint without obligation ledger",
+    "facts": [
+      {
+        "id": "cache_config_c6c07af6",
+        "kind": "cache_config",
+        "sourceLine": 91,
+        "timestamp": "Mar 10 12:00:00",
+        "text": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval",
+        "refund": "R-915"
+      },
+      {
+        "id": "authority_source_2f96cf5a",
+        "kind": "authority_source",
+        "sourceLine": 368,
+        "timestamp": "Mar 10 12:01:00",
+        "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption",
+        "authority": "primary-policy",
+        "policyVersion": "v18"
+      },
+      {
+        "id": "policy_update_05820d5a",
+        "kind": "policy_update",
+        "sourceLine": 368,
+        "timestamp": "Mar 10 12:01:00",
+        "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption",
+        "policyVersion": "v18"
+      },
+      {
+        "id": "approval_c2c3acac",
+        "kind": "approval",
+        "sourceLine": 705,
+        "timestamp": "Mar 10 12:05:00",
+        "text": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache",
+        "refund": "R-915",
+        "usedPolicyVersion": "v17",
+        "exemptionId": "EX-91",
+        "authority": "local-cache"
+      },
+      {
+        "id": "exemption_claim_a9409db5",
+        "kind": "exemption_claim",
+        "sourceLine": 990,
+        "timestamp": "Mar 10 12:05:20",
+        "text": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed",
+        "refund": "R-915",
+        "exemptionId": "EX-91"
+      },
+      {
+        "id": "exemption_expired_b4d81fac",
+        "kind": "exemption_expired",
+        "sourceLine": 1249,
+        "timestamp": "Mar 10 12:03:00",
+        "text": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91",
+        "exemptionId": "EX-91",
+        "refund": "R-915"
+      },
+      {
+        "id": "audit_violation_c24daeac",
+        "kind": "audit_violation",
+        "sourceLine": 1502,
+        "timestamp": "Mar 10 12:06:00",
+        "text": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91",
+        "refund": "R-915",
+        "policyVersion": "v18",
+        "usedPolicyVersion": "v17",
+        "exemptionId": "EX-91"
+      },
+      {
+        "id": "settlement_blocked_68e593b3",
+        "kind": "settlement_blocked",
+        "sourceLine": 1765,
+        "timestamp": "Mar 10 12:09:00",
+        "text": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid",
+        "refund": "R-915"
+      }
+    ],
+    "obligations": [],
+    "eventFrames": [
+      {
+        "id": "cache_config_c6c07af6",
+        "nodeKind": "event",
+        "role": "precondition",
+        "sourceLine": 91,
+        "description": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+      },
+      {
+        "id": "authority_source_2f96cf5a",
+        "nodeKind": "event",
+        "role": "authority_source",
+        "sourceLine": 368,
+        "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "policy_update_05820d5a",
+        "nodeKind": "event",
+        "role": "authority_update",
+        "sourceLine": 368,
+        "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "approval_c2c3acac",
+        "nodeKind": "event",
+        "role": "local_terminal_claim",
+        "sourceLine": 705,
+        "description": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+      },
+      {
+        "id": "exemption_claim_a9409db5",
+        "nodeKind": "event",
+        "role": "exception_claim",
+        "sourceLine": 990,
+        "description": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+      },
+      {
+        "id": "exemption_expired_b4d81fac",
+        "nodeKind": "event",
+        "role": "exception_invalidator",
+        "sourceLine": 1249,
+        "description": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+      },
+      {
+        "id": "audit_violation_c24daeac",
+        "nodeKind": "event",
+        "role": "invariant_violation",
+        "sourceLine": 1502,
+        "description": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+      },
+      {
+        "id": "settlement_blocked_68e593b3",
+        "nodeKind": "event",
+        "role": "terminal_outcome",
+        "sourceLine": 1765,
+        "description": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_representation",
+        "nodeKind": "latent",
+        "role": "latent_representation_failure",
+        "description": "Approval used local policy v17 despite authoritative policy v18."
+      },
+      {
+        "id": "lc_expired_exemption",
+        "nodeKind": "latent",
+        "role": "latent_authority_failure",
+        "description": "The exemption claim was invalid at approval time."
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "cache_config_c6c07af6",
+          "nodeKind": "event",
+          "role": "precondition",
+          "sourceLine": 91,
+          "description": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+        },
+        {
+          "id": "authority_source_2f96cf5a",
+          "nodeKind": "event",
+          "role": "authority_source",
+          "sourceLine": 368,
+          "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "policy_update_05820d5a",
+          "nodeKind": "event",
+          "role": "authority_update",
+          "sourceLine": 368,
+          "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "approval_c2c3acac",
+          "nodeKind": "event",
+          "role": "local_terminal_claim",
+          "sourceLine": 705,
+          "description": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+        },
+        {
+          "id": "exemption_claim_a9409db5",
+          "nodeKind": "event",
+          "role": "exception_claim",
+          "sourceLine": 990,
+          "description": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+        },
+        {
+          "id": "exemption_expired_b4d81fac",
+          "nodeKind": "event",
+          "role": "exception_invalidator",
+          "sourceLine": 1249,
+          "description": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+        },
+        {
+          "id": "audit_violation_c24daeac",
+          "nodeKind": "event",
+          "role": "invariant_violation",
+          "sourceLine": 1502,
+          "description": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+        },
+        {
+          "id": "settlement_blocked_68e593b3",
+          "nodeKind": "event",
+          "role": "terminal_outcome",
+          "sourceLine": 1765,
+          "description": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+        },
+        {
+          "id": "lc_stale_policy_representation",
+          "nodeKind": "latent",
+          "role": "latent_representation_failure",
+          "description": "Approval used local policy v17 despite authoritative policy v18."
+        },
+        {
+          "id": "lc_expired_exemption",
+          "nodeKind": "latent",
+          "role": "latent_authority_failure",
+          "description": "The exemption claim was invalid at approval time."
+        }
+      ],
+      "edges": [
+        {
+          "from": "lc_stale_policy_representation",
+          "type": "causes",
+          "to": "approval_c2c3acac"
+        },
+        {
+          "from": "lc_expired_exemption",
+          "type": "invalidates",
+          "to": "approval_c2c3acac"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "violates",
+          "to": "audit_violation_c24daeac"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "fails_downstream",
+          "to": "settlement_blocked_68e593b3"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_representation",
+        "lc_expired_exemption"
+      ]
+    },
+    "terminalValidity": "valid",
+    "detection": {
+      "falseTerminalStates": [],
+      "violatedInvariants": [
+        "audit_violation_c24daeac"
+      ],
+      "unknownObligations": [],
+      "violatedObligations": [],
+      "satisfiedObligations": []
+    },
+    "prescription": [
+      "Make terminal approval conditional on an explicit obligation ledger.",
+      "Discharge policy freshness, exemption validity, authority, invariant, and reconciliation obligations before settlement.",
+      "Treat unresolved mandatory obligations as terminal-unknown, not terminal-success."
+    ],
+    "confidence": 0.64
+  },
+  "obligationCalculus": {
+    "id": "dlr-lambda-obligations-obligation-calculus",
+    "title": "DLR-lambda-3 obligation calculus",
+    "facts": [
+      {
+        "id": "cache_config_c6c07af6",
+        "kind": "cache_config",
+        "sourceLine": 91,
+        "timestamp": "Mar 10 12:00:00",
+        "text": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval",
+        "refund": "R-915"
+      },
+      {
+        "id": "authority_source_2f96cf5a",
+        "kind": "authority_source",
+        "sourceLine": 368,
+        "timestamp": "Mar 10 12:01:00",
+        "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption",
+        "authority": "primary-policy",
+        "policyVersion": "v18"
+      },
+      {
+        "id": "policy_update_05820d5a",
+        "kind": "policy_update",
+        "sourceLine": 368,
+        "timestamp": "Mar 10 12:01:00",
+        "text": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption",
+        "policyVersion": "v18"
+      },
+      {
+        "id": "approval_c2c3acac",
+        "kind": "approval",
+        "sourceLine": 705,
+        "timestamp": "Mar 10 12:05:00",
+        "text": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache",
+        "refund": "R-915",
+        "usedPolicyVersion": "v17",
+        "exemptionId": "EX-91",
+        "authority": "local-cache"
+      },
+      {
+        "id": "exemption_claim_a9409db5",
+        "kind": "exemption_claim",
+        "sourceLine": 990,
+        "timestamp": "Mar 10 12:05:20",
+        "text": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed",
+        "refund": "R-915",
+        "exemptionId": "EX-91"
+      },
+      {
+        "id": "exemption_expired_b4d81fac",
+        "kind": "exemption_expired",
+        "sourceLine": 1249,
+        "timestamp": "Mar 10 12:03:00",
+        "text": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91",
+        "exemptionId": "EX-91",
+        "refund": "R-915"
+      },
+      {
+        "id": "audit_violation_c24daeac",
+        "kind": "audit_violation",
+        "sourceLine": 1502,
+        "timestamp": "Mar 10 12:06:00",
+        "text": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91",
+        "refund": "R-915",
+        "policyVersion": "v18",
+        "usedPolicyVersion": "v17",
+        "exemptionId": "EX-91"
+      },
+      {
+        "id": "settlement_blocked_68e593b3",
+        "kind": "settlement_blocked",
+        "sourceLine": 1765,
+        "timestamp": "Mar 10 12:09:00",
+        "text": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid",
+        "refund": "R-915"
+      }
+    ],
+    "obligations": [
+      {
+        "id": "validate_authority_refund_policy_v18",
+        "triggeredBy": "policy_update_05820d5a",
+        "obligationType": "validate_authority",
+        "target": "refund_policy_v18",
+        "requiredEvidence": [
+          "authority_source"
+        ],
+        "status": "satisfied",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "authority_source_2f96cf5a"
+        ],
+        "rationale": "Policy version only matters if it is authoritative."
+      },
+      {
+        "id": "validate_exemption_EX-91",
+        "triggeredBy": "approval_c2c3acac",
+        "obligationType": "validate_exemption",
+        "target": "EX-91",
+        "requiredEvidence": [
+          "exemption_claim",
+          "exemption_expired"
+        ],
+        "status": "violated",
+        "scheduledSearches": [
+          "search_exemption_EX-91"
+        ],
+        "resolvedBy": [
+          "exemption_claim_a9409db5",
+          "exemption_expired_b4d81fac"
+        ],
+        "rationale": "An exemption claim is a frontier item, not an answer."
+      },
+      {
+        "id": "validate_freshness_approval_policy_version",
+        "triggeredBy": "approval_c2c3acac",
+        "obligationType": "validate_freshness",
+        "target": "approval_policy_version",
+        "requiredEvidence": [
+          "policy_update"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "policy_update_05820d5a"
+        ],
+        "rationale": "Approval must use a current policy representation."
+      },
+      {
+        "id": "validate_freshness_policy_cache",
+        "triggeredBy": "cache_config_c6c07af6",
+        "obligationType": "validate_freshness",
+        "target": "policy_cache",
+        "requiredEvidence": [
+          "policy_update"
+        ],
+        "status": "violated",
+        "scheduledSearches": [
+          "search_authoritative_policy_version"
+        ],
+        "resolvedBy": [
+          "policy_update_05820d5a"
+        ],
+        "rationale": "Cache use creates stale-representation risk."
+      },
+      {
+        "id": "validate_invariant_manager_review_invariant",
+        "triggeredBy": "audit_violation_c24daeac",
+        "obligationType": "validate_invariant",
+        "target": "manager_review_invariant",
+        "requiredEvidence": [
+          "policy_update",
+          "approval"
+        ],
+        "status": "violated",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "policy_update_05820d5a",
+          "approval_c2c3acac"
+        ],
+        "rationale": "Audit violation must be connected to policy authority and local transition."
+      },
+      {
+        "id": "validate_reconciliation_settlement_reconciliation",
+        "triggeredBy": "settlement_blocked_68e593b3",
+        "obligationType": "validate_reconciliation",
+        "target": "settlement_reconciliation",
+        "requiredEvidence": [
+          "audit_violation"
+        ],
+        "status": "satisfied",
+        "scheduledSearches": [],
+        "resolvedBy": [
+          "audit_violation_c24daeac"
+        ],
+        "rationale": "Downstream block must be reconciled with upstream invariant failure."
+      },
+      {
+        "id": "validate_terminal_state_approval_terminal_state",
+        "triggeredBy": "approval_c2c3acac",
+        "obligationType": "validate_terminal_state",
+        "target": "approval_terminal_state",
+        "requiredEvidence": [
+          "audit_violation",
+          "settlement_blocked"
+        ],
+        "status": "violated",
+        "scheduledSearches": [
+          "search_terminal_R-915"
+        ],
+        "resolvedBy": [
+          "audit_violation_c24daeac",
+          "settlement_blocked_68e593b3"
+        ],
+        "rationale": "Local terminal success must satisfy parent invariants."
+      }
+    ],
+    "eventFrames": [
+      {
+        "id": "cache_config_c6c07af6",
+        "nodeKind": "event",
+        "role": "precondition",
+        "sourceLine": 91,
+        "description": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+      },
+      {
+        "id": "authority_source_2f96cf5a",
+        "nodeKind": "event",
+        "role": "authority_source",
+        "sourceLine": 368,
+        "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "policy_update_05820d5a",
+        "nodeKind": "event",
+        "role": "authority_update",
+        "sourceLine": 368,
+        "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "approval_c2c3acac",
+        "nodeKind": "event",
+        "role": "local_terminal_claim",
+        "sourceLine": 705,
+        "description": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+      },
+      {
+        "id": "exemption_claim_a9409db5",
+        "nodeKind": "event",
+        "role": "exception_claim",
+        "sourceLine": 990,
+        "description": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+      },
+      {
+        "id": "exemption_expired_b4d81fac",
+        "nodeKind": "event",
+        "role": "exception_invalidator",
+        "sourceLine": 1249,
+        "description": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+      },
+      {
+        "id": "audit_violation_c24daeac",
+        "nodeKind": "event",
+        "role": "invariant_violation",
+        "sourceLine": 1502,
+        "description": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+      },
+      {
+        "id": "settlement_blocked_68e593b3",
+        "nodeKind": "event",
+        "role": "terminal_outcome",
+        "sourceLine": 1765,
+        "description": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_representation",
+        "nodeKind": "latent",
+        "role": "latent_representation_failure",
+        "description": "Approval used local policy v17 despite authoritative policy v18."
+      },
+      {
+        "id": "lc_expired_exemption",
+        "nodeKind": "latent",
+        "role": "latent_authority_failure",
+        "description": "The exemption claim was invalid at approval time."
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "cache_config_c6c07af6",
+          "nodeKind": "event",
+          "role": "precondition",
+          "sourceLine": 91,
+          "description": "Mar 10 12:00:00 labhost policyd[4100]: refund=R-915 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+        },
+        {
+          "id": "authority_source_2f96cf5a",
+          "nodeKind": "event",
+          "role": "authority_source",
+          "sourceLine": 368,
+          "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "policy_update_05820d5a",
+          "nodeKind": "event",
+          "role": "authority_update",
+          "sourceLine": 368,
+          "description": "Mar 10 12:01:00 labhost policyd[4100]: authority source=primary-policy refund-policy version=v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "approval_c2c3acac",
+          "nodeKind": "event",
+          "role": "local_terminal_claim",
+          "sourceLine": 705,
+          "description": "Mar 10 12:05:00 labhost worker[9931]: terminal=approved refund=R-915 using_policy_version=v17 exemption=EX-91 authority=local-cache"
+        },
+        {
+          "id": "exemption_claim_a9409db5",
+          "nodeKind": "event",
+          "role": "exception_claim",
+          "sourceLine": 990,
+          "description": "Mar 10 12:05:20 labhost entitlements[2404]: exemption=EX-91 claimed refund=R-915 customer=C-91 status=claimed"
+        },
+        {
+          "id": "exemption_expired_b4d81fac",
+          "nodeKind": "event",
+          "role": "exception_invalidator",
+          "sourceLine": 1249,
+          "description": "Mar 10 12:03:00 labhost entitlements[2404]: exemption=EX-91 expired_at=12:03 before approval customer=C-91"
+        },
+        {
+          "id": "audit_violation_c24daeac",
+          "nodeKind": "event",
+          "role": "invariant_violation",
+          "sourceLine": 1502,
+          "description": "Mar 10 12:06:00 labhost audit[2201]: refund=R-915 invariant_violation expected_policy=v18 observed_policy=v17 manager_review=missing exemption=EX-91"
+        },
+        {
+          "id": "settlement_blocked_68e593b3",
+          "nodeKind": "event",
+          "role": "terminal_outcome",
+          "sourceLine": 1765,
+          "description": "Mar 10 12:09:00 labhost finance[1180]: settlement_blocked refund=R-915 reason=approval_not_terminal_valid"
+        },
+        {
+          "id": "lc_stale_policy_representation",
+          "nodeKind": "latent",
+          "role": "latent_representation_failure",
+          "description": "Approval used local policy v17 despite authoritative policy v18."
+        },
+        {
+          "id": "lc_expired_exemption",
+          "nodeKind": "latent",
+          "role": "latent_authority_failure",
+          "description": "The exemption claim was invalid at approval time."
+        },
+        {
+          "id": "validate_authority_refund_policy_v18",
+          "nodeKind": "obligation",
+          "role": "validate_authority",
+          "description": "satisfied: Policy version only matters if it is authoritative."
+        },
+        {
+          "id": "validate_exemption_EX-91",
+          "nodeKind": "obligation",
+          "role": "validate_exemption",
+          "description": "violated: An exemption claim is a frontier item, not an answer."
+        },
+        {
+          "id": "validate_freshness_approval_policy_version",
+          "nodeKind": "obligation",
+          "role": "validate_freshness",
+          "description": "violated: Approval must use a current policy representation."
+        },
+        {
+          "id": "validate_freshness_policy_cache",
+          "nodeKind": "obligation",
+          "role": "validate_freshness",
+          "description": "violated: Cache use creates stale-representation risk."
+        },
+        {
+          "id": "validate_invariant_manager_review_invariant",
+          "nodeKind": "obligation",
+          "role": "validate_invariant",
+          "description": "violated: Audit violation must be connected to policy authority and local transition."
+        },
+        {
+          "id": "validate_reconciliation_settlement_reconciliation",
+          "nodeKind": "obligation",
+          "role": "validate_reconciliation",
+          "description": "satisfied: Downstream block must be reconciled with upstream invariant failure."
+        },
+        {
+          "id": "validate_terminal_state_approval_terminal_state",
+          "nodeKind": "obligation",
+          "role": "validate_terminal_state",
+          "description": "violated: Local terminal success must satisfy parent invariants."
+        }
+      ],
+      "edges": [
+        {
+          "from": "policy_update_05820d5a",
+          "type": "creates_obligation",
+          "to": "validate_authority_refund_policy_v18"
+        },
+        {
+          "from": "authority_source_2f96cf5a",
+          "type": "satisfies",
+          "to": "validate_authority_refund_policy_v18"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "creates_obligation",
+          "to": "validate_exemption_EX-91"
+        },
+        {
+          "from": "exemption_claim_a9409db5",
+          "type": "violates",
+          "to": "validate_exemption_EX-91"
+        },
+        {
+          "from": "exemption_expired_b4d81fac",
+          "type": "violates",
+          "to": "validate_exemption_EX-91"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "creates_obligation",
+          "to": "validate_freshness_approval_policy_version"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "violates",
+          "to": "validate_freshness_approval_policy_version"
+        },
+        {
+          "from": "cache_config_c6c07af6",
+          "type": "creates_obligation",
+          "to": "validate_freshness_policy_cache"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "violates",
+          "to": "validate_freshness_policy_cache"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "creates_obligation",
+          "to": "validate_invariant_manager_review_invariant"
+        },
+        {
+          "from": "policy_update_05820d5a",
+          "type": "violates",
+          "to": "validate_invariant_manager_review_invariant"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "violates",
+          "to": "validate_invariant_manager_review_invariant"
+        },
+        {
+          "from": "settlement_blocked_68e593b3",
+          "type": "creates_obligation",
+          "to": "validate_reconciliation_settlement_reconciliation"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "satisfies",
+          "to": "validate_reconciliation_settlement_reconciliation"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "creates_obligation",
+          "to": "validate_terminal_state_approval_terminal_state"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "violates",
+          "to": "validate_terminal_state_approval_terminal_state"
+        },
+        {
+          "from": "settlement_blocked_68e593b3",
+          "type": "violates",
+          "to": "validate_terminal_state_approval_terminal_state"
+        },
+        {
+          "from": "lc_stale_policy_representation",
+          "type": "causes",
+          "to": "approval_c2c3acac"
+        },
+        {
+          "from": "lc_expired_exemption",
+          "type": "invalidates",
+          "to": "approval_c2c3acac"
+        },
+        {
+          "from": "approval_c2c3acac",
+          "type": "violates",
+          "to": "audit_violation_c24daeac"
+        },
+        {
+          "from": "audit_violation_c24daeac",
+          "type": "fails_downstream",
+          "to": "settlement_blocked_68e593b3"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_representation",
+        "lc_expired_exemption"
+      ]
+    },
+    "terminalValidity": "invalid",
+    "detection": {
+      "falseTerminalStates": [
+        "approval_c2c3acac"
+      ],
+      "violatedInvariants": [
+        "audit_violation_c24daeac"
+      ],
+      "unknownObligations": [],
+      "violatedObligations": [
+        "validate_exemption_EX-91",
+        "validate_freshness_approval_policy_version",
+        "validate_freshness_policy_cache",
+        "validate_invariant_manager_review_invariant",
+        "validate_terminal_state_approval_terminal_state"
+      ],
+      "satisfiedObligations": [
+        "validate_authority_refund_policy_v18",
+        "validate_reconciliation_settlement_reconciliation"
+      ]
+    },
+    "prescription": [
+      "Make terminal approval conditional on an explicit obligation ledger.",
+      "Discharge policy freshness, exemption validity, authority, invariant, and reconciliation obligations before settlement.",
+      "Treat unresolved mandatory obligations as terminal-unknown, not terminal-success."
+    ],
+    "confidence": 0.91
+  },
+  "obligationTrace": [
+    {
+      "step": 1,
+      "action": "scan_chunk:1:300",
+      "discoveredFacts": [
+        "cache_config_c6c07af6"
+      ],
+      "openedObligations": [
+        "validate_freshness_policy_cache"
+      ],
+      "resolvedObligations": [],
+      "scheduledSearches": [
+        "search_authoritative_policy_version"
+      ]
+    },
+    {
+      "step": 2,
+      "action": "scan_chunk:301:600",
+      "discoveredFacts": [
+        "authority_source_2f96cf5a",
+        "policy_update_05820d5a"
+      ],
+      "openedObligations": [
+        "validate_authority_refund_policy_v18"
+      ],
+      "resolvedObligations": [
+        "validate_freshness_policy_cache:satisfied"
+      ],
+      "scheduledSearches": []
+    },
+    {
+      "step": 3,
+      "action": "scan_chunk:601:900",
+      "discoveredFacts": [
+        "approval_c2c3acac"
+      ],
+      "openedObligations": [
+        "validate_freshness_approval_policy_version",
+        "validate_terminal_state_approval_terminal_state",
+        "validate_exemption_EX-91"
+      ],
+      "resolvedObligations": [
+        "validate_freshness_policy_cache:violated"
+      ],
+      "scheduledSearches": [
+        "search_terminal_R-915",
+        "search_exemption_EX-91"
+      ]
+    },
+    {
+      "step": 4,
+      "action": "scan_chunk:901:1200",
+      "discoveredFacts": [
+        "exemption_claim_a9409db5"
+      ],
+      "openedObligations": [],
+      "resolvedObligations": [
+        "validate_exemption_EX-91:satisfied"
+      ],
+      "scheduledSearches": []
+    },
+    {
+      "step": 5,
+      "action": "scan_chunk:1201:1500",
+      "discoveredFacts": [],
+      "openedObligations": [],
+      "resolvedObligations": [],
+      "scheduledSearches": []
+    },
+    {
+      "step": 6,
+      "action": "scan_chunk:1501:1800",
+      "discoveredFacts": [
+        "audit_violation_c24daeac",
+        "settlement_blocked_68e593b3"
+      ],
+      "openedObligations": [
+        "validate_invariant_manager_review_invariant",
+        "validate_reconciliation_settlement_reconciliation"
+      ],
+      "resolvedObligations": [
+        "validate_terminal_state_approval_terminal_state:violated"
+      ],
+      "scheduledSearches": []
+    },
+    {
+      "step": 7,
+      "action": "scan_chunk:1801:2007",
+      "discoveredFacts": [],
+      "openedObligations": [],
+      "resolvedObligations": [],
+      "scheduledSearches": []
+    },
+    {
+      "step": 8,
+      "action": "search_authority:refund_policy",
+      "discoveredFacts": [],
+      "openedObligations": [],
+      "resolvedObligations": [],
+      "scheduledSearches": []
+    },
+    {
+      "step": 9,
+      "action": "search_terminal:R-915",
+      "discoveredFacts": [],
+      "openedObligations": [],
+      "resolvedObligations": [],
+      "scheduledSearches": []
+    },
+    {
+      "step": 10,
+      "action": "search_exemption:EX-91",
+      "discoveredFacts": [
+        "exemption_expired_b4d81fac"
+      ],
+      "openedObligations": [],
+      "resolvedObligations": [
+        "validate_exemption_EX-91:violated"
+      ],
+      "scheduledSearches": []
+    }
+  ],
+  "scores": [
+    {
+      "system": "Worklist/fixpoint without obligation ledger",
+      "obligationRecall": 0,
+      "obligationPrecision": 0,
+      "statusAccuracy": 0,
+      "scheduledEvidenceRecall": 0,
+      "terminalValidityCorrect": false,
+      "unknownHandling": true,
+      "rootCauseAccuracy": 1,
+      "confidence": 0.64,
+      "passed": false
+    },
+    {
+      "system": "DLR-lambda-3 obligation calculus",
+      "obligationRecall": 1,
+      "obligationPrecision": 1,
+      "statusAccuracy": 1,
+      "scheduledEvidenceRecall": 1,
+      "terminalValidityCorrect": true,
+      "unknownHandling": true,
+      "rootCauseAccuracy": 1,
+      "confidence": 0.91,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+{
+  "cases": [
+    {
+      "id": "S1_graph_unavailable_subgraph",
+      "domain": "graph_traversal",
+      "title": "Target reached while one subgraph source is unavailable",
+      "facts": [
+        {
+          "id": "target_reached_graph_traversal",
+          "domain": "graph_traversal",
+          "kind": "target_reached",
+          "text": "Traversal reached target node T."
+        },
+        {
+          "id": "frontier_source_unavailable_graph_traversal",
+          "domain": "graph_traversal",
+          "kind": "frontier_source_unavailable",
+          "text": "Shard G-7 containing frontier nodes is unavailable."
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_target_found",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_terminal_state",
+          "target": "target_found",
+          "status": "unknown",
+          "rationale": "Target hit cannot close while part of the frontier is unavailable."
+        },
+        {
+          "id": "validate_reconciliation_frontier_completeness",
+          "domain": "graph_traversal",
+          "triggeredBy": "frontier_source_unavailable_graph_traversal",
+          "obligationType": "validate_reconciliation",
+          "target": "frontier_completeness",
+          "status": "unknown",
+          "rationale": "Frontier completeness cannot be proven without shard G-7."
+        }
+      ],
+      "goldTerminalValidity": "unknown",
+      "safePrescription": "Keep traversal pending and retry or inspect unavailable shard before declaring completion."
+    },
+    {
+      "id": "S2_agent_backup_unknown",
+      "domain": "agent_deletion",
+      "title": "Delete tool succeeds but backup status is unknown",
+      "facts": [
+        {
+          "id": "tool_success_agent_deletion",
+          "domain": "agent_deletion",
+          "kind": "tool_success",
+          "text": "Agent delete('/cache') reports success."
+        },
+        {
+          "id": "backup_status_unknown_agent_deletion",
+          "domain": "agent_deletion",
+          "kind": "backup_status_unknown",
+          "text": "Backup service timed out before confirming snapshot existence."
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_delete_success",
+          "domain": "agent_deletion",
+          "triggeredBy": "tool_success_agent_deletion",
+          "obligationType": "validate_terminal_state",
+          "target": "delete_success",
+          "status": "unknown",
+          "rationale": "Tool success cannot close without safety evidence."
+        },
+        {
+          "id": "validate_irreversibility_backup_or_rollback",
+          "domain": "agent_deletion",
+          "triggeredBy": "backup_status_unknown_agent_deletion",
+          "obligationType": "validate_irreversibility",
+          "target": "backup_or_rollback",
+          "status": "unknown",
+          "rationale": "Irreversible deletion risk is unknown while backup status is unavailable."
+        }
+      ],
+      "goldTerminalValidity": "unknown",
+      "safePrescription": "Mark deletion pending, stop follow-up destructive actions, and verify backup or rollback status."
+    },
+    {
+      "id": "S3_compliance_provider_timeout",
+      "domain": "compliance_approval",
+      "title": "Vendor approved but sanctions provider timed out",
+      "facts": [
+        {
+          "id": "vendor_approved_compliance_approval",
+          "domain": "compliance_approval",
+          "kind": "vendor_approved",
+          "text": "Vendor V-91 approval is recorded."
+        },
+        {
+          "id": "sanctions_provider_timeout_compliance_approval",
+          "domain": "compliance_approval",
+          "kind": "sanctions_provider_timeout",
+          "text": "Sanctions provider timed out before returning a result."
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_vendor_approval",
+          "domain": "compliance_approval",
+          "triggeredBy": "vendor_approved_compliance_approval",
+          "obligationType": "validate_terminal_state",
+          "target": "vendor_approval",
+          "status": "unknown",
+          "rationale": "Approval cannot close while mandatory compliance evidence is unavailable."
+        },
+        {
+          "id": "validate_invariant_sanctions_screening",
+          "domain": "compliance_approval",
+          "triggeredBy": "sanctions_provider_timeout_compliance_approval",
+          "obligationType": "validate_invariant",
+          "target": "sanctions_screening",
+          "status": "unknown",
+          "rationale": "Sanctions invariant is unresolved under provider timeout."
+        }
+      ],
+      "goldTerminalValidity": "unknown",
+      "safePrescription": "Hold vendor in pending/manual-review state until sanctions screening returns or an explicit exception is authorized."
+    },
+    {
+      "id": "S4_payment_capture_unavailable",
+      "domain": "payment_order",
+      "title": "Payment authorized but capture status is unavailable",
+      "facts": [
+        {
+          "id": "payment_authorized_payment_order",
+          "domain": "payment_order",
+          "kind": "payment_authorized",
+          "text": "Payment P-22 authorization succeeded."
+        },
+        {
+          "id": "capture_status_unavailable_payment_order",
+          "domain": "payment_order",
+          "kind": "capture_status_unavailable",
+          "text": "Capture provider status endpoint is unavailable."
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_order_completion",
+          "domain": "payment_order",
+          "triggeredBy": "payment_authorized_payment_order",
+          "obligationType": "validate_terminal_state",
+          "target": "order_completion",
+          "status": "unknown",
+          "rationale": "Authorization alone is not order completion."
+        },
+        {
+          "id": "validate_reconciliation_payment_capture",
+          "domain": "payment_order",
+          "triggeredBy": "capture_status_unavailable_payment_order",
+          "obligationType": "validate_reconciliation",
+          "target": "payment_capture",
+          "status": "unknown",
+          "rationale": "Payment/order reconciliation cannot close without capture status."
+        }
+      ],
+      "goldTerminalValidity": "unknown",
+      "safePrescription": "Keep order pending and avoid fulfillment until capture status is reconciled."
+    },
+    {
+      "id": "S5_code_role_service_unavailable",
+      "domain": "code_security",
+      "title": "User authenticated but role service is unavailable",
+      "facts": [
+        {
+          "id": "user_authenticated_code_security",
+          "domain": "code_security",
+          "kind": "user_authenticated",
+          "text": "User U-9 authenticated successfully."
+        },
+        {
+          "id": "role_service_unavailable_code_security",
+          "domain": "code_security",
+          "kind": "role_service_unavailable",
+          "text": "Role service did not return authorization scope."
+        }
+      ],
+      "goldObligations": [
+        {
+          "id": "validate_terminal_state_access_allowed",
+          "domain": "code_security",
+          "triggeredBy": "user_authenticated_code_security",
+          "obligationType": "validate_terminal_state",
+          "target": "access_allowed",
+          "status": "unknown",
+          "rationale": "Authentication cannot authorize resource access by itself."
+        },
+        {
+          "id": "validate_authority_role_scope",
+          "domain": "code_security",
+          "triggeredBy": "role_service_unavailable_code_security",
+          "obligationType": "validate_authority",
+          "target": "role_scope",
+          "status": "unknown",
+          "rationale": "Authorization is unknown while role service is unavailable."
+        }
+      ],
+      "goldTerminalValidity": "unknown",
+      "safePrescription": "Deny or hold privileged access until role scope is available; log the unknown authorization state."
+    }
+  ],
+  "predictions": [
+    {
+      "id": "S1_graph_unavailable_subgraph",
+      "system": "Optimistic terminal baseline",
+      "domain": "graph_traversal",
+      "obligations": [],
+      "terminalValidity": "valid",
+      "prescription": "Accept the local terminal claim.",
+      "confidence": 0.84
+    },
+    {
+      "id": "S1_graph_unavailable_subgraph",
+      "system": "DLR-O unknown-aware ledger",
+      "domain": "graph_traversal",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_target_found",
+          "domain": "graph_traversal",
+          "triggeredBy": "target_reached_graph_traversal",
+          "obligationType": "validate_terminal_state",
+          "target": "target_found",
+          "status": "unknown",
+          "rationale": "Target hit cannot close while part of the frontier is unavailable."
+        },
+        {
+          "id": "validate_reconciliation_frontier_completeness",
+          "domain": "graph_traversal",
+          "triggeredBy": "frontier_source_unavailable_graph_traversal",
+          "obligationType": "validate_reconciliation",
+          "target": "frontier_completeness",
+          "status": "unknown",
+          "rationale": "Frontier completeness cannot be proven without shard G-7."
+        }
+      ],
+      "terminalValidity": "unknown",
+      "prescription": "Keep traversal pending and retry or inspect unavailable shard before declaring completion.",
+      "confidence": 0.71
+    },
+    {
+      "id": "S2_agent_backup_unknown",
+      "system": "Optimistic terminal baseline",
+      "domain": "agent_deletion",
+      "obligations": [],
+      "terminalValidity": "valid",
+      "prescription": "Accept the local terminal claim.",
+      "confidence": 0.84
+    },
+    {
+      "id": "S2_agent_backup_unknown",
+      "system": "DLR-O unknown-aware ledger",
+      "domain": "agent_deletion",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_delete_success",
+          "domain": "agent_deletion",
+          "triggeredBy": "tool_success_agent_deletion",
+          "obligationType": "validate_terminal_state",
+          "target": "delete_success",
+          "status": "unknown",
+          "rationale": "Tool success cannot close without safety evidence."
+        },
+        {
+          "id": "validate_irreversibility_backup_or_rollback",
+          "domain": "agent_deletion",
+          "triggeredBy": "backup_status_unknown_agent_deletion",
+          "obligationType": "validate_irreversibility",
+          "target": "backup_or_rollback",
+          "status": "unknown",
+          "rationale": "Irreversible deletion risk is unknown while backup status is unavailable."
+        }
+      ],
+      "terminalValidity": "unknown",
+      "prescription": "Mark deletion pending, stop follow-up destructive actions, and verify backup or rollback status.",
+      "confidence": 0.71
+    },
+    {
+      "id": "S3_compliance_provider_timeout",
+      "system": "Optimistic terminal baseline",
+      "domain": "compliance_approval",
+      "obligations": [],
+      "terminalValidity": "valid",
+      "prescription": "Accept the local terminal claim.",
+      "confidence": 0.84
+    },
+    {
+      "id": "S3_compliance_provider_timeout",
+      "system": "DLR-O unknown-aware ledger",
+      "domain": "compliance_approval",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_vendor_approval",
+          "domain": "compliance_approval",
+          "triggeredBy": "vendor_approved_compliance_approval",
+          "obligationType": "validate_terminal_state",
+          "target": "vendor_approval",
+          "status": "unknown",
+          "rationale": "Approval cannot close while mandatory compliance evidence is unavailable."
+        },
+        {
+          "id": "validate_invariant_sanctions_screening",
+          "domain": "compliance_approval",
+          "triggeredBy": "sanctions_provider_timeout_compliance_approval",
+          "obligationType": "validate_invariant",
+          "target": "sanctions_screening",
+          "status": "unknown",
+          "rationale": "Sanctions invariant is unresolved under provider timeout."
+        }
+      ],
+      "terminalValidity": "unknown",
+      "prescription": "Hold vendor in pending/manual-review state until sanctions screening returns or an explicit exception is authorized.",
+      "confidence": 0.71
+    },
+    {
+      "id": "S4_payment_capture_unavailable",
+      "system": "Optimistic terminal baseline",
+      "domain": "payment_order",
+      "obligations": [],
+      "terminalValidity": "valid",
+      "prescription": "Accept the local terminal claim.",
+      "confidence": 0.84
+    },
+    {
+      "id": "S4_payment_capture_unavailable",
+      "system": "DLR-O unknown-aware ledger",
+      "domain": "payment_order",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_order_completion",
+          "domain": "payment_order",
+          "triggeredBy": "payment_authorized_payment_order",
+          "obligationType": "validate_terminal_state",
+          "target": "order_completion",
+          "status": "unknown",
+          "rationale": "Authorization alone is not order completion."
+        },
+        {
+          "id": "validate_reconciliation_payment_capture",
+          "domain": "payment_order",
+          "triggeredBy": "capture_status_unavailable_payment_order",
+          "obligationType": "validate_reconciliation",
+          "target": "payment_capture",
+          "status": "unknown",
+          "rationale": "Payment/order reconciliation cannot close without capture status."
+        }
+      ],
+      "terminalValidity": "unknown",
+      "prescription": "Keep order pending and avoid fulfillment until capture status is reconciled.",
+      "confidence": 0.71
+    },
+    {
+      "id": "S5_code_role_service_unavailable",
+      "system": "Optimistic terminal baseline",
+      "domain": "code_security",
+      "obligations": [],
+      "terminalValidity": "valid",
+      "prescription": "Accept the local terminal claim.",
+      "confidence": 0.84
+    },
+    {
+      "id": "S5_code_role_service_unavailable",
+      "system": "DLR-O unknown-aware ledger",
+      "domain": "code_security",
+      "obligations": [
+        {
+          "id": "validate_terminal_state_access_allowed",
+          "domain": "code_security",
+          "triggeredBy": "user_authenticated_code_security",
+          "obligationType": "validate_terminal_state",
+          "target": "access_allowed",
+          "status": "unknown",
+          "rationale": "Authentication cannot authorize resource access by itself."
+        },
+        {
+          "id": "validate_authority_role_scope",
+          "domain": "code_security",
+          "triggeredBy": "role_service_unavailable_code_security",
+          "obligationType": "validate_authority",
+          "target": "role_scope",
+          "status": "unknown",
+          "rationale": "Authorization is unknown while role service is unavailable."
+        }
+      ],
+      "terminalValidity": "unknown",
+      "prescription": "Deny or hold privileged access until role scope is available; log the unknown authorization state.",
+      "confidence": 0.71
+    }
+  ],
+  "scores": [
+    {
+      "caseId": "S1_graph_unavailable_subgraph",
+      "domain": "graph_traversal",
+      "system": "Optimistic terminal baseline",
+      "obligationRecall": 0,
+      "unknownRecall": 0,
+      "terminalValidityCorrect": false,
+      "overconfidentSuccess": true,
+      "safePrescriptionCorrect": false,
+      "confidence": 0.84,
+      "passed": false
+    },
+    {
+      "caseId": "S1_graph_unavailable_subgraph",
+      "domain": "graph_traversal",
+      "system": "DLR-O unknown-aware ledger",
+      "obligationRecall": 1,
+      "unknownRecall": 1,
+      "terminalValidityCorrect": true,
+      "overconfidentSuccess": false,
+      "safePrescriptionCorrect": true,
+      "confidence": 0.71,
+      "passed": true
+    },
+    {
+      "caseId": "S2_agent_backup_unknown",
+      "domain": "agent_deletion",
+      "system": "Optimistic terminal baseline",
+      "obligationRecall": 0,
+      "unknownRecall": 0,
+      "terminalValidityCorrect": false,
+      "overconfidentSuccess": true,
+      "safePrescriptionCorrect": false,
+      "confidence": 0.84,
+      "passed": false
+    },
+    {
+      "caseId": "S2_agent_backup_unknown",
+      "domain": "agent_deletion",
+      "system": "DLR-O unknown-aware ledger",
+      "obligationRecall": 1,
+      "unknownRecall": 1,
+      "terminalValidityCorrect": true,
+      "overconfidentSuccess": false,
+      "safePrescriptionCorrect": true,
+      "confidence": 0.71,
+      "passed": true
+    },
+    {
+      "caseId": "S3_compliance_provider_timeout",
+      "domain": "compliance_approval",
+      "system": "Optimistic terminal baseline",
+      "obligationRecall": 0,
+      "unknownRecall": 0,
+      "terminalValidityCorrect": false,
+      "overconfidentSuccess": true,
+      "safePrescriptionCorrect": false,
+      "confidence": 0.84,
+      "passed": false
+    },
+    {
+      "caseId": "S3_compliance_provider_timeout",
+      "domain": "compliance_approval",
+      "system": "DLR-O unknown-aware ledger",
+      "obligationRecall": 1,
+      "unknownRecall": 1,
+      "terminalValidityCorrect": true,
+      "overconfidentSuccess": false,
+      "safePrescriptionCorrect": true,
+      "confidence": 0.71,
+      "passed": true
+    },
+    {
+      "caseId": "S4_payment_capture_unavailable",
+      "domain": "payment_order",
+      "system": "Optimistic terminal baseline",
+      "obligationRecall": 0,
+      "unknownRecall": 0,
+      "terminalValidityCorrect": false,
+      "overconfidentSuccess": true,
+      "safePrescriptionCorrect": false,
+      "confidence": 0.84,
+      "passed": false
+    },
+    {
+      "caseId": "S4_payment_capture_unavailable",
+      "domain": "payment_order",
+      "system": "DLR-O unknown-aware ledger",
+      "obligationRecall": 1,
+      "unknownRecall": 1,
+      "terminalValidityCorrect": true,
+      "overconfidentSuccess": false,
+      "safePrescriptionCorrect": true,
+      "confidence": 0.71,
+      "passed": true
+    },
+    {
+      "caseId": "S5_code_role_service_unavailable",
+      "domain": "code_security",
+      "system": "Optimistic terminal baseline",
+      "obligationRecall": 0,
+      "unknownRecall": 0,
+      "terminalValidityCorrect": false,
+      "overconfidentSuccess": true,
+      "safePrescriptionCorrect": false,
+      "confidence": 0.84,
+      "passed": false
+    },
+    {
+      "caseId": "S5_code_role_service_unavailable",
+      "domain": "code_security",
+      "system": "DLR-O unknown-aware ledger",
+      "obligationRecall": 1,
+      "unknownRecall": 1,
+      "terminalValidityCorrect": true,
+      "overconfidentSuccess": false,
+      "safePrescriptionCorrect": true,
+      "confidence": 0.71,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "Optimistic terminal baseline": {
+      "passRate": 0,
+      "unknownRecall": 0,
+      "overconfidentSuccessRate": 1,
+      "terminalValidityAccuracy": 0
+    },
+    "DLR-O unknown-aware ledger": {
+      "passRate": 1,
+      "unknownRecall": 1,
+      "overconfidentSuccessRate": 0,
+      "terminalValidityAccuracy": 1
+    }
+  }
+}

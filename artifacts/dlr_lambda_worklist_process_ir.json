@@ -1,0 +1,665 @@
+{
+  "source": "https://raw.githubusercontent.com/logpai/loghub/master/Linux/Linux_2k.log",
+  "chunkSize": 320,
+  "injectedLines": [
+    {
+      "lineNumber": 117,
+      "text": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+    },
+    {
+      "lineNumber": 444,
+      "text": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+    },
+    {
+      "lineNumber": 809,
+      "text": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+    },
+    {
+      "lineNumber": 1044,
+      "text": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+    },
+    {
+      "lineNumber": 1377,
+      "text": "Mar 10 11:03:00 labhost entitlements[2404]: exemption EX-77 expired at 11:03 before approval for customer=C-82"
+    },
+    {
+      "lineNumber": 1600,
+      "text": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+    },
+    {
+      "lineNumber": 1817,
+      "text": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+    }
+  ],
+  "gold": {
+    "id": "dlr-lambda-worklist-gold",
+    "title": "Gold ProcessIR",
+    "eventFrames": [
+      {
+        "id": "cache_config_c5feee96",
+        "nodeKind": "event",
+        "role": "precondition",
+        "sourceLine": 117,
+        "description": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+      },
+      {
+        "id": "policy_update_392ba32c",
+        "nodeKind": "event",
+        "role": "authority_source",
+        "sourceLine": 444,
+        "description": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "approval_c9a2e518",
+        "nodeKind": "event",
+        "role": "false_terminal",
+        "sourceLine": 809,
+        "description": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+      },
+      {
+        "id": "vip_exemption_claim_2d6ffd63",
+        "nodeKind": "event",
+        "role": "exception_claim",
+        "sourceLine": 1044,
+        "description": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+      },
+      {
+        "id": "audit_violation_fe5d0f2c",
+        "nodeKind": "event",
+        "role": "invariant_violation",
+        "sourceLine": 1600,
+        "description": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+      },
+      {
+        "id": "settlement_blocked_17f2b974",
+        "nodeKind": "event",
+        "role": "terminal_outcome",
+        "sourceLine": 1817,
+        "description": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_representation",
+        "nodeKind": "latent",
+        "role": "latent_representation_failure",
+        "description": "Approval used policy v17 after authoritative policy v18 existed."
+      },
+      {
+        "id": "lc_expired_vip_exemption",
+        "nodeKind": "latent",
+        "role": "latent_authority_failure",
+        "description": "The apparent VIP exemption existed but expired before the local approval."
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "cache_config_c5feee96",
+          "nodeKind": "event",
+          "role": "precondition",
+          "sourceLine": 117,
+          "description": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+        },
+        {
+          "id": "policy_update_392ba32c",
+          "nodeKind": "event",
+          "role": "authority_source",
+          "sourceLine": 444,
+          "description": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "approval_c9a2e518",
+          "nodeKind": "event",
+          "role": "false_terminal",
+          "sourceLine": 809,
+          "description": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+        },
+        {
+          "id": "vip_exemption_claim_2d6ffd63",
+          "nodeKind": "event",
+          "role": "exception_claim",
+          "sourceLine": 1044,
+          "description": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+        },
+        {
+          "id": "audit_violation_fe5d0f2c",
+          "nodeKind": "event",
+          "role": "invariant_violation",
+          "sourceLine": 1600,
+          "description": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+        },
+        {
+          "id": "settlement_blocked_17f2b974",
+          "nodeKind": "event",
+          "role": "terminal_outcome",
+          "sourceLine": 1817,
+          "description": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+        },
+        {
+          "id": "lc_stale_policy_representation",
+          "nodeKind": "latent",
+          "role": "latent_representation_failure",
+          "description": "Approval used policy v17 after authoritative policy v18 existed."
+        },
+        {
+          "id": "lc_expired_vip_exemption",
+          "nodeKind": "latent",
+          "role": "latent_authority_failure",
+          "description": "The apparent VIP exemption existed but expired before the local approval."
+        }
+      ],
+      "edges": [
+        {
+          "from": "policy_update_392ba32c",
+          "type": "stales",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "approval_c9a2e518",
+          "type": "claims_exception",
+          "to": "vip_exemption_claim_2d6ffd63"
+        },
+        {
+          "from": "lc_stale_policy_representation",
+          "type": "enables",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "lc_expired_vip_exemption",
+          "type": "invalidates",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "approval_c9a2e518",
+          "type": "violates",
+          "to": "audit_violation_fe5d0f2c"
+        },
+        {
+          "from": "audit_violation_fe5d0f2c",
+          "type": "fails_downstream",
+          "to": "settlement_blocked_17f2b974"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_representation",
+        "lc_expired_vip_exemption"
+      ]
+    },
+    "detection": {
+      "falseTerminalStates": [
+        "approval_c9a2e518"
+      ],
+      "violatedInvariants": [
+        "audit_violation_fe5d0f2c"
+      ],
+      "latentConditions": [
+        "lc_stale_policy_representation",
+        "lc_expired_vip_exemption"
+      ],
+      "hypothesisRevisions": [
+        "vip_exemption_claim_revised_to_invalid"
+      ],
+      "coverageGaps": []
+    },
+    "prescription": [
+      "Treat local approval as pending until policy freshness and exemption validity are joined.",
+      "Schedule entitlement validity checks whenever approval depends on an exception.",
+      "Block settlement when parent invariants contradict local terminal success."
+    ],
+    "confidence": 0.88
+  },
+  "mapReduce": {
+    "id": "dlr-lambda-worklist-mapreduce",
+    "title": "One-pass MapReduce DLR-lambda",
+    "eventFrames": [
+      {
+        "id": "cache_config_c5feee96",
+        "nodeKind": "event",
+        "role": "precondition",
+        "sourceLine": 117,
+        "description": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+      },
+      {
+        "id": "policy_update_392ba32c",
+        "nodeKind": "event",
+        "role": "authority_source",
+        "sourceLine": 444,
+        "description": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "approval_c9a2e518",
+        "nodeKind": "event",
+        "role": "local_transition",
+        "sourceLine": 809,
+        "description": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+      },
+      {
+        "id": "vip_exemption_claim_2d6ffd63",
+        "nodeKind": "event",
+        "role": "exception_claim",
+        "sourceLine": 1044,
+        "description": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+      },
+      {
+        "id": "audit_violation_fe5d0f2c",
+        "nodeKind": "event",
+        "role": "invariant_violation",
+        "sourceLine": 1600,
+        "description": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+      },
+      {
+        "id": "settlement_blocked_17f2b974",
+        "nodeKind": "event",
+        "role": "terminal_outcome",
+        "sourceLine": 1817,
+        "description": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_representation",
+        "nodeKind": "latent",
+        "role": "latent_representation_failure",
+        "description": "Approval used policy v17 after authoritative policy v18 existed."
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "cache_config_c5feee96",
+          "nodeKind": "event",
+          "role": "precondition",
+          "sourceLine": 117,
+          "description": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+        },
+        {
+          "id": "policy_update_392ba32c",
+          "nodeKind": "event",
+          "role": "authority_source",
+          "sourceLine": 444,
+          "description": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "approval_c9a2e518",
+          "nodeKind": "event",
+          "role": "local_transition",
+          "sourceLine": 809,
+          "description": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+        },
+        {
+          "id": "vip_exemption_claim_2d6ffd63",
+          "nodeKind": "event",
+          "role": "exception_claim",
+          "sourceLine": 1044,
+          "description": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+        },
+        {
+          "id": "audit_violation_fe5d0f2c",
+          "nodeKind": "event",
+          "role": "invariant_violation",
+          "sourceLine": 1600,
+          "description": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+        },
+        {
+          "id": "settlement_blocked_17f2b974",
+          "nodeKind": "event",
+          "role": "terminal_outcome",
+          "sourceLine": 1817,
+          "description": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+        },
+        {
+          "id": "lc_stale_policy_representation",
+          "nodeKind": "latent",
+          "role": "latent_representation_failure",
+          "description": "Approval used policy v17 after authoritative policy v18 existed."
+        }
+      ],
+      "edges": [
+        {
+          "from": "policy_update_392ba32c",
+          "type": "stales",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "approval_c9a2e518",
+          "type": "claims_exception",
+          "to": "vip_exemption_claim_2d6ffd63"
+        },
+        {
+          "from": "lc_stale_policy_representation",
+          "type": "enables",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "approval_c9a2e518",
+          "type": "violates",
+          "to": "audit_violation_fe5d0f2c"
+        },
+        {
+          "from": "audit_violation_fe5d0f2c",
+          "type": "fails_downstream",
+          "to": "settlement_blocked_17f2b974"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_representation"
+      ]
+    },
+    "detection": {
+      "falseTerminalStates": [],
+      "violatedInvariants": [],
+      "latentConditions": [
+        "lc_stale_policy_representation"
+      ],
+      "hypothesisRevisions": [],
+      "coverageGaps": [
+        "exemption_validity_not_followed"
+      ]
+    },
+    "prescription": [
+      "Accept local approval only after a later global reducer confirms no hidden invalidation."
+    ],
+    "confidence": 0.62
+  },
+  "worklist": {
+    "id": "dlr-lambda-worklist-worklist",
+    "title": "Worklist/fixpoint DLR-lambda",
+    "eventFrames": [
+      {
+        "id": "cache_config_c5feee96",
+        "nodeKind": "event",
+        "role": "precondition",
+        "sourceLine": 117,
+        "description": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+      },
+      {
+        "id": "policy_update_392ba32c",
+        "nodeKind": "event",
+        "role": "authority_source",
+        "sourceLine": 444,
+        "description": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+      },
+      {
+        "id": "approval_c9a2e518",
+        "nodeKind": "event",
+        "role": "false_terminal",
+        "sourceLine": 809,
+        "description": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+      },
+      {
+        "id": "vip_exemption_claim_2d6ffd63",
+        "nodeKind": "event",
+        "role": "exception_claim",
+        "sourceLine": 1044,
+        "description": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+      },
+      {
+        "id": "audit_violation_fe5d0f2c",
+        "nodeKind": "event",
+        "role": "invariant_violation",
+        "sourceLine": 1600,
+        "description": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+      },
+      {
+        "id": "settlement_blocked_17f2b974",
+        "nodeKind": "event",
+        "role": "terminal_outcome",
+        "sourceLine": 1817,
+        "description": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+      }
+    ],
+    "latentConditions": [
+      {
+        "id": "lc_stale_policy_representation",
+        "nodeKind": "latent",
+        "role": "latent_representation_failure",
+        "description": "Approval used policy v17 after authoritative policy v18 existed."
+      },
+      {
+        "id": "lc_expired_vip_exemption",
+        "nodeKind": "latent",
+        "role": "latent_authority_failure",
+        "description": "The apparent VIP exemption existed but expired before the local approval."
+      }
+    ],
+    "causalGraph": {
+      "nodes": [
+        {
+          "id": "cache_config_c5feee96",
+          "nodeKind": "event",
+          "role": "precondition",
+          "sourceLine": 117,
+          "description": "Mar 10 11:00:00 labhost policyd[4100]: refund=R-914 cache ttl=1800s source=local-cache invariant=current-policy-before-terminal-approval"
+        },
+        {
+          "id": "policy_update_392ba32c",
+          "nodeKind": "event",
+          "role": "authority_source",
+          "sourceLine": 444,
+          "description": "Mar 10 11:04:00 labhost policyd[4100]: refund policy changed to version v18 rule=manager_review_required unless active_vip_exemption"
+        },
+        {
+          "id": "approval_c9a2e518",
+          "nodeKind": "event",
+          "role": "false_terminal",
+          "sourceLine": 809,
+          "description": "Mar 10 11:05:00 labhost worker[9931]: approved refund=R-914 using policy version v17 terminal=approved exemption=EX-77"
+        },
+        {
+          "id": "vip_exemption_claim_2d6ffd63",
+          "nodeKind": "event",
+          "role": "exception_claim",
+          "sourceLine": 1044,
+          "description": "Mar 10 11:05:20 labhost entitlements[2404]: vip exemption EX-77 asserted for refund=R-914 customer=C-82 status=claimed"
+        },
+        {
+          "id": "audit_violation_fe5d0f2c",
+          "nodeKind": "event",
+          "role": "invariant_violation",
+          "sourceLine": 1600,
+          "description": "Mar 10 11:06:00 labhost audit[2201]: refund=R-914 invariant violation expected=v18 observed=v17 manager_review=missing exemption=EX-77"
+        },
+        {
+          "id": "settlement_blocked_17f2b974",
+          "nodeKind": "event",
+          "role": "terminal_outcome",
+          "sourceLine": 1817,
+          "description": "Mar 10 11:09:00 labhost finance[1180]: settlement blocked refund=R-914 reason=approval_not_terminal_valid"
+        },
+        {
+          "id": "lc_stale_policy_representation",
+          "nodeKind": "latent",
+          "role": "latent_representation_failure",
+          "description": "Approval used policy v17 after authoritative policy v18 existed."
+        },
+        {
+          "id": "lc_expired_vip_exemption",
+          "nodeKind": "latent",
+          "role": "latent_authority_failure",
+          "description": "The apparent VIP exemption existed but expired before the local approval."
+        }
+      ],
+      "edges": [
+        {
+          "from": "policy_update_392ba32c",
+          "type": "stales",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "approval_c9a2e518",
+          "type": "claims_exception",
+          "to": "vip_exemption_claim_2d6ffd63"
+        },
+        {
+          "from": "lc_stale_policy_representation",
+          "type": "enables",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "lc_expired_vip_exemption",
+          "type": "invalidates",
+          "to": "approval_c9a2e518"
+        },
+        {
+          "from": "approval_c9a2e518",
+          "type": "violates",
+          "to": "audit_violation_fe5d0f2c"
+        },
+        {
+          "from": "audit_violation_fe5d0f2c",
+          "type": "fails_downstream",
+          "to": "settlement_blocked_17f2b974"
+        }
+      ],
+      "rootCauses": [
+        "lc_stale_policy_representation",
+        "lc_expired_vip_exemption"
+      ]
+    },
+    "detection": {
+      "falseTerminalStates": [
+        "approval_c9a2e518"
+      ],
+      "violatedInvariants": [
+        "audit_violation_fe5d0f2c"
+      ],
+      "latentConditions": [
+        "lc_stale_policy_representation",
+        "lc_expired_vip_exemption"
+      ],
+      "hypothesisRevisions": [
+        "vip_exemption_claim_revised_to_invalid"
+      ],
+      "coverageGaps": []
+    },
+    "prescription": [
+      "Treat local approval as pending until policy freshness and exemption validity are joined.",
+      "Schedule entitlement validity checks whenever approval depends on an exception.",
+      "Block settlement when parent invariants contradict local terminal success."
+    ],
+    "confidence": 0.88
+  },
+  "worklistTrace": [
+    {
+      "step": 1,
+      "action": "scan_chunk:1:320",
+      "discovered": [
+        "cache_config_c5feee96"
+      ],
+      "scheduled": [],
+      "revised": []
+    },
+    {
+      "step": 2,
+      "action": "scan_chunk:321:640",
+      "discovered": [
+        "policy_update_392ba32c"
+      ],
+      "scheduled": [],
+      "revised": []
+    },
+    {
+      "step": 3,
+      "action": "scan_chunk:641:960",
+      "discovered": [
+        "approval_c9a2e518"
+      ],
+      "scheduled": [
+        "follow_exemption_EX-77",
+        "verify_terminal_refund_R-914"
+      ],
+      "revised": []
+    },
+    {
+      "step": 4,
+      "action": "scan_chunk:961:1280",
+      "discovered": [
+        "vip_exemption_claim_2d6ffd63"
+      ],
+      "scheduled": [],
+      "revised": [
+        "stale_policy_hypothesis_temporarily_weakened_by_vip_claim"
+      ]
+    },
+    {
+      "step": 5,
+      "action": "scan_chunk:1281:1600",
+      "discovered": [
+        "audit_violation_fe5d0f2c"
+      ],
+      "scheduled": [],
+      "revised": [
+        "stale_policy_hypothesis_temporarily_weakened_by_vip_claim"
+      ]
+    },
+    {
+      "step": 6,
+      "action": "scan_chunk:1601:1920",
+      "discovered": [
+        "settlement_blocked_17f2b974"
+      ],
+      "scheduled": [],
+      "revised": [
+        "stale_policy_hypothesis_temporarily_weakened_by_vip_claim"
+      ]
+    },
+    {
+      "step": 7,
+      "action": "scan_chunk:1921:2007",
+      "discovered": [],
+      "scheduled": [],
+      "revised": [
+        "stale_policy_hypothesis_temporarily_weakened_by_vip_claim"
+      ]
+    },
+    {
+      "step": 8,
+      "action": "follow_exemption:EX-77",
+      "discovered": [
+        "vip_exemption_expired_1f649bb8"
+      ],
+      "scheduled": [],
+      "revised": [
+        "vip_exemption_claim_revised_to_invalid"
+      ]
+    },
+    {
+      "step": 9,
+      "action": "verify_terminal:R-914",
+      "discovered": [],
+      "scheduled": [],
+      "revised": [
+        "vip_exemption_claim_revised_to_invalid"
+      ]
+    }
+  ],
+  "scores": [
+    {
+      "system": "One-pass MapReduce DLR-lambda",
+      "eventNodeRecall": 1,
+      "latentConditionRecall": 0.5,
+      "edgeRecall": 0.8333333333333334,
+      "rootCauseAccuracy": 0.5,
+      "contradictionHandling": false,
+      "hypothesisRevision": false,
+      "motifSlotCoverage": 0.6666666666666667,
+      "falseTerminalDetection": false,
+      "confidence": 0.62,
+      "passed": false
+    },
+    {
+      "system": "Worklist/fixpoint DLR-lambda",
+      "eventNodeRecall": 1,
+      "latentConditionRecall": 1,
+      "edgeRecall": 1,
+      "rootCauseAccuracy": 1,
+      "contradictionHandling": true,
+      "hypothesisRevision": true,
+      "motifSlotCoverage": 1,
+      "falseTerminalDetection": true,
+      "confidence": 0.88,
+      "passed": true
+    }
+  ]
+}
